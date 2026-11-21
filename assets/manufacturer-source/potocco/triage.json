@@ -1,0 +1,1582 @@
+{
+ "news488__3.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.332,
+  "dark": 0.395,
+  "sky_blue": -0.251,
+  "warm_lights": 0.0,
+  "blown": 0.0,
+  "dusk": 36.5
+ },
+ "news488__4.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.496,
+  "dark": 0.155,
+  "sky_blue": -0.154,
+  "warm_lights": 0.002,
+  "blown": 0.068,
+  "dusk": 10.4
+ },
+ "news488__5.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.516,
+  "dark": 0.129,
+  "sky_blue": -0.18,
+  "warm_lights": 0.036,
+  "blown": 0.0,
+  "dusk": 17.3
+ },
+ "news488__6.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.493,
+  "dark": 0.142,
+  "sky_blue": -0.023,
+  "warm_lights": 0.03,
+  "blown": 0.0,
+  "dusk": 18.9
+ },
+ "news488__7.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.541,
+  "dark": 0.006,
+  "sky_blue": -0.153,
+  "warm_lights": 0.005,
+  "blown": 0.0,
+  "dusk": 6.4
+ },
+ "news488__8.hd.jpg": {
+  "w": 1200,
+  "h": 675,
+  "mean": 0.547,
+  "dark": 0.03,
+  "sky_blue": -0.161,
+  "warm_lights": 0.006,
+  "blown": 0.003,
+  "dusk": 6.5
+ },
+ "news491__POTOCCO_SET_EGAO_037_037P_OTX_887_CLUE.hd.jpg": {
+  "w": 900,
+  "h": 1200,
+  "mean": 0.757,
+  "dark": 0.007,
+  "sky_blue": 0.044,
+  "warm_lights": 0.032,
+  "blown": 0.163,
+  "dusk": 0
+ },
+ "news491__POTOCCO_SET_GRAPHIC_955_TBC_SUNO_895.hd.jpg": {
+  "w": 900,
+  "h": 1200,
+  "mean": 0.404,
+  "dark": 0.161,
+  "sky_blue": 0.147,
+  "warm_lights": 0.019,
+  "blown": 0.012,
+  "dusk": 36.2
+ },
+ "news491__POTOCCO_SET_GRAPHIC_955_TGC_OLA_923_CLUE_971.hd.jpg": {
+  "w": 900,
+  "h": 1200,
+  "mean": 0.768,
+  "dark": 0.046,
+  "sky_blue": -0.042,
+  "warm_lights": 0.013,
+  "blown": 0.522,
+  "dusk": 0
+ },
+ "news491__POTOCCO_SET_GRAPHIC_955_TR_O_OUT.hd.jpg": {
+  "w": 900,
+  "h": 1200,
+  "mean": 0.729,
+  "dark": 0.05,
+  "sky_blue": 0.016,
+  "warm_lights": 0.125,
+  "blown": 0.275,
+  "dusk": 0
+ },
+ "news491__POTOCCO_SET_VELA_698_698P_698LP_698D.hd.jpg": {
+  "w": 1200,
+  "h": 800,
+  "mean": 0.659,
+  "dark": 0.07,
+  "sky_blue": 0.011,
+  "warm_lights": 0.185,
+  "blown": 0.052,
+  "dusk": 24.0
+ },
+ "news491__copertina.hd.jpg": {
+  "w": 1200,
+  "h": 1200,
+  "mean": 0.552,
+  "dark": 0.036,
+  "sky_blue": 0.074,
+  "warm_lights": 0.018,
+  "blown": 0.004,
+  "dusk": 13.7
+ },
+ "news539__10.07_Catalogo_1.hd.jpg": {
+  "w": 960,
+  "h": 1200,
+  "mean": 0.952,
+  "dark": 0.0,
+  "sky_blue": 0.024,
+  "warm_lights": 0.0,
+  "blown": 0.821,
+  "dusk": 0
+ },
+ "news539__10.07_Catalogo_2.hd.jpg": {
+  "w": 960,
+  "h": 1200,
+  "mean": 0.961,
+  "dark": 0.012,
+  "sky_blue": 0.001,
+  "warm_lights": 0.004,
+  "blown": 0.92,
+  "dusk": 0
+ },
+ "news539__10.07_Catalogo_3.hd.jpg": {
+  "w": 960,
+  "h": 1200,
+  "mean": 0.71,
+  "dark": 0.046,
+  "sky_blue": 0.016,
+  "warm_lights": 0.076,
+  "blown": 0.227,
+  "dusk": 0
+ },
+ "news539__12.07_Catalogo_1.hd.jpg": {
+  "w": 960,
+  "h": 1200,
+  "mean": 0.49,
+  "dark": 0.254,
+  "sky_blue": -0.058,
+  "warm_lights": 0.001,
+  "blown": 0.021,
+  "dusk": 16.6
+ },
+ "news544__POTOCCO_SET_GRAPHIC_955_SCR.hd.jpg": {
+  "w": 900,
+  "h": 1200,
+  "mean": 0.541,
+  "dark": 0.176,
+  "sky_blue": -0.04,
+  "warm_lights": 0.043,
+  "blown": 0.096,
+  "dusk": 11.7
+ },
+ "news544__POTOCCO_WOOD_Y_889_SCR.hd.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.322,
+  "dark": 0.529,
+  "sky_blue": -0.088,
+  "warm_lights": 0.001,
+  "blown": 0.014,
+  "dusk": 40.7
+ },
+ "news544__POTOCCO_WOOD_Y_889_SCR_CONCHA.hd.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.442,
+  "dark": 0.371,
+  "sky_blue": -0.062,
+  "warm_lights": 0.003,
+  "blown": 0.04,
+  "dusk": 23.7
+ },
+ "news557__Potocco_Set_Helvetica_868-W.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.656,
+  "dark": 0.134,
+  "sky_blue": -0.045,
+  "warm_lights": 0.0,
+  "blown": 0.233,
+  "dusk": 0
+ },
+ "news557__Potocco_Set_Helvetica_868.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.627,
+  "dark": 0.041,
+  "sky_blue": -0.136,
+  "warm_lights": 0.002,
+  "blown": 0.11,
+  "dusk": 0
+ },
+ "news557__Potocco_Set_Minima_949-I_Graphic.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.533,
+  "dark": 0.14,
+  "sky_blue": -0.079,
+  "warm_lights": 0.009,
+  "blown": 0.089,
+  "dusk": 6.4
+ },
+ "news557__Potocco_Set_Syn_956-TR_Minima_949-C.hd.jpg": {
+  "w": 1200,
+  "h": 800,
+  "mean": 0.676,
+  "dark": 0.109,
+  "sky_blue": -0.075,
+  "warm_lights": 0.023,
+  "blown": 0.259,
+  "dusk": 0
+ },
+ "news557__Potocco_Set_Trousse_867.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.338,
+  "dark": 0.404,
+  "sky_blue": 0.004,
+  "warm_lights": 0.0,
+  "blown": 0.028,
+  "dusk": 34.8
+ },
+ "news568__Potocco_Set_Cut_910-AR.hd.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.356,
+  "dark": 0.229,
+  "sky_blue": -0.184,
+  "warm_lights": 0.062,
+  "blown": 0.001,
+  "dusk": 39.2
+ },
+ "news568__Potocco_Set_Cut_910-AR_Graphic_955-TAC-OUT.hd.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.568,
+  "dark": 0.102,
+  "sky_blue": -0.102,
+  "warm_lights": 0.06,
+  "blown": 0.195,
+  "dusk": 3.9
+ },
+ "news568__Potocco_Set_Graphic_955-TGC-OUT_Cut_910-R_Cut_910PR.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.602,
+  "dark": 0.112,
+  "sky_blue": -0.098,
+  "warm_lights": 0.029,
+  "blown": 0.098,
+  "dusk": 1.8
+ },
+ "news568__Potocco_Set_Hishi_871-TBC-OUT_871-THC-OUT.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.523,
+  "dark": 0.078,
+  "sky_blue": -0.068,
+  "warm_lights": 0.034,
+  "blown": 0.022,
+  "dusk": 13.4
+ },
+ "news627__Potocco_Set_Solar_961-P.hd.jpg": {
+  "w": 857,
+  "h": 1200,
+  "mean": 0.268,
+  "dark": 0.698,
+  "sky_blue": 0.001,
+  "warm_lights": 0.0,
+  "blown": 0.052,
+  "dusk": 48.2
+ },
+ "proj100__TheMaybourneRiviera_France_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.653,
+  "dark": 0.112,
+  "sky_blue": -0.029,
+  "warm_lights": 0.0,
+  "blown": 0.15,
+  "dusk": 0
+ },
+ "proj101__BJB_HongKong_cover-2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.483,
+  "dark": 0.186,
+  "sky_blue": -0.143,
+  "warm_lights": 0.078,
+  "blown": 0.027,
+  "dusk": 27.2
+ },
+ "proj102__UfficioPrivato_Dubai_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.383,
+  "dark": 0.327,
+  "sky_blue": -0.043,
+  "warm_lights": 0.022,
+  "blown": 0.003,
+  "dusk": 33.0
+ },
+ "proj103__AppartamentoPrivato_Panama_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.49,
+  "dark": 0.151,
+  "sky_blue": 0.132,
+  "warm_lights": 0.0,
+  "blown": 0.004,
+  "dusk": 24.3
+ },
+ "proj104__JumeriahGatePenthouse_Dubai_cover-2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.469,
+  "dark": 0.087,
+  "sky_blue": 0.301,
+  "warm_lights": 0.004,
+  "blown": 0.0,
+  "dusk": 38.0
+ },
+ "proj105__Smyrna_LevanteFerries_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.578,
+  "dark": 0.145,
+  "sky_blue": 0.185,
+  "warm_lights": 0.167,
+  "blown": 0.047,
+  "dusk": 44.2
+ },
+ "proj106__CrystalEndeavor_cover-2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.488,
+  "dark": 0.068,
+  "sky_blue": -0.231,
+  "warm_lights": 0.086,
+  "blown": 0.0,
+  "dusk": 26.1
+ },
+ "proj107__MSCEuribia_MSC_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.563,
+  "dark": 0.007,
+  "sky_blue": 0.1,
+  "warm_lights": 0.037,
+  "blown": 0.034,
+  "dusk": 15.2
+ },
+ "proj107__peter-hansen-MeGmdPNe36w-unsplash.jpg": {
+  "w": 4240,
+  "h": 2832,
+  "mean": 0.55,
+  "dark": 0.034,
+  "sky_blue": 0.081,
+  "warm_lights": 0.048,
+  "blown": 0.039,
+  "dusk": 17.0
+ },
+ "proj109__53-FF-2_2.max-mod.jpg": {
+  "w": 746,
+  "h": 516,
+  "mean": 0.214,
+  "dark": 0.716,
+  "sky_blue": -0.113,
+  "warm_lights": 0.005,
+  "blown": 0.0,
+  "dusk": 57.7
+ },
+ "proj109__53_NewYork_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.367,
+  "dark": 0.337,
+  "sky_blue": -0.152,
+  "warm_lights": 0.05,
+  "blown": 0.005,
+  "dusk": 39.1
+ },
+ "proj110__UfficioPrivato_Astana_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.483,
+  "dark": 0.142,
+  "sky_blue": 0.083,
+  "warm_lights": 0.0,
+  "blown": 0.01,
+  "dusk": 20.6
+ },
+ "proj111__Raiffeisenbank_Austria_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.452,
+  "dark": 0.321,
+  "sky_blue": 0.114,
+  "warm_lights": 0.005,
+  "blown": 0.023,
+  "dusk": 31.2
+ },
+ "proj111___04A0963-Print-Fullsize.jpg": {
+  "w": 1000,
+  "h": 1500,
+  "mean": 0.443,
+  "dark": 0.265,
+  "sky_blue": -0.042,
+  "warm_lights": 0.0,
+  "blown": 0.016,
+  "dusk": 21.4
+ },
+ "proj111___04A0964-Print-Fullsize.jpg": {
+  "w": 1000,
+  "h": 1500,
+  "mean": 0.482,
+  "dark": 0.192,
+  "sky_blue": 0.012,
+  "warm_lights": 0.0,
+  "blown": 0.052,
+  "dusk": 14.4
+ },
+ "proj111___04A0976-Print-Fullsize.jpg": {
+  "w": 1000,
+  "h": 1500,
+  "mean": 0.458,
+  "dark": 0.32,
+  "sky_blue": -0.013,
+  "warm_lights": 0.0,
+  "blown": 0.02,
+  "dusk": 21.4
+ },
+ "proj111___04A1004-Print-Fullsize.jpg": {
+  "w": 2249,
+  "h": 1500,
+  "mean": 0.346,
+  "dark": 0.441,
+  "sky_blue": 0.05,
+  "warm_lights": 0.0,
+  "blown": 0.084,
+  "dusk": 35.3
+ },
+ "proj112__VictoriaHarbourResidence_Hong-Kong_cover2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.385,
+  "dark": 0.102,
+  "sky_blue": -0.17,
+  "warm_lights": 0.011,
+  "blown": 0.001,
+  "dusk": 24.5
+ },
+ "proj113__MountainTopVilla_China_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.411,
+  "dark": 0.236,
+  "sky_blue": -0.049,
+  "warm_lights": 0.048,
+  "blown": 0.003,
+  "dusk": 31.9
+ },
+ "proj114__20240215_Cubik_Amera_009.jpg": {
+  "w": 8248,
+  "h": 6186,
+  "mean": 0.445,
+  "dark": 0.245,
+  "sky_blue": 0.059,
+  "warm_lights": 0.007,
+  "blown": 0.05,
+  "dusk": 24.1
+ },
+ "proj114__20240215_Cubik_Amera_018.jpg": {
+  "w": 6192,
+  "h": 8256,
+  "mean": 0.479,
+  "dark": 0.082,
+  "sky_blue": 0.018,
+  "warm_lights": 0.005,
+  "blown": 0.005,
+  "dusk": 15.5
+ },
+ "proj114__20240215_Cubik_Amera_047.jpg": {
+  "w": 5760,
+  "h": 8640,
+  "mean": 0.428,
+  "dark": 0.185,
+  "sky_blue": 0.184,
+  "warm_lights": 0.012,
+  "blown": 0.0,
+  "dusk": 37.1
+ },
+ "proj114__20240215_Cubik_Amera_137.jpg": {
+  "w": 8640,
+  "h": 5760,
+  "mean": 0.434,
+  "dark": 0.191,
+  "sky_blue": -0.018,
+  "warm_lights": 0.0,
+  "blown": 0.0,
+  "dusk": 21.0
+ },
+ "proj114__20240215_Cubik_Amera_139.jpg": {
+  "w": 5760,
+  "h": 8640,
+  "mean": 0.253,
+  "dark": 0.468,
+  "sky_blue": -0.057,
+  "warm_lights": 0.0,
+  "blown": 0.0,
+  "dusk": 45.8
+ },
+ "proj114__MS-Amera_Phoenix-Reisen_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.419,
+  "dark": 0.214,
+  "sky_blue": -0.026,
+  "warm_lights": 0.001,
+  "blown": 0.001,
+  "dusk": 23.1
+ },
+ "proj115__The-Berkeley_Londra_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.582,
+  "dark": 0.043,
+  "sky_blue": -0.239,
+  "warm_lights": 0.184,
+  "blown": 0.019,
+  "dusk": 31.3
+ },
+ "proj115__the-berkeley-exterior-square.jpg": {
+  "w": 1170,
+  "h": 1170,
+  "mean": 0.64,
+  "dark": 0.024,
+  "sky_blue": 0.067,
+  "warm_lights": 0.04,
+  "blown": 0.004,
+  "dusk": 8.2
+ },
+ "proj115__the-berkeley-grand-terrace-suit-square-1080x1080.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "mean": 0.585,
+  "dark": 0.041,
+  "sky_blue": -0.231,
+  "warm_lights": 0.173,
+  "blown": 0.017,
+  "dusk": 29.2
+ },
+ "proj116__3500-Lacey_USA_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.472,
+  "dark": 0.143,
+  "sky_blue": -0.105,
+  "warm_lights": 0.011,
+  "blown": 0.051,
+  "dusk": 14.6
+ },
+ "proj117__OfficeBakerDonelson_Birmingham_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.398,
+  "dark": 0.307,
+  "sky_blue": -0.042,
+  "warm_lights": 0.011,
+  "blown": 0.014,
+  "dusk": 28.6
+ },
+ "proj118__2FL23T~J.jpg": {
+  "w": 1200,
+  "h": 799,
+  "mean": 0.637,
+  "dark": 0.079,
+  "sky_blue": -0.114,
+  "warm_lights": 0.029,
+  "blown": 0.011,
+  "dusk": 2.9
+ },
+ "proj118__2OKXBK~E.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.563,
+  "dark": 0.155,
+  "sky_blue": -0.085,
+  "warm_lights": 0.12,
+  "blown": 0.152,
+  "dusk": 18.1
+ },
+ "proj118__31-sourcing-art-supakitch-et-agence-rose-design-biarritz-architecture.jpg": {
+  "w": 3648,
+  "h": 5472,
+  "mean": 0.555,
+  "dark": 0.116,
+  "sky_blue": -0.058,
+  "warm_lights": 0.005,
+  "blown": 0.07,
+  "dusk": 4.1
+ },
+ "proj118__32-salle-a-manger-agence-rose-design-biarritz-architecture.jpg": {
+  "w": 5472,
+  "h": 3648,
+  "mean": 0.634,
+  "dark": 0.07,
+  "sky_blue": -0.048,
+  "warm_lights": 0.0,
+  "blown": 0.227,
+  "dusk": 0
+ },
+ "proj118__523ZCO~T.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.482,
+  "dark": 0.259,
+  "sky_blue": -0.238,
+  "warm_lights": 0.182,
+  "blown": 0.037,
+  "dusk": 45.5
+ },
+ "proj118__5M8ION~E.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.356,
+  "dark": 0.495,
+  "sky_blue": -0.142,
+  "warm_lights": 0.009,
+  "blown": 0.021,
+  "dusk": 37.4
+ },
+ "proj118__77N9CM~Q.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.67,
+  "dark": 0.02,
+  "sky_blue": -0.06,
+  "warm_lights": 0.011,
+  "blown": 0.077,
+  "dusk": 0
+ },
+ "proj118__80-bureau-sur-mesure-agence-rose-design-biarritz-architecture.jpg": {
+  "w": 3648,
+  "h": 5472,
+  "mean": 0.678,
+  "dark": 0.06,
+  "sky_blue": -0.044,
+  "warm_lights": 0.023,
+  "blown": 0.157,
+  "dusk": 0
+ },
+ "proj118__95-sourcing-mobilier-exterieur-roda-agence-rose-design-biarritz-architecture.jpg": {
+  "w": 3648,
+  "h": 5472,
+  "mean": 0.604,
+  "dark": 0.041,
+  "sky_blue": 0.36,
+  "warm_lights": 0.041,
+  "blown": 0.016,
+  "dusk": 33.5
+ },
+ "proj118__96-mobilier-sur-mesure-potocco-agence-rose-design-biarritz-architecture_2.jpg": {
+  "w": 3333,
+  "h": 4999,
+  "mean": 0.62,
+  "dark": 0.079,
+  "sky_blue": -0.053,
+  "warm_lights": 0.073,
+  "blown": 0.218,
+  "dusk": 0
+ },
+ "proj118__Projet_Horizon_Francia_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.434,
+  "dark": 0.42,
+  "sky_blue": -0.047,
+  "warm_lights": 0.02,
+  "blown": 0.107,
+  "dusk": 24.6
+ },
+ "proj119__08.jpg": {
+  "w": 8663,
+  "h": 4421,
+  "mean": 0.454,
+  "dark": 0.188,
+  "sky_blue": -0.025,
+  "warm_lights": 0.02,
+  "blown": 0.032,
+  "dusk": 20.2
+ },
+ "proj119__15.jpg": {
+  "w": 5318,
+  "h": 6392,
+  "mean": 0.627,
+  "dark": 0.064,
+  "sky_blue": -0.108,
+  "warm_lights": 0.036,
+  "blown": 0.132,
+  "dusk": 0
+ },
+ "proj119__16.jpg": {
+  "w": 5318,
+  "h": 6392,
+  "mean": 0.492,
+  "dark": 0.125,
+  "sky_blue": -0.174,
+  "warm_lights": 0.116,
+  "blown": 0.067,
+  "dusk": 28.2
+ },
+ "proj120__0cdd81c8-bb2e-480b-9b69-027566978ea6.jpg": {
+  "w": 4200,
+  "h": 2800,
+  "mean": 0.337,
+  "dark": 0.323,
+  "sky_blue": -0.362,
+  "warm_lights": 0.111,
+  "blown": 0.0,
+  "dusk": 51.6
+ },
+ "proj120__Casa_Privata_Mexico.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.297,
+  "dark": 0.369,
+  "sky_blue": -0.188,
+  "warm_lights": 0.0,
+  "blown": 0.0,
+  "dusk": 38.9
+ },
+ "proj120__b5a5179f-fe38-480a-8abd-6c3dd7892f31.jpg": {
+  "w": 4200,
+  "h": 2800,
+  "mean": 0.511,
+  "dark": 0.182,
+  "sky_blue": 0.093,
+  "warm_lights": 0.066,
+  "blown": 0.055,
+  "dusk": 27.8
+ },
+ "proj121__IMG_8897_mod.jpg": {
+  "w": 2848,
+  "h": 4272,
+  "mean": 0.51,
+  "dark": 0.124,
+  "sky_blue": -0.164,
+  "warm_lights": 0.01,
+  "blown": 0.062,
+  "dusk": 9.8
+ },
+ "proj121__IMG_8900_mod.jpg": {
+  "w": 2813,
+  "h": 4219,
+  "mean": 0.466,
+  "dark": 0.227,
+  "sky_blue": -0.136,
+  "warm_lights": 0.072,
+  "blown": 0.026,
+  "dusk": 29.0
+ },
+ "proj121__IMG_8908.jpg": {
+  "w": 1200,
+  "h": 800,
+  "mean": 0.563,
+  "dark": 0.109,
+  "sky_blue": -0.075,
+  "warm_lights": 0.003,
+  "blown": 0.101,
+  "dusk": 1.1
+ },
+ "proj121__IMG_8920.jpg": {
+  "w": 1200,
+  "h": 1200,
+  "mean": 0.472,
+  "dark": 0.198,
+  "sky_blue": -0.097,
+  "warm_lights": 0.027,
+  "blown": 0.014,
+  "dusk": 21.2
+ },
+ "proj121__MasseriaSalamina_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.53,
+  "dark": 0.124,
+  "sky_blue": 0.097,
+  "warm_lights": 0.0,
+  "blown": 0.023,
+  "dusk": 16.1
+ },
+ "proj122__Capital_Center_Kazakistan_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.451,
+  "dark": 0.176,
+  "sky_blue": -0.057,
+  "warm_lights": 0.0,
+  "blown": 0.02,
+  "dusk": 17.7
+ },
+ "proj123__Appartamenti_privati_200_East_Florida_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.464,
+  "dark": 0.164,
+  "sky_blue": -0.106,
+  "warm_lights": 0.005,
+  "blown": 0.0,
+  "dusk": 18.2
+ },
+ "proj124__Ansitz_Steinbock__Austria_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.556,
+  "dark": 0.133,
+  "sky_blue": 0.102,
+  "warm_lights": 0.014,
+  "blown": 0.011,
+  "dusk": 17.3
+ },
+ "proj124__Lounge_mod.jpg": {
+  "w": 3000,
+  "h": 2001,
+  "mean": 0.293,
+  "dark": 0.548,
+  "sky_blue": -0.113,
+  "warm_lights": 0.001,
+  "blown": 0.007,
+  "dusk": 44.3
+ },
+ "proj125__1_POTO~1.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.684,
+  "dark": 0.031,
+  "sky_blue": -0.169,
+  "warm_lights": 0.124,
+  "blown": 0.208,
+  "dusk": 0.6
+ },
+ "proj125__2_POTO~1.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.573,
+  "dark": 0.102,
+  "sky_blue": 0.076,
+  "warm_lights": 0.021,
+  "blown": 0.053,
+  "dusk": 11.5
+ },
+ "proj125__3_POTO~1.jpg": {
+  "w": 800,
+  "h": 1200,
+  "mean": 0.609,
+  "dark": 0.088,
+  "sky_blue": -0.128,
+  "warm_lights": 0.058,
+  "blown": 0.075,
+  "dusk": 6.6
+ },
+ "proj125__La_Vetta_Svizzera_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.512,
+  "dark": 0.136,
+  "sky_blue": 0.002,
+  "warm_lights": 0.027,
+  "blown": 0.069,
+  "dusk": 12.5
+ },
+ "proj126__Hotel_Solvie_Alto_Adige_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.486,
+  "dark": 0.201,
+  "sky_blue": 0.012,
+  "warm_lights": 0.001,
+  "blown": 0.061,
+  "dusk": 13.8
+ },
+ "proj126__strutture_Solvie_isaiovaldi_2025-02.jpg": {
+  "w": 4357,
+  "h": 2905,
+  "mean": 0.485,
+  "dark": 0.128,
+  "sky_blue": -0.014,
+  "warm_lights": 0.0,
+  "blown": 0.025,
+  "dusk": 12.9
+ },
+ "proj126__strutture_Solvie_isaiovaldi_2025-06.jpg": {
+  "w": 4568,
+  "h": 3045,
+  "mean": 0.523,
+  "dark": 0.076,
+  "sky_blue": -0.112,
+  "warm_lights": 0.009,
+  "blown": 0.0,
+  "dusk": 10.8
+ },
+ "proj126__strutture_Solvie_isaiovaldi_2025-22.jpg": {
+  "w": 7008,
+  "h": 4672,
+  "mean": 0.509,
+  "dark": 0.074,
+  "sky_blue": -0.177,
+  "warm_lights": 0.001,
+  "blown": 0.0,
+  "dusk": 10.7
+ },
+ "proj126__strutture_Solvie_isaiovaldi_2025-55_edit.jpg": {
+  "w": 7008,
+  "h": 4672,
+  "mean": 0.481,
+  "dark": 0.134,
+  "sky_blue": -0.088,
+  "warm_lights": 0.0,
+  "blown": 0.002,
+  "dusk": 14.8
+ },
+ "proj127__Ra_House_Spagna_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.548,
+  "dark": 0.113,
+  "sky_blue": -0.114,
+  "warm_lights": 0.021,
+  "blown": 0.075,
+  "dusk": 7.1
+ },
+ "proj16__FalisiaResortSpa_Portopiccolo_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.626,
+  "dark": 0.013,
+  "sky_blue": 0.193,
+  "warm_lights": 0.0,
+  "blown": 0.071,
+  "dusk": 8.3
+ },
+ "proj18__03.jpg": {
+  "w": 1200,
+  "h": 800,
+  "mean": 0.556,
+  "dark": 0.068,
+  "sky_blue": -0.005,
+  "warm_lights": 0.033,
+  "blown": 0.037,
+  "dusk": 9.2
+ },
+ "proj18__HotelFalkensteiner_Jesolo_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.614,
+  "dark": 0.043,
+  "sky_blue": -0.068,
+  "warm_lights": 0.014,
+  "blown": 0.088,
+  "dusk": 0
+ },
+ "proj20__HotelEden_Rovigno_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.304,
+  "dark": 0.516,
+  "sky_blue": 0.112,
+  "warm_lights": 0.038,
+  "blown": 0.0,
+  "dusk": 57.2
+ },
+ "proj21__NaturhotelLeitlhof_SanCandido_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.627,
+  "dark": 0.117,
+  "sky_blue": -0.045,
+  "warm_lights": 0.0,
+  "blown": 0.249,
+  "dusk": 0
+ },
+ "proj21___DSC2923.jpg": {
+  "w": 3760,
+  "h": 2896,
+  "mean": 0.507,
+  "dark": 0.233,
+  "sky_blue": -0.082,
+  "warm_lights": 0.109,
+  "blown": 0.07,
+  "dusk": 28.7
+ },
+ "proj23__Pujol_Messico_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.584,
+  "dark": 0.203,
+  "sky_blue": -0.024,
+  "warm_lights": 0.0,
+  "blown": 0.263,
+  "dusk": 0
+ },
+ "proj23__pujol-2.jpg": {
+  "w": 1500,
+  "h": 1002,
+  "mean": 0.358,
+  "dark": 0.339,
+  "sky_blue": -0.067,
+  "warm_lights": 0.004,
+  "blown": 0.004,
+  "dusk": 32.7
+ },
+ "proj38__JWMarriottBuckhead_Atlanta_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.652,
+  "dark": 0.043,
+  "sky_blue": -0.058,
+  "warm_lights": 0.004,
+  "blown": 0.045,
+  "dusk": 0
+ },
+ "proj46__AppartamentoPrivato_Amsterdam_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.625,
+  "dark": 0.032,
+  "sky_blue": -0.171,
+  "warm_lights": 0.086,
+  "blown": 0.02,
+  "dusk": 11.1
+ },
+ "proj47__AppartamentoPrivato_Madrid_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.743,
+  "dark": 0.019,
+  "sky_blue": -0.004,
+  "warm_lights": 0.058,
+  "blown": 0.203,
+  "dusk": 0
+ },
+ "proj49__CasaPrivata_Lituania_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.645,
+  "dark": 0.089,
+  "sky_blue": -0.017,
+  "warm_lights": 0.002,
+  "blown": 0.125,
+  "dusk": 0
+ },
+ "proj56__20Restobar_Germania_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.315,
+  "dark": 0.407,
+  "sky_blue": -0.166,
+  "warm_lights": 0.07,
+  "blown": 0.0,
+  "dusk": 49.5
+ },
+ "proj59__PortPhillipWinery_Melbourne_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.35,
+  "dark": 0.274,
+  "sky_blue": 0.018,
+  "warm_lights": 0.001,
+  "blown": 0.0,
+  "dusk": 32.6
+ },
+ "proj64__HotelJWMarriott_Chicago_cover2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.585,
+  "dark": 0.153,
+  "sky_blue": -0.084,
+  "warm_lights": 0.043,
+  "blown": 0.107,
+  "dusk": 6.4
+ },
+ "proj64__jwmarriott_charlotte_rhc_concha_2b.jpg": {
+  "w": 1215,
+  "h": 810,
+  "mean": 0.331,
+  "dark": 0.385,
+  "sky_blue": -0.057,
+  "warm_lights": 0.011,
+  "blown": 0.011,
+  "dusk": 37.4
+ },
+ "proj64__jwmarriott_charlotte_rhc_ola2.jpg": {
+  "w": 1215,
+  "h": 810,
+  "mean": 0.302,
+  "dark": 0.429,
+  "sky_blue": -0.022,
+  "warm_lights": 0.003,
+  "blown": 0.0,
+  "dusk": 40.7
+ },
+ "proj64__jwmarriott_charlotte_rhc_yoisho2.jpg": {
+  "w": 1215,
+  "h": 812,
+  "mean": 0.577,
+  "dark": 0.062,
+  "sky_blue": -0.02,
+  "warm_lights": 0.008,
+  "blown": 0.028,
+  "dusk": 3.6
+ },
+ "proj66__AlexLake_Zurigo_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.422,
+  "dark": 0.252,
+  "sky_blue": 0.007,
+  "warm_lights": 0.013,
+  "blown": 0.012,
+  "dusk": 25.8
+ },
+ "proj67__BorgoSantandrea_Amalfi_cover-2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.697,
+  "dark": 0.011,
+  "sky_blue": 0.034,
+  "warm_lights": 0.0,
+  "blown": 0.006,
+  "dusk": 0
+ },
+ "proj68__Atheneum_Detroit_cover-2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.449,
+  "dark": 0.177,
+  "sky_blue": -0.061,
+  "warm_lights": 0.071,
+  "blown": 0.009,
+  "dusk": 30.1
+ },
+ "proj70__Ramses_Madrid_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.449,
+  "dark": 0.264,
+  "sky_blue": -0.063,
+  "warm_lights": 0.012,
+  "blown": 0.008,
+  "dusk": 23.2
+ },
+ "proj73__Goldader_Tamsweg_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.658,
+  "dark": 0.07,
+  "sky_blue": 0.09,
+  "warm_lights": 0.0,
+  "blown": 0.089,
+  "dusk": 0
+ },
+ "proj79__Crabskutabs_Mosca_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.299,
+  "dark": 0.525,
+  "sky_blue": -0.101,
+  "warm_lights": 0.046,
+  "blown": 0.012,
+  "dusk": 50.0
+ },
+ "proj79__DSCF0163.jpg": {
+  "w": 1600,
+  "h": 1067,
+  "mean": 0.293,
+  "dark": 0.488,
+  "sky_blue": -0.135,
+  "warm_lights": 0.045,
+  "blown": 0.007,
+  "dusk": 49.6
+ },
+ "proj7__SwissEmbassy_WashingtonDC_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.39,
+  "dark": 0.45,
+  "sky_blue": 0.013,
+  "warm_lights": 0.018,
+  "blown": 0.03,
+  "dusk": 34.7
+ },
+ "proj87__VillaSchweizerhof_Lucerna_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.555,
+  "dark": 0.146,
+  "sky_blue": -0.071,
+  "warm_lights": 0.016,
+  "blown": 0.011,
+  "dusk": 10.4
+ },
+ "proj88__2_Potocco_PalazzoTirso_Keel.jpg": {
+  "w": 1001,
+  "h": 1501,
+  "mean": 0.329,
+  "dark": 0.382,
+  "sky_blue": 0.02,
+  "warm_lights": 0.015,
+  "blown": 0.012,
+  "dusk": 39.5
+ },
+ "proj88__3_Potocco_PalazzoTirso_Keel.jpg": {
+  "w": 2250,
+  "h": 1500,
+  "mean": 0.374,
+  "dark": 0.307,
+  "sky_blue": -0.086,
+  "warm_lights": 0.002,
+  "blown": 0.028,
+  "dusk": 28.5
+ },
+ "proj88__PalazzoTirso_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.266,
+  "dark": 0.548,
+  "sky_blue": 0.226,
+  "warm_lights": 0.008,
+  "blown": 0.0,
+  "dusk": 65.3
+ },
+ "proj89__RitzCarlton_Chicago_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.557,
+  "dark": 0.103,
+  "sky_blue": 0.007,
+  "warm_lights": 0.009,
+  "blown": 0.086,
+  "dusk": 3.9
+ },
+ "proj89__Velis.jpg": {
+  "w": 951,
+  "h": 607,
+  "mean": 0.572,
+  "dark": 0.14,
+  "sky_blue": 0.041,
+  "warm_lights": 0.029,
+  "blown": 0.036,
+  "dusk": 12.3
+ },
+ "proj90__ConradRabatArzana_Marocco_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.498,
+  "dark": 0.061,
+  "sky_blue": -0.147,
+  "warm_lights": 0.031,
+  "blown": 0.002,
+  "dusk": 16.0
+ },
+ "proj90__RBACI_2262.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "mean": 0.479,
+  "dark": 0.092,
+  "sky_blue": -0.075,
+  "warm_lights": 0.011,
+  "blown": 0.002,
+  "dusk": 15.5
+ },
+ "proj90__RBACI_2897.jpg": {
+  "w": 956,
+  "h": 632,
+  "mean": 0.517,
+  "dark": 0.041,
+  "sky_blue": -0.058,
+  "warm_lights": 0.007,
+  "blown": 0.0,
+  "dusk": 10.0
+ },
+ "proj90__RBACI_2966.jpg": {
+  "w": 1920,
+  "h": 1080,
+  "mean": 0.468,
+  "dark": 0.061,
+  "sky_blue": -0.032,
+  "warm_lights": 0.0,
+  "blown": 0.0,
+  "dusk": 13.9
+ },
+ "proj91__HotelSinner_Parigi_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.522,
+  "dark": 0.164,
+  "sky_blue": 0.029,
+  "warm_lights": 0.003,
+  "blown": 0.107,
+  "dusk": 8.3
+ },
+ "proj91__Velis_1b.jpg": {
+  "w": 2004,
+  "h": 1360,
+  "mean": 0.454,
+  "dark": 0.209,
+  "sky_blue": 0.001,
+  "warm_lights": 0.003,
+  "blown": 0.064,
+  "dusk": 16.3
+ },
+ "proj91__Velis_3.jpg": {
+  "w": 1011,
+  "h": 670,
+  "mean": 0.513,
+  "dark": 0.1,
+  "sky_blue": -0.007,
+  "warm_lights": 0.003,
+  "blown": 0.042,
+  "dusk": 9.0
+ },
+ "proj92__323450992_832832067795284_6901574593650373991_n.jpg": {
+  "w": 2048,
+  "h": 1366,
+  "mean": 0.468,
+  "dark": 0.105,
+  "sky_blue": -0.039,
+  "warm_lights": 0.002,
+  "blown": 0.042,
+  "dusk": 13.0
+ },
+ "proj92__NeringaHotel_Lituania_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.376,
+  "dark": 0.209,
+  "sky_blue": 0.242,
+  "warm_lights": 0.01,
+  "blown": 0.0,
+  "dusk": 46.6
+ },
+ "proj93__26c4c4659fb8-74468413_4K.jpg": {
+  "w": 1920,
+  "h": 1279,
+  "mean": 0.558,
+  "dark": 0.096,
+  "sky_blue": -0.038,
+  "warm_lights": 0.011,
+  "blown": 0.048,
+  "dusk": 5.6
+ },
+ "proj93__7eeeb3f67d60-74467245_4K.jpg": {
+  "w": 1920,
+  "h": 1279,
+  "mean": 0.617,
+  "dark": 0.018,
+  "sky_blue": 0.021,
+  "warm_lights": 0.009,
+  "blown": 0.021,
+  "dusk": 0.7
+ },
+ "proj93__HotelKempinski_Lituania_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.645,
+  "dark": 0.046,
+  "sky_blue": 0.012,
+  "warm_lights": 0.032,
+  "blown": 0.168,
+  "dusk": 0
+ },
+ "proj93__d87bef14d37c-74468425_4K.jpg": {
+  "w": 1920,
+  "h": 1279,
+  "mean": 0.478,
+  "dark": 0.218,
+  "sky_blue": -0.061,
+  "warm_lights": 0.002,
+  "blown": 0.013,
+  "dusk": 17.3
+ },
+ "proj93__e276730bfc95-74467203_4K.jpg": {
+  "w": 1920,
+  "h": 1279,
+  "mean": 0.552,
+  "dark": 0.056,
+  "sky_blue": -0.023,
+  "warm_lights": 0.006,
+  "blown": 0.034,
+  "dusk": 5.0
+ },
+ "proj94__4.jpg": {
+  "w": 1215,
+  "h": 811,
+  "mean": 0.494,
+  "dark": 0.113,
+  "sky_blue": -0.065,
+  "warm_lights": 0.017,
+  "blown": 0.002,
+  "dusk": 15.8
+ },
+ "proj94__8.jpg": {
+  "w": 1215,
+  "h": 811,
+  "mean": 0.367,
+  "dark": 0.275,
+  "sky_blue": -0.12,
+  "warm_lights": 0.034,
+  "blown": 0.01,
+  "dusk": 34.4
+ },
+ "proj94__AK_Warsaw_191087-Migliorato-SR.jpg": {
+  "w": 2400,
+  "h": 1554,
+  "mean": 0.584,
+  "dark": 0.013,
+  "sky_blue": -0.042,
+  "warm_lights": 0.003,
+  "blown": 0.002,
+  "dusk": 2.2
+ },
+ "proj94__HotelVerte_Varsavia_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.509,
+  "dark": 0.121,
+  "sky_blue": -0.062,
+  "warm_lights": 0.026,
+  "blown": 0.008,
+  "dusk": 15.6
+ },
+ "proj95__1.jpg": {
+  "w": 1214,
+  "h": 683,
+  "mean": 0.457,
+  "dark": 0.247,
+  "sky_blue": -0.01,
+  "warm_lights": 0.006,
+  "blown": 0.005,
+  "dusk": 21.2
+ },
+ "proj95__2.jpg": {
+  "w": 1214,
+  "h": 683,
+  "mean": 0.482,
+  "dark": 0.224,
+  "sky_blue": -0.017,
+  "warm_lights": 0.034,
+  "blown": 0.02,
+  "dusk": 21.8
+ },
+ "proj95__3.jpg": {
+  "w": 1214,
+  "h": 683,
+  "mean": 0.526,
+  "dark": 0.198,
+  "sky_blue": -0.077,
+  "warm_lights": 0.027,
+  "blown": 0.052,
+  "dusk": 14.0
+ },
+ "proj95__4.jpg": {
+  "w": 1214,
+  "h": 683,
+  "mean": 0.234,
+  "dark": 0.648,
+  "sky_blue": -0.104,
+  "warm_lights": 0.056,
+  "blown": 0.008,
+  "dusk": 61.5
+ },
+ "proj95__WaldorfAstoria_Chicago_cover2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.464,
+  "dark": 0.22,
+  "sky_blue": -0.008,
+  "warm_lights": 0.007,
+  "blown": 0.0,
+  "dusk": 20.1
+ },
+ "proj96__HKU_Guest-Room-Desk-Coffee-Bar-Open-scaled.jpg": {
+  "w": 2560,
+  "h": 1707,
+  "mean": 0.673,
+  "dark": 0.018,
+  "sky_blue": 0.002,
+  "warm_lights": 0.03,
+  "blown": 0.029,
+  "dusk": 0
+ },
+ "proj96__HKU_Ocean-View-Twin-scaled.jpg": {
+  "w": 2560,
+  "h": 1707,
+  "mean": 0.599,
+  "dark": 0.043,
+  "sky_blue": -0.024,
+  "warm_lights": 0.001,
+  "blown": 0.003,
+  "dusk": 1.3
+ },
+ "proj96__Halekulani_Honolulu_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.575,
+  "dark": 0.091,
+  "sky_blue": -0.005,
+  "warm_lights": 0.0,
+  "blown": 0.004,
+  "dusk": 4.9
+ },
+ "proj97__1.jpg": {
+  "w": 720,
+  "h": 960,
+  "mean": 0.522,
+  "dark": 0.079,
+  "sky_blue": -0.147,
+  "warm_lights": 0.049,
+  "blown": 0.011,
+  "dusk": 16.7
+ },
+ "proj97__5.jpg": {
+  "w": 1458,
+  "h": 1125,
+  "mean": 0.556,
+  "dark": 0.1,
+  "sky_blue": -0.072,
+  "warm_lights": 0.0,
+  "blown": 0.033,
+  "dusk": 5.1
+ },
+ "proj97__HotelSchlossberg_Thun_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.483,
+  "dark": 0.098,
+  "sky_blue": 0.241,
+  "warm_lights": 0.001,
+  "blown": 0.014,
+  "dusk": 31.1
+ },
+ "proj98__GrandHotelQuellenhof_Bad-Ragaz_cover.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.501,
+  "dark": 0.122,
+  "sky_blue": 0.01,
+  "warm_lights": 0.0,
+  "blown": 0.002,
+  "dusk": 13.4
+ },
+ "proj99__MarriottHotel_Budapest_cover2.jpg": {
+  "w": 1080,
+  "h": 1200,
+  "mean": 0.403,
+  "dark": 0.18,
+  "sky_blue": -0.122,
+  "warm_lights": 0.0,
+  "blown": 0.019,
+  "dusk": 22.3
+ }
+}
