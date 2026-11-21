@@ -1,0 +1,13 @@
+# media and renders stay out of git (sizes); sources are recorded in the registers
+src/
+fr/
+film/
+rough/
+out/
+deliverables/
+assets/manufacturer-source/**/originals/
+assets/manufacturer-source/**/previews/
+audio/*.mp3
+audio/*.wav
+chrome-prof-*
+.DS_Store
