@@ -105,3 +105,20 @@ Positions are judged by eye against the furniture.
 | 1:09–1:15 | Terrace lounge with Era lusso grande on the coffee table and Pablo Uma on the rug | DEDON render, Mu Mystique; Uma product image from kodalighting.com (`Uma.png`); Uma dimensions from Pablo's spec sheet | DEDON / Occhio / Pablo | DEDON and KODA to confirm | **Concept visualisation**: DEDON lanterns left unlit; KODA pieces composited at true scale |
 
 Removed from Version 2: the Mito sospeso pendants over the pergola table, the Mito largo on the terrace, and the Cosh Portland setting with its sign board.
+
+
+## Version 2.2 changes (21 November 2026)
+
+| Used at | Content | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|
+| 0:32–0:34 | A-N-D ribbed-glass detail | A-N-D film on kodalighting.com | A-N-D | KODA to confirm | No |
+| 0:42–0:44 | Lodes DoubleZero7 living room | kodalighting.com, `DoubleZero7_Surface-In-Situ-4.jpg` | Lodes | KODA to confirm | No |
+| 1:03–1:09 | Kett Erskine bedroom with Occhio Era lusso in the bedside niche | coshliving.com.au, `erskine-bed-indoor-furniture-kett-853042.jpg` (2000 px); Occhio render | Cosh Living / Kett / Occhio | Cosh and KODA to confirm | **Concept visualisation**: graded from golden hour to dusk; Era lusso composited at 16.8 cm; niche light painted in |
+
+Removed in Version 2.2:
+- the Cosh Sydney and Cheltenham showroom images
+- the KODA event footage
+- the A-N-D logo-backdrop showroom
+- the Lodes Random Solo merchandise wall
+
+The cliff villa "before" plate was regenerated.

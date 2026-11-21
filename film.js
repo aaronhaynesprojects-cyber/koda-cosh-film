@@ -27,7 +27,7 @@ const STILLS = {
   koda: "src/logos/koda.svg", cosh: "src/logos/cosh.png",
 };
 if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01-on.jpg", d02off: "src/v2/d02-off.jpg", d02on: "src/v2/d02-on.jpg", d03off: "src/v21/d03-off.jpg", d03on: "src/v21/d03-on.jpg",
-  d04off: "src/v21/d04-off.jpg", d04on: "src/v21/d04-on.jpg", chelt: "src/v21/chelt.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
+  d04off: "src/v21/d04-off.jpg", d04on: "src/v21/d04-on.jpg", chelt: "src/v21/chelt.jpg", bedgold: "src/v21/bed-gold.jpg", beddusk: "src/v21/bed-dusk-on.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
   e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
 const fcache = new Map();
@@ -164,8 +164,13 @@ if (V2 && !ROLL) {
   Object.assign(SHOTS[at(12.9)], { t0: 13.6, x: 0.6 }); Object.assign(SHOTS[at(14.9)], { t0: 15.6, x: 0 });
   // V2.1 (luxury brief): cordless KODA pieces outdoors, standing where the scene's own lamps stood; Cosh shown clean
   put(28.2, { x: 0, seq: "e_gest", sp: 1, from: 0 }); put(30.2, { x: 0, seq: "u_three", sp: 1, from: 0 });            // Occhio: the new Era range
-  put(58.6, { x: 0.9, still: "d04off", over: "d04on", on: [59.8, 61.4], cam: K([0.52, 0.54, 1.34], [0.54, 0.53, 1.48]), concept: 1, credit: DE });
-  put(63.6, { x: 0.9, still: "chelt", cam: K([0.33, 0.62, 1.42], [0.34, 0.62, 1.52]), concept: 1, credit: "Showroom: Cosh Living, Cheltenham" });
+  // V2.2 (quality reset): no retail, signage or merchandising; fewer, longer, finer scenes
+  put(18.0, { x: 0.9, seq: "k_open", sp: 0.48, z: 1.075, dim: [22.4, 23.6, 0.10] }); SHOTS.splice(at(21.6), 1);   // KODA at night through the glass; the crowded event footage is out
+  put(32.0, { x: 0.5, seq: "a_flute", sp: 0.72, from: 15, brand: "and" });                                        // A-N-D: glass detail instead of the logo-backdrop showroom
+  put(42.1, { x: 0, still: "lod9", cam: K([0.46, 0.5, 1.04], [0.54, 0.5, 1.09]) });                                // Lodes: living room instead of the merchandise wall
+  SHOTS.splice(at(56.0), 1);                                                                                       // Cosh Sydney showroom (signage, retail light) is out
+  put(58.6, { t0: 56.0, x: 1.0, still: "d04off", over: "d04on", on: [59.8, 61.4], cam: K([0.5, 0.55, 1.24], [0.54, 0.53, 1.48]), concept: 1, credit: DE });
+  put(63.6, { x: 1.0, still: "bedgold", over: "beddusk", on: [64.6, 67.6], cam: K([0.44, 0.56, 1.22], [0.40, 0.60, 1.40]), concept: 1, credit: "Furniture: Kett, at Cosh Living" });
   put(69.0, { x: 0.9, still: "d03off", over: "d03on", on: [70.2, 71.8], cam: K([0.56, 0.5, 1.02], [0.6, 0.52, 1.09]), concept: 1, credit: DE });
   put(75.0, { x: 1.0, still: "d05", cam: K([0.5, 0.18, 1.0], [0.5, 0.62, 1.0]), credit: DE });
   put(78.0, { x: 1.0, still: "d06", cam: K([0.5, 0.5, 1.08], [0.56, 0.52, 1.02]), credit: DE });

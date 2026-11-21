@@ -96,6 +96,35 @@ def scene(name):
             spr = sprite(path, hpx, part=part); u, l, e = states(spr, amb_at(lin, bx, by - 50, 40), "era")
             place(lin, l, e, bx, by, True, surface_k=0.5, pool=(1.3, 2), glow=0.03)
         save(lin, OUT21 + "chelt.jpg")
+    if name == "bed":                                          # Kett bedroom (Cosh Living): last sun fades, an Era lusso in the bedside niche comes on
+        lin = load("src/cosh/erskine-bed-indoor-furniture-kett-853042.jpg"); H, W = lin.shape[:2]
+        dusk = lin * 0.30 * np.array([0.80, 0.88, 1.12])                                   # same room, about 1.7 stops later, cooler
+        nx0, ny0, nx1, ny1 = 560, 858, 685, 961                                           # the left niche (measured at full size)
+        spr = sprite(ERA_B, 64, part=0)                                                    # Era lusso (16.8 cm) at ~3.8 px/cm at the bedhead
+        bx, by = 616, 957
+        u, l, e = states(spr, amb_at(lin, bx, by - 40, 40), "era")
+        gold = lin.copy(); place(gold, u, e, bx, by, False)
+        u2, l2, e2 = states(spr, amb_at(dusk, bx, by - 40, 40), "era")
+        on = dusk.copy()
+        y, x = np.ogrid[:H, :W]
+        inside = ((x > nx0) & (x < nx1) & (y > ny0) & (y < ny1)).astype(float); inside = blur(inside, 3)
+        fall = np.exp(-(((x - bx) / 70.0) ** 2 + ((y - (by - 30)) / 55.0) ** 2))          # light filling the timber niche
+        on += on * (inside * (1.0 + 6.0 * fall))[..., None] * WARMW
+        on += on * (np.exp(-(((x - bx) / 150.0) ** 2 + ((y - (by - 45)) / 110.0) ** 2)) * 0.6)[..., None] * WARMW   # warm bloom on the bedhead around the niche
+        on += on * (ell(H, W, bx, ny1 + 30, 160, 60)[..., None] * 0.9 * WARM)              # spill on the bed linen below
+        place(on, l2, e2, bx, by, True, surface_k=2.5, pool=(1.1, 2), glow=0.10)
+        save(gold, OUT21 + "bed-gold.jpg"); save(on, OUT21 + "bed-dusk-on.jpg")
+    if name == "d02fix":                                       # cliff villa before-plate: the rock under the terrace goes evenly dark, no pale patch
+        from v2plates import lights_off as lo
+        lin = load(A + "dedon/originals/dedon-mood-mysterious-desert-dala-loon-mbrace-sealine-kida.jpg"); H, W = lin.shape[:2]
+        glass = [(0.335, 0.175, 0.528, 0.29), (0.20, 0.345, 0.775, 0.48)]
+        off = lo(lin, 1.0, glass=glass, force=[(0.12, 0.66, 1.0, 0.80), (0.0, 0.60, 0.72, 0.70)])
+        band = np.zeros((H, W)); band[int(0.50 * H):int(0.67 * H), :int(0.80 * W)] = 1; band = blur(band, W / 120)
+        warmth = np.clip((lin[..., 0] - lin[..., 2]) / (lin.mean(-1) + 1e-3), 0, 1.5) / 1.5
+        k = 1 - band * warmth * 0.75
+        off2 = lin * 2 ** -1.0 * np.array([0.86, 0.94, 1.12]) * k[..., None]
+        off = off * (1 - band[..., None]) + off2 * band[..., None]
+        save(off, "src/v2/d02-off.jpg")
     print("done", name)
 if __name__ == "__main__":
     for s in (sys.argv[1:] or ["d04", "d03", "chelt"]): scene(s)
