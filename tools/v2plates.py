@@ -32,7 +32,7 @@ def lights_off(lin, stops=1.0, force=None, glass=None, auto=True):
     m = np.clip(blur((blur(emit.astype(float), W / 640) > 0.02).astype(float), W / 900) * 1.6, 0, 1)
     ratio = np.clip(np.maximum(amb * 0.9, 1e-4) / (L + 1e-6), 0.04, 1.0); k = 1 - m * (1 - ratio)
     off = lin * k[..., None]
-    tint = off.mean(axis=2, keepdims=True) * np.array([0.85, 0.92, 1.08]); off = off * (1 - 0.6 * m[..., None]) + tint * 0.6 * m[..., None]
+    tint = off.mean(axis=2, keepdims=True) * np.array([0.96, 0.98, 1.02]); off = off * (1 - 0.6 * m[..., None]) + tint * 0.6 * m[..., None]
     off = off * (1 - 0.45 * m[..., None])                                  # a switched-off source sits darker than its surroundings
     spill = blur(m * np.clip(L / (L.max() + 1e-6), 0, 1), W / 45); spill = spill / (spill.max() + 1e-6)
     off = off * (1 - 0.55 * spill[..., None] * np.array([1.0, 0.85, 0.4]))
@@ -127,4 +127,5 @@ def scene(name):
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", A + p, "-vf", f"scale={w}:-2:flags=lanczos", "-q:v", "2", OUT + key + ".jpg"])
     print("done", name)
 import os; os.makedirs(OUT, exist_ok=True)
-for s in (sys.argv[1:] or ["d01", "d02", "d04", "d03", "rest"]): scene(s)
+if __name__ == "__main__":
+    for s in (sys.argv[1:] or ["d01", "d02", "d04", "d03", "rest"]): scene(s)

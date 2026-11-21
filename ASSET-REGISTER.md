@@ -93,3 +93,15 @@ Fixture scale is set from Occhio's published figures:
 - Mito largo: ring at 130–160 cm (145 cm used)
 
 Positions are judged by eye against the furniture.
+
+
+## Version 2.1 changes (21 November 2026)
+
+| Used at | Content | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|
+| 0:28–0:32 | Occhio Era: gesture switch-on; Era lusso trio | occhio.com Era campaign films (4K, Vimeo 1235746005 and 1235746183) | Occhio | KODA to confirm (Aaron supplied occhio.com) | No |
+| 0:59–1:03 | Pergola dining with two Occhio Era lusso grande (bronze) | DEDON render, Spiritual Mountain; Era lusso render from occhio.com (`Era-lusso-marrone-bronze-desktop.png`) | DEDON / Occhio | DEDON and KODA to confirm | **Concept visualisation**: DEDON's two table lamps removed; Era lusso set in their place at 25 cm (the published height) |
+| 1:03–1:09 | Cosh Living Cheltenham dining with Era lusso grande (bronze) and Era lusso (rose gold) | coshliving.com.au, `x._All_Images_4.jpg`; Occhio renders | Cosh Living / Occhio | Cosh and KODA to confirm | **Concept visualisation**: price ticket removed; lamps composited at true scale |
+| 1:09–1:15 | Terrace lounge with Era lusso grande on the coffee table and Pablo Uma on the rug | DEDON render, Mu Mystique; Uma product image from kodalighting.com (`Uma.png`); Uma dimensions from Pablo's spec sheet | DEDON / Occhio / Pablo | DEDON and KODA to confirm | **Concept visualisation**: DEDON lanterns left unlit; KODA pieces composited at true scale |
+
+Removed from Version 2: the Mito sospeso pendants over the pergola table, the Mito largo on the terrace, and the Cosh Portland setting with its sign board.

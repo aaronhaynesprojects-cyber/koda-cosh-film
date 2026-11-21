@@ -26,8 +26,8 @@ const STILLS = {
   luna: "src/cutouts/luna-cloud3.png", largo: "src/cutouts/mito-largo-bronze.png", volum: "src/cutouts/volum.png",
   koda: "src/logos/koda.svg", cosh: "src/logos/cosh.png",
 };
-if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01-on.jpg", d02off: "src/v2/d02-off.jpg", d02on: "src/v2/d02-on.jpg", d03off: "src/v2/d03-off.jpg", d03on: "src/v2/d03-on.jpg",
-  d04off: "src/v2/d04-off.jpg", d04on: "src/v2/d04-on.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
+if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01-on.jpg", d02off: "src/v2/d02-off.jpg", d02on: "src/v2/d02-on.jpg", d03off: "src/v21/d03-off.jpg", d03on: "src/v21/d03-on.jpg",
+  d04off: "src/v21/d04-off.jpg", d04on: "src/v21/d04-on.jpg", chelt: "src/v21/chelt.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
   e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
 const fcache = new Map();
@@ -162,7 +162,10 @@ if (V2 && !ROLL) {
   put(9.0, { x: 1.0, still: "d02off", over: "d02on", on: [11.4, 13.0], cam: K([0.5, 0.45, 1.04], [0.5, 0.45, 1.12]), credit: DE });
   SHOTS.splice(at(11.3), 1);                                                                       // Occhio wide: covered by the villa switching on
   Object.assign(SHOTS[at(12.9)], { t0: 13.6, x: 0.6 }); Object.assign(SHOTS[at(14.9)], { t0: 15.6, x: 0 });
-  put(63.6, { x: 0.9, still: "d04off", over: "d04on", on: [64.8, 66.4], cam: K([0.5, 0.52, 1.0], [0.52, 0.5, 1.07]), concept: 1, credit: DE });
+  // V2.1 (luxury brief): cordless KODA pieces outdoors, standing where the scene's own lamps stood; Cosh shown clean
+  put(28.2, { x: 0, seq: "e_gest", sp: 1, from: 0 }); put(30.2, { x: 0, seq: "u_three", sp: 1, from: 0 });            // Occhio: the new Era range
+  put(58.6, { x: 0.9, still: "d04off", over: "d04on", on: [59.8, 61.4], cam: K([0.52, 0.54, 1.34], [0.54, 0.53, 1.48]), concept: 1, credit: DE });
+  put(63.6, { x: 0.9, still: "chelt", cam: K([0.33, 0.62, 1.42], [0.34, 0.62, 1.52]), concept: 1, credit: "Showroom: Cosh Living, Cheltenham" });
   put(69.0, { x: 0.9, still: "d03off", over: "d03on", on: [70.2, 71.8], cam: K([0.56, 0.5, 1.02], [0.6, 0.52, 1.09]), concept: 1, credit: DE });
   put(75.0, { x: 1.0, still: "d05", cam: K([0.5, 0.18, 1.0], [0.5, 0.62, 1.0]), credit: DE });
   put(78.0, { x: 1.0, still: "d06", cam: K([0.5, 0.5, 1.08], [0.56, 0.52, 1.02]), credit: DE });
