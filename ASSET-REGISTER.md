@@ -67,3 +67,29 @@ Scale was set from the furniture in each photograph (table diameters and sofa le
 ## What the film does not claim
 
 No acquisition, partnership, floor space, revenue or distribution right is stated or implied. The end card reads "A concept for collaboration." Cosh Living's existing lighting (Rakumba and others) remains visible in its own showroom photographs and is not removed.
+
+---
+
+# Version 2 additions (21 November 2026)
+
+Version 2 is an internal preview. Nothing below is cleared for showing outside KODA and Cosh Living. Sources and access are set out in `docs/v2/SOURCE-ACQUISITION-REPORT.md`.
+
+| Used at | Content | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|
+| 0:00–0:06 | Lake house under moonlight, lights off | DEDON press portal, `dedon-secret-lakeside-house-night.jpg` (6000×4252) | DEDON (3D render) | DEDON to confirm | Yes: existing lights dimmed by `tools/lightsoff.py` |
+| 0:05–0:10 | Cliff villa at golden hour, graded to blue hour | DEDON, `dedon-mood-mysterious-desert-loon-mbrace-mbrace-alu-nestrest-sealine.jpg` | DEDON (3D render) | DEDON to confirm | Colour grade only |
+| 0:09–0:14 | Same villa, lights off → on | DEDON, `dedon-mood-mysterious-desert-dala-loon-mbrace-sealine-kida.jpg` (1640×984) | DEDON (3D render) | DEDON to confirm; master requested | "Off" state derived: glazing darkened, terrace and pool lights dimmed. "On" state is DEDON's original |
+| 1:03–1:09 | Pergola dining + two Occhio Mito sospeso 60 (bronze) | DEDON, `dedon-spiritual-mountain-bellmonde-kida-ombii.jpg`; Occhio cut-out from kodalighting.com | DEDON / Occhio | DEDON and KODA to confirm | **Concept visualisation**: pendants composited, light pool painted in, table lamps dimmed in "off" |
+| 1:09–1:15 | Mountain terrace lounge + Occhio Mito largo (bronze) | DEDON, `dedon-mood-mu-mystique-dusk.jpg`; Occhio cut-out | DEDON / Occhio | DEDON and KODA to confirm | **Concept visualisation**: arc light composited (ring flattened to eye level), light pool painted in, lanterns and fire dimmed in "off" |
+| 1:15–1:18 | Canyon pavilion | DEDON, `dedon-mood-spiritual-mountain-mbrace-mu-porcini-roii-the others.jpg` | DEDON (3D render) | DEDON to confirm | No |
+| 1:18–1:21 | Stone lake house at dusk | DEDON, `dedon-mood-secret-lakeside-mbrace-mbrace alu-porcini-mbarq-the others.jpg` | DEDON (3D render) | DEDON to confirm | No |
+| 1:21–1:24 | Izar Houses dining hall | potocco.it project page 120 | Potocco / project photographer | Potocco to confirm | No |
+| 1:24–1:30 | Lake house lit, blurred under the end card | DEDON (as 0:00) | DEDON | DEDON to confirm | Blur and grade |
+
+Every DEDON setting shot carries the small credit "Setting: DEDON, Spirit of Place campaign"; the Potocco shot carries "Setting: Potocco project, Izar Houses".
+
+Fixture scale is set from Occhio's published figures:
+- Mito sospeso: 60 cm ring, 50–200 cm suspension
+- Mito largo: ring at 130–160 cm (145 cm used)
+
+Positions are judged by eye against the furniture.

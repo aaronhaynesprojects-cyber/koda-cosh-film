@@ -3,6 +3,7 @@
 const Q = new URLSearchParams(location.search), S = +(Q.get("s") || 1), REVIEW = Q.has("review");
 const CUT = Q.get("cut") || "film";   // "film" = the 90 s concept film, "broll" = the 62 s footage-only reel
 const TITLES_ON = Q.get("titles") !== "0";  // the narrated cut drops the on-screen lines so they do not compete with the voice
+const V2 = Q.get("v") === "2";   // Version 2: manufacturer settings (DEDON, Potocco), darkness-to-light
 const LEAD = Q.has("lead") ? 3 : 0;  // rough cuts: a 3·2·1 leader, then burned-in timecode from 01:00:00:00
 const W = 1920, H = 1080, FPS = 25, DUR = { broll: 62, croll: 37 }[CUT] || 90, TOTAL = Math.round(FPS * (DUR + LEAD));
 const cv = document.getElementById("out"); cv.width = W * S; cv.height = H * S;
@@ -25,6 +26,8 @@ const STILLS = {
   luna: "src/cutouts/luna-cloud3.png", largo: "src/cutouts/mito-largo-bronze.png", volum: "src/cutouts/volum.png",
   koda: "src/logos/koda.svg", cosh: "src/logos/cosh.png",
 };
+if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01-on.jpg", d02off: "src/v2/d02-off.jpg", d02on: "src/v2/d02-on.jpg", d03off: "src/v2/d03-off.jpg", d03on: "src/v2/d03-on.jpg",
+  d04off: "src/v2/d04-off.jpg", d04on: "src/v2/d04-on.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
   e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
 const fcache = new Map();
@@ -148,6 +151,23 @@ if (ROLL) SHOTS = ROLL.map(([bar, seq, from, brand, x], i) => {
   const len = { a_flute: 50, a_chain: 36 }[seq] || SEQN[seq];
   return seq ? { t0, x, seq, from, brand, z: seq[0] === "k" ? 1.075 : 1, sp: Math.min(CUT === "croll" ? 1 : 0.92, (len - (CUT === "croll" ? 1.5 : 3) - from) / ((t1 - t0) * FPS)) } : { t0, x, card: true, brand };
 });
+/* Version 2 replaces the settings, keeps the narration, the KODA brand sections and Cosh Living's own showroom. */
+if (V2 && !ROLL) {
+  const at = (t) => SHOTS.findIndex((s) => Math.abs(s.t0 - t) < 0.01);
+  const put = (t, shot) => { SHOTS[at(t)] = Object.assign({ t0: t }, shot); };
+  const DE = "Setting: DEDON, Spirit of Place campaign", PO = "Setting: Potocco project, Izar Houses";
+  put(0, { x: 1.6, still: "d01off", cam: K([0.62, 0.56, 1.14], [0.6, 0.55, 1.05]), credit: DE });
+  SHOTS.splice(at(3.2), 2);                                                                        // the two Cosh daylight stills give way to dusk
+  SHOTS.splice(1, 0, { t0: 5.0, x: 1.2, still: "d07", cam: K([0.42, 0.55, 1.04], [0.48, 0.55, 1.10]), dusk: [5.4, 9.4], credit: DE });
+  put(9.0, { x: 1.0, still: "d02off", over: "d02on", on: [11.4, 13.0], cam: K([0.5, 0.45, 1.04], [0.5, 0.45, 1.12]), credit: DE });
+  SHOTS.splice(at(11.3), 1);                                                                       // Occhio wide: covered by the villa switching on
+  Object.assign(SHOTS[at(12.9)], { t0: 13.6, x: 0.6 }); Object.assign(SHOTS[at(14.9)], { t0: 15.6, x: 0 });
+  put(63.6, { x: 0.9, still: "d04off", over: "d04on", on: [64.8, 66.4], cam: K([0.5, 0.52, 1.0], [0.52, 0.5, 1.07]), concept: 1, credit: DE });
+  put(69.0, { x: 0.9, still: "d03off", over: "d03on", on: [70.2, 71.8], cam: K([0.56, 0.5, 1.02], [0.6, 0.52, 1.09]), concept: 1, credit: DE });
+  put(75.0, { x: 1.0, still: "d05", cam: K([0.5, 0.18, 1.0], [0.5, 0.62, 1.0]), credit: DE });
+  put(78.0, { x: 1.0, still: "d06", cam: K([0.5, 0.5, 1.08], [0.56, 0.52, 1.02]), credit: DE });
+  put(81.0, { x: 1.0, still: "p01", cam: K([0.5, 0.5, 1.02], [0.5, 0.52, 1.08]), credit: PO });
+}
 SHOTS.forEach((s, i) => { const n = SHOTS[i + 1]; s.t1 = n ? n.t0 + n.x : DUR; });
 const BRANDS = { occhio: ["OCCHIO", "Germany", 26, 32], and: ["A-N-D", "Canada", 32, 38], lodes: ["LODES", "Italy", 38, 44], pablo: ["PABLO DESIGNS", "USA", 44, 50], arkos: ["ARKOSLIGHT", "Spain", 50, 56] };
 const TITLES = [
@@ -180,12 +200,15 @@ function drawShot(s, t) {
     if (s.dim) { ctx.fillStyle = `rgba(14,13,12,${(1 - s.dim[2]) * smooth(prog(t, s.dim[0], s.dim[1])) * a})`; ctx.fillRect(0, 0, W, H); }
   } else {
     const c = s.cam, fx = lerp(c.a[0], c.b[0], u), fy = lerp(c.a[1], c.b[1], u), z = lerp(c.a[2], c.b[2], u);
-    cover(IMG[s.still], fx, fy, z, a); if (s.over) { const o = smooth(prog(t, s.on[0], s.on[1])); if (o > 0) cover(IMG[s.over], fx, fy, z, a * o); }
+    let flt; if (s.dusk) { const d = smooth(prog(t, s.dusk[0], s.dusk[1])); flt = `brightness(${(1 - 0.5 * d).toFixed(3)}) saturate(${(1 - 0.35 * d).toFixed(3)}) hue-rotate(${(-14 * d).toFixed(1)}deg)`; }
+    cover(IMG[s.still], fx, fy, z, a, flt);
+    if (s.dusk) { const d = smooth(prog(t, s.dusk[0], s.dusk[1])); ctx.globalCompositeOperation = "multiply"; ctx.fillStyle = `rgba(${Math.round(255 - 120 * d)},${Math.round(255 - 95 * d)},255,${a})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
+    if (s.over) { const o = smooth(prog(t, s.on[0], s.on[1])); if (o > 0) cover(IMG[s.over], fx, fy, z, a * o); }
   }
 }
 function reveal(t, a) {
   ctx.globalAlpha = a; ctx.fillStyle = GRAPHITE; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
-  cover(IMG.conC, 0.5, 0.5, lerp(1.10, 1.04, prog(t, 84, 90)), a * 0.34, "blur(14px) brightness(0.62) saturate(0.8)");
+  cover(V2 ? IMG.d01on : IMG.conC, 0.5, 0.5, lerp(1.10, 1.04, prog(t, 84, 90)), a * (V2 ? 0.42 : 0.34), "blur(14px) brightness(0.62) saturate(0.8)");
   const v = ctx.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, 1100); v.addColorStop(0, "rgba(20,19,17,0.25)"); v.addColorStop(1, "rgba(12,11,10,0.86)"); ctx.globalAlpha = a; ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
   const l = smooth(prog(t, 84.6, 85.7));
   if (l > 0) { // the two identities, balanced either side of a hairline
@@ -215,6 +238,7 @@ function overlays(t) {
   if (TITLES_ON) for (const [a, b, text] of TITLES) { const o = fadeIO(t, a, b); if (o <= 0) continue; ctx.globalAlpha = o; ctx.fillRect(128, 918, 56 * smooth(prog(t, a, a + 1.2)), 1.5); track(text, 128, 972 + (1 - smooth(prog(t, a, a + 1.0))) * 6, 33, 0.30); }
   for (const k in BRANDS) { const [name, place, a, b] = BRANDS[k], o = fadeIO(t, a + 0.25, b - 0.05, 0.5, 0.45); if (o <= 0) continue; ctx.globalAlpha = o; track(name, 128, 960, 31, 0.34, 400); ctx.globalAlpha = o * 0.8; track(place, 130, 997, 20, 0.22); }
   for (const s of SHOTS) if (s.concept) { const o = fadeIO(t, s.on ? s.on[0] : s.t0 + 0.6, s.t1 - 0.3); if (o <= 0) continue; ctx.globalAlpha = o * 0.86; track("Concept visualisation", W - 128, 996, 20, 0.2, 400, "right"); }
+  for (const s of SHOTS) if (s.credit && t >= s.t0 && t < s.t1) { const o = fadeIO(t, s.t0 + 0.5, s.t1 - 0.2, 0.8, 0.5); if (o > 0) { ctx.globalAlpha = o * 0.72; track(s.credit, 128, 1000, 15, 0.16, 400); } }
   ctx.globalAlpha = 1; ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
   const kl = fadeIO(t, 23.4, 26.25, 1.0, 0.5); // the KODA mark, from KODA's own vector logo
   if (kl > 0) { const h = 118, w = h * 227 / 60; ctx.globalAlpha = kl; ctx.drawImage(IMG.koda, W / 2 - w / 2, H / 2 - h / 2 - 10, w, h); ctx.globalAlpha = 1; }
