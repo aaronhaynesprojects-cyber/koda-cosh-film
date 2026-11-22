@@ -134,3 +134,57 @@ The cliff villa "before" plate was regenerated.
 | 1:09–1:30 | Izar Houses pavilion, exterior | Potocco project photograph, `Izar-Houses__b5a5179f-….jpg` (4200 × 2800) | none | Sky deepened about one stop; lit ceiling unchanged; signature over it, softened |
 
 Narration and music unchanged from V2.2: `audio/v23-marie-rocket.wav` and `audio/v23-marie-rocket-lead.wav` are byte-identical to `final-marie-rocket.wav` and `rough-marie-rocket.wav`. Nothing here is cleared for publication; see `docs/v2/V2.3-ASSESSMENT.md` section E.
+
+## Best-of cut and "Nothing in Our Way" B-roll (22 November 2026)
+
+Branch `best`. Built only from the makers' own films and photographs. **Nothing composited, drawn, generated or superimposed.** Stills are held still (no artificial camera moves). The only additions are the small brand caption on the first shot of each brand, a light edge vignette, cross-dissolves and the end card. The eight DEDON and Potocco stills in `src/best/` were checked against the press originals in `assets/manufacturer-source/*/originals/`: each is a plain 2560 px downscale (SSIM 0.97–0.99, no local difference above 4 % anywhere), so none of the V2–V2.3 composite plates is used. The four frames Aaron rejected (`docs/rejected/`) and their composite plates are not in either cut.
+
+### Best-of, 90 s (`v=best`; audio `audio/final-marie-rocket.wav`, the V2.2 narration and Rocket Jr score)
+
+| Time | Section | Shots | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|---|
+| 0:00–0:08 | The environment | Canyon pavilion; stone lake house at night | DEDON Spirit of Place renders (`src/best/dedon-canyon.jpg`, `dedon-lakehouse.jpg`), DEDON press portal | DEDON | DEDON to confirm | No (downscale only) |
+| 0:08–0:28 | Occhio Era / Era lusso | Glass macro, ring detail, globe, crystal, hand-gesture switch-on, reading, dimming; Era lusso close-up and trio | Occhio Era campaign films, occhio.com (Vimeo, `src/video-era/`, 4K where available) | Occhio | KODA to confirm | No |
+| 0:28–0:39 | Light in furnished rooms | DEDON Mu Mystique terrace (clean original, DEDON's own lanterns); Lodes living room (`lodes-09`); Pablo dining film; Potocco Izar Houses hall (clean original); Arkoslight interior (`arkoslight-01`) | DEDON press portal; kodalighting.com; potocco.it | DEDON / Lodes / Pablo / Potocco / Arkoslight | DEDON, Potocco and KODA to confirm | No |
+| 0:39–0:56 | Pablo Uma / Uma Mini | Uma in a garden, Uma Mini at a table, Uma by a pool, Uma on a terrace with friends, Uma on the beach | Pablo in-situ photographs via KODA's Pablo feed (`src/situ/pablo/Uma-In-Situ-1/10/6/5`, `Uma_Mini-In-Situ-13`) | Pablo Designs | KODA to confirm | No |
+| 0:56–1:13 | Architectural lighting | A-N-D ribbed glass and columns; Arkoslight lens film; Occhio wall lights; Lodes gate and garden path | KODA home-page films (kodalighting.com / Vimeo, `src/video/`); Occhio film (`src/video-occhio/`) | A-N-D / Arkoslight / Occhio / Lodes | KODA to confirm | No |
+| 1:13–1:24 | The collaboration | Potocco Izar Houses pavilion; DEDON stone lodge; DEDON Spiritual Mountain pergola dining (clean original, DEDON's own table lamps) | potocco.it; DEDON press portal | Potocco / DEDON | Potocco and DEDON to confirm | No |
+| 1:24–1:30 | Brand resolution | KODA × Cosh Living end card over the Izar pavilion, blurred | Logos as above | KODA / Cosh Living | KODA and Cosh to confirm | Blur and darken under the type |
+
+### B-roll, 63.4 s (`cut=nb`; audio `audio/nb-broll.wav`)
+
+Set to "Nothing in Our Way" (Out To The World), 2:15.1 to the end of the track (93.25 bpm, bar 2.5737 s). **Music licence not yet cleared**: the track must be licensed before any use beyond internal review.
+
+| Time | Section | Shots |
+|---|---|---|
+| 0:00–0:09 | The places | DEDON canyon pavilion; DEDON lake house |
+| 0:09–0:31 | The quiet break | Occhio Era films: macro, ring, reading, dimming, crystal, globe |
+| 0:31–0:54 | The full section, on the bar | Era lusso trio; Uma terrace; Pablo dining film; Lodes living room; Arkoslight lens; Uma by the pool; A-N-D ribbed glass; Potocco Izar hall; Occhio wall lights; Uma Mini; DEDON Mu Mystique terrace |
+| 0:54–0:58 | The ending | Potocco Izar Houses pavilion |
+| 0:58–1:03 | Signature | KODA × Cosh Living end card |
+
+Sources and permission status for every shot are as in the best-of table above.
+
+### QC (full-size check of every 1.5 s frame in both cuts, 103 frames)
+
+There is no signage and nothing floating, drawn or pasted on, and nothing from `docs/rejected/` appears. Source limitations remain:
+- The Pablo dining-pendant shot (best 0:32–0:35, B-roll 0:36–0:38) is Pablo's own Pantaya film (`src/video/koda-home-7.mp4`, about 0:18.8; frame match confirmed). The room is a manufacturer render, so its foliage looks painterly.
+- The Potocco Izar hall photograph has cordless table lanterns from another maker on the table. They are shown as photographed, are not captioned as a KODA brand, and are not altered.
+- The Lodes gate and garden-path clips (best 1:07–1:13) are 1080p web copies and look soft. Ask for masters if this goes further.
+- The Uma Mini glow shows slight banding from the source PNG.
+
+### New audio received 22 November 2026 (not used in any cut yet)
+
+| File | What | Source | Status | Notes |
+|---|---|---|---|---|
+| `audio/music-friction-saarah.mp3` | "Friction (Instrumental Version)", Saarah, 150.6 s | Epidemic Sound | Licence under Aaron's Epidemic Sound subscription to confirm for this use | Candidate track alongside Rocket Jr, Pulse Voyage and "Nothing in Our Way" |
+| `audio/vo-alexandra.mp3` | Third read of the narration (same script as Marie and Mike), 83.4 s | Epidemic Sound voice "Alexandra" | As above | Word timings in `audio/vo-alexandra.words.json` (faster-whisper). "KODA" at the sign-off lasts **1.40 s** (72.86–74.26), so she spells it out (K-O-D-A); "KODA's" lasts 0.72 s, also longer than a spoken word (Marie: 0.16 s and 0.24 s). "Cosh" transcribes as "Koch" both times, so check it by ear. Marie remains the chosen voice. |
+
+### Renders
+
+- `film/koda-at-cosh-living-BEST-OF-1080p.mp4`: clean review copy, no leader, no burnt-in timecode
+- `film/koda-at-cosh-living-BEST-OF-review-timecode-1080p.mp4`: same, with scene timecodes for notes
+- `film/koda-b-roll-nothing-in-our-way-1080p.mp4`: B-roll, clean
+- `film/*-phone.mp4`: 720p phone copies, each under 30 MB
+
+Resolution note: the Era films are 4K masters; the KODA home-page films and Pablo/Lodes/Arkoslight stills are 1080p-class, so 1080p is the honest delivery resolution. No 4K master of these cuts is offered.

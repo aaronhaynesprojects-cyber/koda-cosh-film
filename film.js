@@ -6,8 +6,10 @@ const TITLES_ON = Q.get("titles") !== "0";  // the narrated cut drops the on-scr
 const V2 = Q.get("v") === "2";   // Version 2: manufacturer settings (DEDON, Potocco), darkness-to-light
 const V23 = Q.get("v") === "2.3"; // Version 2.3: art-direction rebuild — four acts, three environments, the transformation as the reason to watch
 const WM = Q.has("wm");           // review copies carry a watermark
+const VBEST = Q.get("v") === "best"; // Best-of: authentic manufacturer films and photographs only. No composites, nothing generated.
+const NB = CUT === "nb";   // B-roll to "Nothing in Our Way" (Out To The World), 2:15.1 to the end of the track; 93.25 bpm, bar 2.5737 s
 const LEAD = Q.has("lead") ? 3 : 0;  // rough cuts: a 3·2·1 leader, then burned-in timecode from 01:00:00:00
-const W = 1920, H = 1080, FPS = 25, DUR = { broll: 62, croll: 37 }[CUT] || 90, TOTAL = Math.round(FPS * (DUR + LEAD));
+const W = 1920, H = 1080, FPS = 25, DUR = { broll: 62, croll: 37, nb: 63.4 }[CUT] || 90, TOTAL = Math.round(FPS * (DUR + LEAD));
 const cv = document.getElementById("out"); cv.width = W * S; cv.height = H * S;
 const ctx = cv.getContext("2d"); ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), lerp = (a, b, t) => a + (b - a) * t;
@@ -32,6 +34,10 @@ if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01
   d04off: "src/v21/d04-off.jpg", d04on: "src/v21/d04-on.jpg", chelt: "src/v21/chelt.jpg", bedgold: "src/v21/bed-gold.jpg", beddusk: "src/v21/bed-dusk-on.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
 if (V23) Object.assign(STILLS, { canyon: "src/v23/canyon-dark.jpg", pergOff: "src/v23/perg-off.jpg", pergOn: "src/v23/perg-on.jpg", det: "src/v23/det-on.jpg",
   muDusk: "src/v23/mu-dusk.jpg", muOn: "src/v23/mu-on.jpg", izOff: "src/v23/izar-off.jpg", izEra: "src/v23/izar-era.jpg", izOn: "src/v23/izar-on.jpg", izx: "src/v23/izarx.jpg" });
+if (VBEST || NB) Object.assign(STILLS, { dCanyon: "src/best/dedon-canyon.jpg", dLake: "src/best/dedon-lakehouse.jpg", dTerrace: "src/best/dedon-terrace.jpg", dPergola: "src/best/dedon-pergola.jpg",
+  dLodge: "src/best/dedon-lodge.jpg", izHall: "src/best/potocco-izar-hall.jpg", izPav: "src/best/potocco-izar-pavilion.jpg",
+  uma1: "src/situ/pablo/Uma-In-Situ-1.png", uma11: "src/situ/pablo/Uma-In-Situ-11.png", uma8: "src/situ/pablo/Uma-In-Situ-8.png", mini13: "src/situ/pablo/Uma_Mini-In-Situ-13.png",
+  mini11: "src/situ/pablo/Uma_Mini-In-Situ-11.png", uma10: "src/situ/pablo/Uma-In-Situ-10.png", uma6: "src/situ/pablo/Uma-In-Situ-6.png", uma5: "src/situ/pablo/Uma-In-Situ-5.png" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
   e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
 const fcache = new Map();
@@ -150,6 +156,7 @@ const CROLL = [
   [12, "u_close", 0, "lusso", 0], [13, "u_logo", 0, "lusso", 0], [14, "u_side", 0, "lusso", 0], [15, "u_three", 0, "lusso", 0], [16, null, 0, "koda", 0.6],
 ];
 const ROLL = { broll: BROLL, croll: CROLL }[CUT];
+const B2 = 2.5737;
 if (ROLL) SHOTS = ROLL.map(([bar, seq, from, brand, x], i) => {
   const t0 = bar * BAR, next = ROLL[i + 1], t1 = next ? next[0] * BAR + next[4] : DUR;
   const len = { a_flute: 50, a_chain: 36 }[seq] || SEQN[seq];
@@ -204,6 +211,45 @@ if (V23 && !ROLL) {
     { t0: 39 * BAR, x: 1.4, reveal: true },
   ];
 }
+if (NB) {
+  const H0 = (k) => K(k, k), st = (t0, x, still, brand, f = [0.5, 0.5, 1.0]) => ({ t0, x, still, brand, cam: H0(f) }), sq = (t0, x, seq, brand, from = 0) => ({ t0, x, seq, brand, from });
+  SHOTS = [
+    // the tail of the big section: the places
+    st(0, 1.2, "dCanyon", "dedon", [0.5, 0.64, 1.0]), st(1.5 * B2, 0.8, "dLake", "dedon"),
+    // the quiet break (0:09-0:31): Occhio Era, the light coming on just before the drop
+    sq(3.5 * B2, 1.2, "e_macro", "era"), sq(5 * B2, 0.8, "e_ring", "era"), sq(6.5 * B2, 0.8, "e_read", "era"), sq(8 * B2, 0.8, "e_dim", "era"),
+    sq(9.5 * B2, 0.6, "e_crystal", "era"), sq(10.5 * B2, 0.4, "e_globe", "era"),
+    // the full section (0:31-0:53): the light in furnished rooms, on the bar
+    sq(12 * B2, 0, "u_three", "lusso"), st(13 * B2, 0, "uma6", "uma"), sq(14 * B2, 0, "p_dine", "pablo", 13), st(15 * B2, 0, "lod9", "lodes"),
+    sq(16 * B2, 0, "r_lens2", "arkos"), st(17 * B2, 0, "uma10", "uma"), sq(17.5 * B2, 0, "a_flute", "and", 15), st(18 * B2, 0, "izHall", "potocco"),
+    sq(19 * B2, 0, "o_wall", "occhio", 42), st(19.5 * B2, 0, "mini13", "mini"), st(20 * B2, 0, "dTerrace", "dedon"),
+    // the song's own ending: the house at dusk, then the signature
+    st(21 * B2, 1.0, "izPav", "potocco"), { t0: 22.5 * B2, x: 1.4, reveal: true, rt: 84.0 },
+  ];
+  SHOTS.forEach((s, i) => { if (!s.seq) return; const n = SHOTS[i + 1], t1 = n ? n.t0 + n.x : DUR; s.sp = Math.min(1, (SEQN[s.seq] - 2 - (s.from || 0)) / ((t1 - s.t0) * FPS)); });
+}
+if (VBEST && !ROLL) {
+  const H0 = (k) => K(k, k);                       // photographs are held still: no artificial camera movement
+  const st = (t0, x, still, brand, f = [0.5, 0.5, 1.0]) => ({ t0, x, still, brand, cam: H0(f) });
+  const sq = (t0, x, seq, brand, from = 0) => ({ t0, x, seq, brand, from });
+  SHOTS = [
+    // THE ENVIRONMENT — Cosh Living's DEDON, at dusk
+    st(0, 1.6, "dCanyon", "dedon", [0.5, 0.64, 1.0]), st(2 * BAR, 1.0, "dLake", "dedon"),
+    // OCCHIO ERA — Occhio's own 4K campaign films; the light comes on with "The difference is light"
+    sq(4 * BAR, 0.8, "e_macro", "era"), sq(5 * BAR, 0, "e_ring", "era"), sq(11.55, 0, "e_globe", "era"), sq(14.2, 0, "e_crystal", "era"),
+    sq(8 * BAR, 0, "e_gest", "era"), sq(9 * BAR, 0, "e_read", "era"), sq(10 * BAR, 0, "e_dim", "era"), sq(11 * BAR, 0.4, "u_close", "lusso"), sq(12 * BAR, 0, "u_three", "lusso"),
+    // LIGHT IN FURNISHED ROOMS — the lighting brands' own scenes, then Cosh's DEDON and Potocco lit at dusk
+    st(13 * BAR, 0.6, "dTerrace", "dedon"), st(14 * BAR, 0.6, "lod9", "lodes"), sq(15 * BAR, 0.6, "p_dine", "pablo", 13), st(16 * BAR, 0.6, "izHall", "potocco"), st(17 * BAR, 0.6, "ark1", "arkos"),
+    // PABLO UMA / UMA MINI — Pablo's own photographs
+    st(18 * BAR, 0.6, "uma1", "uma"), st(20 * BAR, 0.7, "mini13", "mini"), st(21 * BAR, 0.7, "uma10", "uma"), st(22 * BAR, 0.8, "uma6", "uma"), st(24 * BAR, 0.9, "uma5", "uma"),
+    // ARCHITECTURAL LIGHTING — A-N-D, Arkoslight, Occhio Luna, Lodes
+    sq(26 * BAR, 0.6, "a_flute", "and", 15), sq(27 * BAR, 0, "a_col", "and", 12), sq(28 * BAR, 0.6, "r_lens2", "arkos"), sq(30 * BAR, 0.6, "o_wall", "occhio", 42), sq(31 * BAR, 0.6, "l_gate", "lodes", 2), sq(32 * BAR, 0, "l_path", "lodes", 2),
+    // THE COLLABORATION — Cosh Living's furniture brands, lit
+    st(34 * BAR, 1.0, "izPav", "potocco"), st(36 * BAR, 1.0, "dLodge", "dedon"), st(37.5 * BAR, 1.0, "dPergola", "dedon", [0.5, 0.62, 1.0]),
+    { t0: 39 * BAR, x: 1.4, reveal: true },
+  ];
+  SHOTS.forEach((s, i) => { if (!s.seq) return; const n = SHOTS[i + 1], t1 = n ? n.t0 + n.x : DUR; s.sp = Math.min(1, (SEQN[s.seq] - 2 - (s.from || 0)) / ((t1 - s.t0) * FPS)); });
+}
 SHOTS.forEach((s, i) => { const n = SHOTS[i + 1]; s.t1 = n ? n.t0 + n.x : DUR; });
 const BRANDS = { occhio: ["OCCHIO", "Germany", 26, 32], and: ["A-N-D", "Canada", 32, 38], lodes: ["LODES", "Italy", 38, 44], pablo: ["PABLO DESIGNS", "USA", 44, 50], arkos: ["ARKOSLIGHT", "Spain", 50, 56] };
 const TITLES = [
@@ -229,7 +275,7 @@ function fadeIO(t, a, b, i = 0.9, o = 0.7) { return smooth(prog(t, a, a + i)) * 
 
 function drawShot(s, t) {
   const a = s.x ? smooth(prog(t, s.t0, s.t0 + s.x)) : 1, u = prog(t, s.t0, s.t1);
-  if (s.reveal) return reveal(t, a);
+  if (s.reveal) return reveal(s.rt != null ? t - s.t0 + s.rt : t, a);
   if (s.card) { ctx.globalAlpha = a; ctx.fillStyle = GRAPHITE; ctx.fillRect(0, 0, W, H); const h = 150, w = h * 227 / 60; ctx.drawImage(IMG.koda, W / 2 - w / 2, H / 2 - h / 2, w, h); ctx.globalAlpha = 1; return; }
   if (s.seq) {
     const z = s.z || 1.0; cover(s._a, 0.5, 0.5, z, a, s.f); if (s._f > 0.02 && s._b !== s._a) cover(s._b, 0.5, 0.5, z, a * s._f, s.f);
@@ -245,7 +291,8 @@ function drawShot(s, t) {
 }
 function reveal(t, a) {
   ctx.globalAlpha = a; ctx.fillStyle = GRAPHITE; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
-  if (V23) cover(IMG.izx, 0.58, 0.56, lerp(1.38, 1.30, prog(t, 83.6, 90)), a * 0.55, "blur(5px) brightness(0.55) saturate(0.85)");
+  if (VBEST || NB) cover(IMG.izPav, 0.58, 0.56, lerp(1.06, 1.02, prog(t, 83.6, 90)), a * 0.5, "blur(6px) brightness(0.5) saturate(0.85)");
+  else if (V23) cover(IMG.izx, 0.58, 0.56, lerp(1.38, 1.30, prog(t, 83.6, 90)), a * 0.55, "blur(5px) brightness(0.55) saturate(0.85)");
   else cover(V2 ? IMG.d01on : IMG.conC, 0.5, 0.5, lerp(1.10, 1.04, prog(t, 84, 90)), a * (V2 ? 0.42 : 0.34), "blur(14px) brightness(0.62) saturate(0.8)");
   const v = ctx.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, 1100); v.addColorStop(0, "rgba(20,19,17,0.25)"); v.addColorStop(1, "rgba(12,11,10,0.86)"); ctx.globalAlpha = a; ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
   const l = smooth(prog(t, 84.6, 85.7));
@@ -259,7 +306,14 @@ function reveal(t, a) {
   const q = smooth(prog(t, 85.9, 87.0)); if (q > 0) { ctx.globalAlpha = q * 0.92; track("Exceptional furniture. Exceptional light.", W / 2, 652, 30, 0.08, 300, "center"); ctx.globalAlpha = 1; }
   const f = smooth(prog(t, 86.5, 87.6)); if (f > 0) { ctx.globalAlpha = f * 0.8; ctx.fillStyle = STONE; track("A concept for collaboration.", W / 2, 964, 20, 0.22, 300, "center"); ctx.globalAlpha = 1; }
 }
-const BNAME = { koda: null, occhio: ["OCCHIO", "Germany"], and: ["A-N-D", "Canada"], lodes: ["LODES", "Italy"], pablo: ["PABLO DESIGNS", "USA"], arkos: ["ARKOSLIGHT", "Spain"], era: ["OCCHIO", "Era · the new series"], lusso: ["OCCHIO", "Era lusso · the new series"] };
+const BNAME = { uma: ["PABLO DESIGNS", "Uma"], mini: ["PABLO DESIGNS", "Uma Mini"], dedon: ["DEDON", "at Cosh Living"], potocco: ["POTOCCO", "at Cosh Living"], koda: null, occhio: ["OCCHIO", "Germany"], and: ["A-N-D", "Canada"], lodes: ["LODES", "Italy"], pablo: ["PABLO DESIGNS", "USA"], arkos: ["ARKOSLIGHT", "Spain"], era: ["OCCHIO", "Era · the new series"], lusso: ["OCCHIO", "Era lusso · the new series"] };
+function bestLabels(t) {   // the maker's name appears as its passage begins and fades after a few seconds; lighter band
+  let i = -1; SHOTS.forEach((s, k) => { if (t >= s.t0 && t < s.t1) i = k; }); if (i < 0) return;
+  if (SHOTS[i].reveal) return; let j = i; const fam = (b) => (b === "mini" ? "uma" : b === "lusso" ? "era" : b); while (j > 0 && fam(SHOTS[j - 1].brand) === fam(SHOTS[i].brand)) j--;
+  const b = BNAME[SHOTS[i].brand]; if (!b) return; const a = fadeIO(t, SHOTS[j].t0 + 0.5, SHOTS[j].t0 + 4.2, 0.7, 0.9); if (a <= 0) return;
+  scrim(0.45 * a); ctx.fillStyle = IVORY; ctx.shadowColor = "rgba(0,0,0,0.45)"; ctx.shadowBlur = 18 * S; ctx.globalAlpha = a; track(b[0], 128, 960, 28, 0.34, 400); ctx.globalAlpha = a * 0.8; track(b[1], 130, 994, 18, 0.22);
+  ctx.globalAlpha = 1; ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
+}
 function brollOverlays(t) {
   let cur = null; for (const s of SHOTS) if (t >= s.t0 && t < s.t1) cur = s; const b = cur && BNAME[cur.brand]; if (!b) return;
   let a = 1; for (const s of SHOTS) if (s.brand !== cur.brand) { if (s.t0 > t) { a = Math.min(a, prog(s.t0 - t, 0, 0.18)); break; } }
@@ -267,6 +321,7 @@ function brollOverlays(t) {
   ctx.globalAlpha = 1; ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
 }
 function overlays(t) {
+  if (VBEST || NB) return bestLabels(t);
   if (ROLL) return brollOverlays(t);
   let need = 0; if (TITLES_ON) for (const [a, b] of TITLES) need = Math.max(need, fadeIO(t, a, b));
   if (!V23) for (const k in BRANDS) need = Math.max(need, fadeIO(t, BRANDS[k][2] + 0.25, BRANDS[k][3] - 0.05, 0.5, 0.45) * 0.8);
@@ -287,7 +342,7 @@ function overlays(t) {
 function draw(t) {
   ctx.setTransform(S, 0, 0, S, 0, 0); ctx.globalAlpha = 1; ctx.filter = "none"; ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
   for (const s of SHOTS) if (t >= s.t0 && t < s.t1) drawShot(s, t);
-  if (ROLL ? t < ROLL[ROLL.length - 1][0] * BAR : t < 84) { const v = ctx.createRadialGradient(W / 2, H / 2, 620, W / 2, H / 2, 1180); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,0.26)"); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); }
+  if (NB ? t < 22.5 * B2 : ROLL ? t < ROLL[ROLL.length - 1][0] * BAR : t < 84) { const v = ctx.createRadialGradient(W / 2, H / 2, 620, W / 2, H / 2, 1180); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,0.26)"); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); }
   overlays(t);
   const fo = prog(t, DUR - 0.7, DUR - 0.08); if (fo > 0) { ctx.fillStyle = `rgba(0,0,0,${smooth(fo)})`; ctx.fillRect(0, 0, W, H); }
   if (WM) { ctx.save(); ctx.globalAlpha = 0.5; ctx.fillStyle = IVORY; ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 8; track("INTERNAL REVIEW · NOT FOR DISTRIBUTION · KODA × COSH LIVING V2.3", W / 2, 56, 15, 0.28, 500, "center"); ctx.restore(); ctx.textAlign = "left"; }
@@ -304,7 +359,7 @@ window.ready = (async () => {
   buildConcepts(); await needs(0); draw(0); return true;
 })();
 /* ---------- leader and timecode (rough cuts only) ---------- */
-const CUTNAME = { film: V23 ? "KODA AT COSH LIVING · V2.3" : "KODA AT COSH LIVING", broll: "KODA BRANDS · B-ROLL", croll: "OCCHIO ERA · C-ROLL" }[CUT];
+const CUTNAME = { nb: "KODA AT COSH LIVING · B-ROLL · NOTHING IN OUR WAY", film: VBEST ? "KODA AT COSH LIVING · BEST OF" : V23 ? "KODA AT COSH LIVING · V2.3" : "KODA AT COSH LIVING", broll: "KODA BRANDS · B-ROLL", croll: "OCCHIO ERA · C-ROLL" }[CUT];
 function leader(t) {
   ctx.setTransform(S, 0, 0, S, 0, 0); ctx.globalAlpha = 1; ctx.filter = "none";
   const n = 3 - Math.floor(t), f = t % 1, fl = 0.92 + 0.08 * Math.sin(t * 91) * Math.sin(t * 37); ctx.fillStyle = `rgb(${46 * fl},${44 * fl},${41 * fl})`; ctx.fillRect(0, 0, W, H);
@@ -312,7 +367,7 @@ function leader(t) {
   ctx.strokeStyle = "rgba(243,238,228,0.75)"; ctx.lineWidth = 3; for (const r of [330, 390]) { ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); }
   ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(-W, 0); ctx.lineTo(W, 0); ctx.moveTo(0, -H); ctx.lineTo(0, H); ctx.stroke(); ctx.restore();
   ctx.fillStyle = IVORY; ctx.font = FONT(200, 420); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(n), W / 2, H / 2 + 22);
-  ctx.textBaseline = "alphabetic"; ctx.globalAlpha = 0.8; track(CUTNAME + (V23 ? " · REVIEW" : " · ROUGH CUT"), W / 2, 92, 22, 0.3, 400, "center"); ctx.globalAlpha = 1; ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic"; ctx.globalAlpha = 0.8; track(CUTNAME + (V23 || VBEST ? " · REVIEW" : " · ROUGH CUT"), W / 2, 92, 22, 0.3, 400, "center"); ctx.globalAlpha = 1; ctx.textAlign = "left";
   const r = rng(Math.floor(t * 25)); ctx.fillStyle = "rgba(243,238,228,0.28)"; for (let k = 0; k < 3; k++) ctx.fillRect(r() * W, 0, 1.2, H * r()); // scratches
 }
 function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let r = Math.imul(seed ^ (seed >>> 15), 1 | seed); r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r; return ((r ^ (r >>> 14)) >>> 0) / 4294967296; }; }
