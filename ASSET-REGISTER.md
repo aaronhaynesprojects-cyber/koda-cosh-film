@@ -122,3 +122,15 @@ Removed in Version 2.2:
 - the Lodes Random Solo merchandise wall
 
 The cliff villa "before" plate was regenerated.
+
+## Version 2.3 (21 November 2026): three environments, internal only
+
+| Time | Setting | Source | KODA piece | Treatment |
+|---|---|---|---|---|
+| 0:00–0:07 | Canyon pavilion, Spiritual Mountain | DEDON Spirit of Place render, `dedon-mood-spiritual-mountain-mbrace-mu-porcini-roii-the others.jpg` (4248 × 6000), DEDON press portal | none | Every lamp and room light dimmed out, graded to late dusk; DEDON's lanterns left in place, unlit |
+| 0:06–0:27 | Pergola dining table, same place | DEDON renders `…bellmonde-kida-ombii.jpg` (6000 × 6000) and `…-detail.jpg` (4244 × 6000) | Pablo Uma Mini ×2 (product image: KODA's Pablo feed, `Uma_Mini.png`) | DEDON's two 20 cm table lamps removed; Uma Mini (21.4 cm) stands in each place; DEDON's rendered light kept for the lit state, removed for the dark one |
+| 0:26–0:48 | Mu Mystique terrace | DEDON render `dedon-mood-mu-mystique-dusk.jpg` (6000 × 4248) | Pablo Uma (product image: KODA's Pablo feed, `Uma.png`) | Framed from x = 1000 so two DEDON lanterns stay out of shot; THE OTHERS lantern (59 cm) removed and its background rebuilt; Uma (35 cm) in its place with its own floor pool and mirror; fire put out for the dusk state |
+| 0:47–1:09 | Izar Houses dining hall | Potocco project photograph, `Izar-Houses__0cdd81c8-….jpg` (4200 × 2800), potocco.it | Occhio Era grande ×4, drawn to Occhio's render proportions and its look in Occhio's own film | Four cordless globe lamps (another maker) and their table reflections removed; house lights taken down for the dark state; captioned as Era only |
+| 1:09–1:30 | Izar Houses pavilion, exterior | Potocco project photograph, `Izar-Houses__b5a5179f-….jpg` (4200 × 2800) | none | Sky deepened about one stop; lit ceiling unchanged; signature over it, softened |
+
+Narration and music unchanged from V2.2: `audio/v23-marie-rocket.wav` and `audio/v23-marie-rocket-lead.wav` are byte-identical to `final-marie-rocket.wav` and `rough-marie-rocket.wav`. Nothing here is cleared for publication; see `docs/v2/V2.3-ASSESSMENT.md` section E.

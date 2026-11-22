@@ -4,6 +4,8 @@ const Q = new URLSearchParams(location.search), S = +(Q.get("s") || 1), REVIEW =
 const CUT = Q.get("cut") || "film";   // "film" = the 90 s concept film, "broll" = the 62 s footage-only reel
 const TITLES_ON = Q.get("titles") !== "0";  // the narrated cut drops the on-screen lines so they do not compete with the voice
 const V2 = Q.get("v") === "2";   // Version 2: manufacturer settings (DEDON, Potocco), darkness-to-light
+const V23 = Q.get("v") === "2.3"; // Version 2.3: art-direction rebuild — four acts, three environments, the transformation as the reason to watch
+const WM = Q.has("wm");           // review copies carry a watermark
 const LEAD = Q.has("lead") ? 3 : 0;  // rough cuts: a 3·2·1 leader, then burned-in timecode from 01:00:00:00
 const W = 1920, H = 1080, FPS = 25, DUR = { broll: 62, croll: 37 }[CUT] || 90, TOTAL = Math.round(FPS * (DUR + LEAD));
 const cv = document.getElementById("out"); cv.width = W * S; cv.height = H * S;
@@ -28,6 +30,8 @@ const STILLS = {
 };
 if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01-on.jpg", d02off: "src/v2/d02-off.jpg", d02on: "src/v2/d02-on.jpg", d03off: "src/v21/d03-off.jpg", d03on: "src/v21/d03-on.jpg",
   d04off: "src/v21/d04-off.jpg", d04on: "src/v21/d04-on.jpg", chelt: "src/v21/chelt.jpg", bedgold: "src/v21/bed-gold.jpg", beddusk: "src/v21/bed-dusk-on.jpg", d05: "src/v2/d05.jpg", d06: "src/v2/d06.jpg", d07: "src/v2/d07.jpg", p01: "src/v2/p01.jpg" });
+if (V23) Object.assign(STILLS, { canyon: "src/v23/canyon-dark.jpg", pergOff: "src/v23/perg-off.jpg", pergOn: "src/v23/perg-on.jpg", det: "src/v23/det-on.jpg",
+  muDusk: "src/v23/mu-dusk.jpg", muOn: "src/v23/mu-on.jpg", izOff: "src/v23/izar-off.jpg", izEra: "src/v23/izar-era.jpg", izOn: "src/v23/izar-on.jpg", izx: "src/v23/izarx.jpg" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
   e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
 const fcache = new Map();
@@ -176,6 +180,30 @@ if (V2 && !ROLL) {
   put(78.0, { x: 1.0, still: "d06", cam: K([0.5, 0.5, 1.08], [0.56, 0.52, 1.02]), credit: DE });
   put(81.0, { x: 1.0, still: "p01", cam: K([0.5, 0.5, 1.02], [0.5, 0.52, 1.08]), credit: PO });
 }
+/* Version 2.3: the environment is the hero, light is what changes it. Cuts fall on the bar lines of Rocket Jr (BAR). */
+if (V23 && !ROLL) {
+  const DE = "Setting: DEDON, Spirit of Place campaign (render)", PO = "Setting: Izar Houses, furnished by Potocco (photograph)";
+  const UMI = "Pablo Designs · Uma Mini", UMA = "Pablo Designs · Uma", ERA = "Occhio · Era grande";
+  SHOTS = [
+    // ACT I — DARKNESS: the canyon pavilion, then the table beneath its pergola, both before any light
+    { t0: 0, x: 2.2, still: "canyon", cam: K([0.5, 0.16, 1.0], [0.5, 0.70, 1.03]), credit: DE },
+    { t0: 6 * BAR / 2, x: 1.6, still: "pergOff", over: "pergOn", on: [12.0, 15.4], warm: 1, cam: K([0.50, 0.50, 1.00], [0.54, 0.52, 1.13]), credit: DE, product: UMI },
+    // ACT II — LET THERE BE LIGHT: what the light found
+    { t0: 9 * BAR, x: 1.3, still: "det", cam: K([0.44, 0.52, 1.03], [0.50, 0.49, 1.12]), credit: DE, product: UMI },
+    // ACT III — TRANSFORMATION: the desert terrace, from dusk into a night lit by the fire and one lantern
+    { t0: 12 * BAR, x: 1.6, still: "muDusk", over: "muOn", on: [27.6, 33.4], cam: K([0.46, 0.50, 1.00], [0.52, 0.50, 1.08]), credit: DE, product: UMA },
+    { t0: 16 * BAR, x: 0, still: "muOn", cam: K([0.61, 0.62, 1.42], [0.59, 0.63, 1.50]), credit: DE, product: UMA },
+    { t0: 19 * BAR, x: 0, still: "muOn", cam: K([0.36, 0.51, 1.46], [0.40, 0.52, 1.40]), credit: DE, product: UMA },
+    // the Izar Houses hall: dark, then Occhio's Era row, then the house itself
+    { t0: 22 * BAR, x: 1.4, still: "izOff", over: "izEra", on: [50.9, 52.9], over2: "izOn", on2: [54.1, 57.4], cam: K([0.50, 0.52, 1.00], [0.50, 0.58, 1.13]), credit: PO, product: ERA },
+    { t0: 28 * BAR, x: 0, still: "izOn", cam: K([0.42, 0.70, 1.34], [0.43, 0.68, 1.42]), credit: PO, product: ERA },
+    { t0: 29.5 * BAR, x: 0, still: "izOn", cam: K([0.64, 0.64, 1.55], [0.60, 0.62, 1.48]), credit: PO, product: ERA },
+    // ACT IV — THE COLLABORATION: the house from outside, resolved; then the signature
+    { t0: 32 * BAR, x: 1.8, still: "izx", cam: K([0.50, 0.50, 1.00], [0.53, 0.52, 1.07]), credit: PO },
+    { t0: 36 * BAR, x: 0, still: "izx", cam: K([0.62, 0.60, 1.30], [0.58, 0.58, 1.38]), credit: PO },
+    { t0: 39 * BAR, x: 1.4, reveal: true },
+  ];
+}
 SHOTS.forEach((s, i) => { const n = SHOTS[i + 1]; s.t1 = n ? n.t0 + n.x : DUR; });
 const BRANDS = { occhio: ["OCCHIO", "Germany", 26, 32], and: ["A-N-D", "Canada", 32, 38], lodes: ["LODES", "Italy", 38, 44], pablo: ["PABLO DESIGNS", "USA", 44, 50], arkos: ["ARKOSLIGHT", "Spain", 50, 56] };
 const TITLES = [
@@ -211,12 +239,14 @@ function drawShot(s, t) {
     let flt; if (s.dusk) { const d = smooth(prog(t, s.dusk[0], s.dusk[1])); flt = `brightness(${(1 - 0.5 * d).toFixed(3)}) saturate(${(1 - 0.35 * d).toFixed(3)}) hue-rotate(${(-14 * d).toFixed(1)}deg)`; }
     cover(IMG[s.still], fx, fy, z, a, flt);
     if (s.dusk) { const d = smooth(prog(t, s.dusk[0], s.dusk[1])); ctx.globalCompositeOperation = "multiply"; ctx.fillStyle = `rgba(${Math.round(255 - 120 * d)},${Math.round(255 - 95 * d)},255,${a})`; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = "source-over"; }
-    if (s.over) { const o = smooth(prog(t, s.on[0], s.on[1])); if (o > 0) cover(IMG[s.over], fx, fy, z, a * o); }
+    if (s.over) { const o = smooth(prog(t, s.on[0], s.on[1])); if (o > 0) cover(IMG[s.over], fx, fy, z, a * o, s.warm && o < 1 ? `sepia(${(0.32 * (1 - o)).toFixed(3)}) saturate(${(1 + 0.25 * (1 - o)).toFixed(3)})` : undefined); }
+    if (s.over2) { const o = smooth(prog(t, s.on2[0], s.on2[1])); if (o > 0) cover(IMG[s.over2], fx, fy, z, a * o); }
   }
 }
 function reveal(t, a) {
   ctx.globalAlpha = a; ctx.fillStyle = GRAPHITE; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
-  cover(V2 ? IMG.d01on : IMG.conC, 0.5, 0.5, lerp(1.10, 1.04, prog(t, 84, 90)), a * (V2 ? 0.42 : 0.34), "blur(14px) brightness(0.62) saturate(0.8)");
+  if (V23) cover(IMG.izx, 0.58, 0.56, lerp(1.38, 1.30, prog(t, 83.6, 90)), a * 0.55, "blur(5px) brightness(0.55) saturate(0.85)");
+  else cover(V2 ? IMG.d01on : IMG.conC, 0.5, 0.5, lerp(1.10, 1.04, prog(t, 84, 90)), a * (V2 ? 0.42 : 0.34), "blur(14px) brightness(0.62) saturate(0.8)");
   const v = ctx.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, 1100); v.addColorStop(0, "rgba(20,19,17,0.25)"); v.addColorStop(1, "rgba(12,11,10,0.86)"); ctx.globalAlpha = a; ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
   const l = smooth(prog(t, 84.6, 85.7));
   if (l > 0) { // the two identities, balanced either side of a hairline
@@ -239,16 +269,19 @@ function brollOverlays(t) {
 function overlays(t) {
   if (ROLL) return brollOverlays(t);
   let need = 0; if (TITLES_ON) for (const [a, b] of TITLES) need = Math.max(need, fadeIO(t, a, b));
-  for (const k in BRANDS) need = Math.max(need, fadeIO(t, BRANDS[k][2] + 0.25, BRANDS[k][3] - 0.05, 0.5, 0.45) * 0.8);
+  if (!V23) for (const k in BRANDS) need = Math.max(need, fadeIO(t, BRANDS[k][2] + 0.25, BRANDS[k][3] - 0.05, 0.5, 0.45) * 0.8);
   for (const s of SHOTS) if (s.concept) need = Math.max(need, fadeIO(t, s.on ? s.on[0] : s.t0 + 0.6, s.t1 - 0.3) * 0.5);
   if (need > 0) scrim(need);
   ctx.fillStyle = IVORY; ctx.shadowColor = "rgba(0,0,0,0.45)"; ctx.shadowBlur = 18 * S;
   if (TITLES_ON) for (const [a, b, text] of TITLES) { const o = fadeIO(t, a, b); if (o <= 0) continue; ctx.globalAlpha = o; ctx.fillRect(128, 918, 56 * smooth(prog(t, a, a + 1.2)), 1.5); track(text, 128, 972 + (1 - smooth(prog(t, a, a + 1.0))) * 6, 33, 0.30); }
-  for (const k in BRANDS) { const [name, place, a, b] = BRANDS[k], o = fadeIO(t, a + 0.25, b - 0.05, 0.5, 0.45); if (o <= 0) continue; ctx.globalAlpha = o; track(name, 128, 960, 31, 0.34, 400); ctx.globalAlpha = o * 0.8; track(place, 130, 997, 20, 0.22); }
+  if (!V23) for (const k in BRANDS) { const [name, place, a, b] = BRANDS[k], o = fadeIO(t, a + 0.25, b - 0.05, 0.5, 0.45); if (o <= 0) continue; ctx.globalAlpha = o; track(name, 128, 960, 31, 0.34, 400); ctx.globalAlpha = o * 0.8; track(place, 130, 997, 20, 0.22); }
   for (const s of SHOTS) if (s.concept) { const o = fadeIO(t, s.on ? s.on[0] : s.t0 + 0.6, s.t1 - 0.3); if (o <= 0) continue; ctx.globalAlpha = o * 0.86; track("Concept visualisation", W - 128, 996, 20, 0.2, 400, "right"); }
+  if (V23) { let p = null; for (const s of SHOTS) if (s.product && t >= s.t0 && t < s.t1) p = s; const nx = SHOTS[SHOTS.indexOf(p) + 1];
+    if (p) { let a0 = p.t0, b0 = p.t1; for (const s of SHOTS) if (s.product === p.product && s.t0 < p.t0 && s.t1 >= p.t0) a0 = Math.min(a0, s.t0); for (const s of SHOTS) if (s.product === p.product && s.t0 > p.t0) b0 = Math.max(b0, s.t1);
+      const o = fadeIO(t, a0 + 1.2, b0 - 0.6, 0.9, 0.6); if (o > 0) { ctx.globalAlpha = o * 0.80; track(p.product.toUpperCase(), W - 128, 972, 15, 0.22, 400, "right"); ctx.globalAlpha = o * 0.62; track("Concept visualisation", W - 128, 1000, 15, 0.16, 400, "right"); } } }
   for (const s of SHOTS) if (s.credit && t >= s.t0 && t < s.t1) { const o = fadeIO(t, s.t0 + 0.5, s.t1 - 0.2, 0.8, 0.5); if (o > 0) { ctx.globalAlpha = o * 0.72; track(s.credit, 128, 1000, 15, 0.16, 400); } }
   ctx.globalAlpha = 1; ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
-  const kl = fadeIO(t, 23.4, 26.25, 1.0, 0.5); // the KODA mark, from KODA's own vector logo
+  const kl = V23 ? 0 : fadeIO(t, 23.4, 26.25, 1.0, 0.5); // the KODA mark, from KODA's own vector logo
   if (kl > 0) { const h = 118, w = h * 227 / 60; ctx.globalAlpha = kl; ctx.drawImage(IMG.koda, W / 2 - w / 2, H / 2 - h / 2 - 10, w, h); ctx.globalAlpha = 1; }
 }
 function draw(t) {
@@ -257,8 +290,10 @@ function draw(t) {
   if (ROLL ? t < ROLL[ROLL.length - 1][0] * BAR : t < 84) { const v = ctx.createRadialGradient(W / 2, H / 2, 620, W / 2, H / 2, 1180); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,0.26)"); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); }
   overlays(t);
   const fo = prog(t, DUR - 0.7, DUR - 0.08); if (fo > 0) { ctx.fillStyle = `rgba(0,0,0,${smooth(fo)})`; ctx.fillRect(0, 0, W, H); }
+  if (WM) { ctx.save(); ctx.globalAlpha = 0.5; ctx.fillStyle = IVORY; ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 8; track("INTERNAL REVIEW · NOT FOR DISTRIBUTION · KODA × COSH LIVING V2.3", W / 2, 56, 15, 0.28, 500, "center"); ctx.restore(); ctx.textAlign = "left"; }
   if (REVIEW) {
-    let sc = SCENES[0]; for (const x of SCENES) if (t >= x[0]) sc = x;
+    const SC = V23 ? [[0, "ACT I · DARKNESS"], [11.8, "ACT II · LET THERE BE LIGHT"], [12 * BAR, "ACT III · TRANSFORMATION"], [32 * BAR, "ACT IV · THE COLLABORATION"]] : SCENES;
+    let sc = SC[0]; for (const x of SC) if (t >= x[0]) sc = x;
     const fr = Math.round(t * FPS), tc = `00:0${Math.floor(fr / FPS / 60)}:${String(Math.floor(fr / FPS) % 60).padStart(2, "0")}:${String(fr % FPS).padStart(2, "0")}`;
     ctx.fillStyle = "rgba(0,0,0,0.5)"; ctx.fillRect(W - 512, 34, 478, 34); ctx.fillStyle = "#f3eee4"; ctx.font = '500 17px "SF Mono", Menlo, monospace'; ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillText(`${sc[1]}   ${tc}`, W - 48, 52); ctx.textAlign = "left";
   }
@@ -269,7 +304,7 @@ window.ready = (async () => {
   buildConcepts(); await needs(0); draw(0); return true;
 })();
 /* ---------- leader and timecode (rough cuts only) ---------- */
-const CUTNAME = { film: "KODA AT COSH LIVING", broll: "KODA BRANDS · B-ROLL", croll: "OCCHIO ERA · C-ROLL" }[CUT];
+const CUTNAME = { film: V23 ? "KODA AT COSH LIVING · V2.3" : "KODA AT COSH LIVING", broll: "KODA BRANDS · B-ROLL", croll: "OCCHIO ERA · C-ROLL" }[CUT];
 function leader(t) {
   ctx.setTransform(S, 0, 0, S, 0, 0); ctx.globalAlpha = 1; ctx.filter = "none";
   const n = 3 - Math.floor(t), f = t % 1, fl = 0.92 + 0.08 * Math.sin(t * 91) * Math.sin(t * 37); ctx.fillStyle = `rgb(${46 * fl},${44 * fl},${41 * fl})`; ctx.fillRect(0, 0, W, H);
@@ -277,7 +312,7 @@ function leader(t) {
   ctx.strokeStyle = "rgba(243,238,228,0.75)"; ctx.lineWidth = 3; for (const r of [330, 390]) { ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.stroke(); }
   ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(-W, 0); ctx.lineTo(W, 0); ctx.moveTo(0, -H); ctx.lineTo(0, H); ctx.stroke(); ctx.restore();
   ctx.fillStyle = IVORY; ctx.font = FONT(200, 420); ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(String(n), W / 2, H / 2 + 22);
-  ctx.textBaseline = "alphabetic"; ctx.globalAlpha = 0.8; track(CUTNAME + " · ROUGH CUT", W / 2, 92, 22, 0.3, 400, "center"); ctx.globalAlpha = 1; ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic"; ctx.globalAlpha = 0.8; track(CUTNAME + (V23 ? " · REVIEW" : " · ROUGH CUT"), W / 2, 92, 22, 0.3, 400, "center"); ctx.globalAlpha = 1; ctx.textAlign = "left";
   const r = rng(Math.floor(t * 25)); ctx.fillStyle = "rgba(243,238,228,0.28)"; for (let k = 0; k < 3; k++) ctx.fillRect(r() * W, 0, 1.2, H * r()); // scratches
 }
 function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let r = Math.imul(seed ^ (seed >>> 15), 1 | seed); r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r; return ((r ^ (r >>> 14)) >>> 0) / 4294967296; }; }
