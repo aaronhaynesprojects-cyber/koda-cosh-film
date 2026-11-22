@@ -177,7 +177,7 @@ There is no signage and nothing floating, drawn or pasted on, and nothing from `
 
 | File | What | Source | Status | Notes |
 |---|---|---|---|---|
-| `audio/music-friction-saarah.mp3` | "Friction (Instrumental Version)", Saarah, 150.6 s | Epidemic Sound | Licence under Aaron's Epidemic Sound subscription to confirm for this use | Candidate track alongside Rocket Jr, Pulse Voyage and "Nothing in Our Way" |
+| `audio/music-friction-saarah.mp3` | "Friction (Instrumental Version)", Saarah, 150.6 s, 103 bpm | Epidemic Sound | Licence under Aaron's Epidemic Sound subscription to confirm for this use | Used in the best-of alternative (`audio/friction-mix.py` → `friction-film.wav`; with Marie via `vo-mix.py` → `final-marie-friction.wav`, −17.6 LUFS). The band enters at 0:17.1 with the Era switch-on, the calmer passage sits under the closing rooms, and the film ends on the track's own final hit. Joins are on the track's bar lines. The picture is cut to Rocket Jr's 112 bpm bar, so cuts land near Friction's beat but not on it. |
 | `audio/vo-alexandra.mp3` | Third read of the narration (same script as Marie and Mike), 83.4 s | Epidemic Sound voice "Alexandra" | As above | Word timings in `audio/vo-alexandra.words.json` (faster-whisper). "KODA" at the sign-off lasts **1.40 s** (72.86–74.26), so she spells it out (K-O-D-A); "KODA's" lasts 0.72 s, also longer than a spoken word (Marie: 0.16 s and 0.24 s). "Cosh" transcribes as "Koch" both times, so check it by ear. Marie remains the chosen voice. |
 
 ### Renders
@@ -185,6 +185,7 @@ There is no signage and nothing floating, drawn or pasted on, and nothing from `
 - `film/koda-at-cosh-living-BEST-OF-1080p.mp4`: clean review copy, no leader, no burnt-in timecode
 - `film/koda-at-cosh-living-BEST-OF-review-timecode-1080p.mp4`: same, with scene timecodes for notes
 - `film/koda-b-roll-nothing-in-our-way-1080p.mp4`: B-roll, clean
+- `film/koda-at-cosh-living-BEST-OF-friction-1080p.mp4` and `…-friction-review-timecode-1080p.mp4`: the same picture with Friction instead of Rocket Jr
 - `film/*-phone.mp4`: 720p phone copies, each under 30 MB
 
 Resolution note: the Era films are 4K masters; the KODA home-page films and Pablo/Lodes/Arkoslight stills are 1080p-class, so 1080p is the honest delivery resolution. No 4K master of these cuts is offered.
