@@ -203,3 +203,35 @@ Aaron chose the best-of with Rocket Jr and Marie (#1) and asked to bring back ho
 Dropped from the best-of in r2: the Arkoslight lens macro (Arkoslight stays at 0:36), the Occhio wall lights (Occhio stays as Era), and the Lodes gate (Lodes stays at 0:30 and 1:09).
 
 Renders: `film/koda-at-cosh-living-BEST-OF-r2-1080p.mp4`, `…-r2-review-timecode-1080p.mp4`, `…-r2-phone.mp4`. The r1 files are kept for comparison.
+
+## Best-of r3: KODA first, then Cosh Living (22 November 2026)
+
+Aaron liked r2 and asked for the sequence to be flipped into a new version cut front to back: the light first (KODA and its brands), then the rooms (Cosh Living's DEDON and Potocco). It's switched on with `v=best3`; r2 (`v=best`) is unchanged. Same material, same music bed (`audio/rocket-film.wav`) and the same Marie read, re-timed with `vo-mix.py … best3` → `audio/final-marie-rocket-best3.wav`. No new sources except those already listed for r2.
+
+| Time | Section | Shots | Narration |
+|---|---|---|---|
+| 0:00–0:05 | KODA, before light | KODA's showroom film, frames 1–40: the KODA mark in the dark | "Some spaces are designed to be seen." |
+| 0:05–0:28 | Occhio Era / Era lusso | Era amber, glass macro, ring, globe, crystal, gesture switch-on (0:17, the band enters), reading, dimming, Era lusso close-up and trio | "Others are designed to be felt." "The difference is light." "A world of extraordinary ideas," |
+| 0:28–0:39 | The collection | A-N-D ribbed glass and columns; Lodes living room; Pablo dining film; Arkoslight interior | "sculpted in glass," (A-N-D) "drawn in shadow," (Arkoslight) |
+| 0:39–0:55 | Pablo Uma / Uma Mini | Garden, Uma Mini, pool, terrace with friends, beach | "defined by the smallest detail." "Light that doesn't simply illuminate a space. It transforms it." |
+| 0:55–1:00 | The hinge: KODA | The same KODA shot resumes (frames 40–105): the showroom lights come up | "Now imagine two worlds coming together. KODA's passion for extraordinary light," |
+| 1:00–1:24 | Cosh Living, the rooms | DEDON Dala terrace; DEDON canyon pavilion; Potocco Izar hall; Potocco Izar pavilion; DEDON stone lodge; DEDON pergola dining | One line per room, from "Cosh Living's understanding of exceptional design" to "And something greater for both." |
+| 1:24–1:30 | End card | KODA × Cosh Living | "KODA at Cosh Living. Imagine what's possible." |
+
+KODA's showroom film is used once, split in two: the dark first half opens the film, and the lights coming up close the lighting half. Dropped compared with r2: the DEDON Mu Mystique terrace and the DEDON lake house (the lake house was the opening shot) and the Lodes garden path. The terrace was the clean original behind rejected frame 4.
+
+Renders: `film/koda-at-cosh-living-BEST-OF-r3-1080p.mp4`, `…-r3-review-timecode-1080p.mp4`, `…-r3-phone.mp4`.
+
+## Best-of r4: the lake-house hero shot at the hinge (22 November 2026)
+
+`v=best4` is r3 with a hero shot from 0:53.6 to 1:01. On "KODA's passion for extraordinary light" (0:57.75), the lights of DEDON's lake house come on, one group per beat. The Uma beach is shortened to one bar; DEDON Dala follows at 1:01 (with the "DEDON at Cosh Living" caption) under "Cosh Living's understanding of exceptional design". Narration: `vo-mix.py … best4` → `audio/final-marie-rocket-best4.wav`.
+
+| Time | Shot | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|
+| 0:53.6–1:01 | DEDON Secret Lakeside house at night. The camera is locked off. Night settles, the moon rises from behind the treeline to where DEDON placed it, and the house lights come on in four groups, left to right, on bar 27 of the score (0:57.88, 0:58.42, 0:58.95, 0:59.49) | DEDON press portal, `dedon-secret-lakeside-house-night.jpg` (6000 × 4252), band y 380–3755 → `src/hero/` by `tools/heroprep.py`; animated by `hero.js` (`hero.html`) → `fr/h_lake` (225 frames) | DEDON | DEDON to confirm | **Edited render, internal concept.** Nothing is drawn into the scene, and no fixture or furniture is added or changed. (1) A lights-off state is derived from DEDON's lit render by dimming each lit area smoothly, so its texture survives. (2) The light returns as DEDON's own (lit minus unlit), with a soft bloom. (3) DEDON's moon is lifted out and moved along its rise; the sky behind it is filled from the sky either side. (4) The picture settles about half a stop darker, with slightly more contrast. (5) The lake's existing reflections get a gentle ripple of 1–3 px. |
+
+Dropped compared with r3: KODA's showroom with its lights coming up (KODA's own film now appears once, dark, at the opening).
+
+Considered and not built: a sunset and a turning Milky Way over this plate. DEDON's sky is a bright blue-hour sky with lit clouds, so stars would have to be drawn in, and the result would read as composited. Aaron chose the lights and moon only (22 November 2026).
+
+Renders: `film/koda-at-cosh-living-BEST-OF-r4-1080p.mp4`, `…-r4-review-timecode-1080p.mp4`, `…-r4-phone.mp4`. The hero clip on its own: `out/hero-lake.mp4`.

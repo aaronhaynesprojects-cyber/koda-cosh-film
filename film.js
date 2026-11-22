@@ -6,7 +6,9 @@ const TITLES_ON = Q.get("titles") !== "0";  // the narrated cut drops the on-scr
 const V2 = Q.get("v") === "2";   // Version 2: manufacturer settings (DEDON, Potocco), darkness-to-light
 const V23 = Q.get("v") === "2.3"; // Version 2.3: art-direction rebuild — four acts, three environments, the transformation as the reason to watch
 const WM = Q.has("wm");           // review copies carry a watermark
-const VBEST = Q.get("v") === "best"; // Best-of: authentic manufacturer films and photographs only. No composites, nothing generated.
+const VBEST = ["best", "best3", "best4"].includes(Q.get("v")); // Best-of: authentic manufacturer films and photographs only. No composites, nothing generated.
+const R3 = Q.get("v") === "best3"; // best-of r3: the same material cut front to back as KODA first (the light), then Cosh Living (the rooms)
+const R4 = Q.get("v") === "best4"; // best-of r4: r3 with the hero shot at the hinge (DEDON lake house, moon rising, lights on with "KODA's passion"; hero.js)
 const NB = CUT === "nb";   // B-roll to "Nothing in Our Way" (Out To The World), 2:15.1 to the end of the track; 93.25 bpm, bar 2.5737 s
 const LEAD = Q.has("lead") ? 3 : 0;  // rough cuts: a 3·2·1 leader, then burned-in timecode from 01:00:00:00
 const W = 1920, H = 1080, FPS = 25, DUR = { broll: 62, croll: 37, nb: 63.4 }[CUT] || 90, TOTAL = Math.round(FPS * (DUR + LEAD));
@@ -39,7 +41,7 @@ if (VBEST || NB) Object.assign(STILLS, { dCanyon: "src/best/dedon-canyon.jpg", d
   uma1: "src/situ/pablo/Uma-In-Situ-1.png", uma11: "src/situ/pablo/Uma-In-Situ-11.png", uma8: "src/situ/pablo/Uma-In-Situ-8.png", mini13: "src/situ/pablo/Uma_Mini-In-Situ-13.png",
   mini11: "src/situ/pablo/Uma_Mini-In-Situ-11.png", uma10: "src/situ/pablo/Uma-In-Situ-10.png", uma6: "src/situ/pablo/Uma-In-Situ-6.png", uma5: "src/situ/pablo/Uma-In-Situ-5.png" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
-  e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33 };
+  e_macro: 34, e_ring: 31, e_gest: 69, e_carry: 60, e_dim: 112, e_crystal: 40, e_amber: 50, e_walk: 71, e_read: 44, e_on: 18, e_globe: 31, u_close: 46, u_logo: 23, u_side: 37, u_three: 57, u_hero: 21, u_low: 33, h_lake: 225 };
 const fcache = new Map();
 function frameImg(seq, i) {
   const key = seq + "/" + i; let p = fcache.get(key);
@@ -250,7 +252,30 @@ if (VBEST && !ROLL) {
     st(34 * BAR, 1.0, "izPav", "potocco"), st(36 * BAR, 1.0, "dLodge", "dedon"), st(37.5 * BAR, 1.0, "dPergola", "dedon", [0.5, 0.62, 1.0]),
     { t0: 39 * BAR, x: 1.4, reveal: true },
   ];
-  SHOTS.forEach((s, i) => { if (!s.seq) return; const n = SHOTS[i + 1], t1 = n ? n.t0 + n.x : DUR; s.sp = Math.min(1, (SEQN[s.seq] - 2 - (s.from || 0)) / ((t1 - s.t0) * FPS)); });
+  if (R3 || R4) SHOTS = [
+    // KODA — before, no light: KODA's own film, the mark in the dark (frames 1-40 of the showroom shot)
+    Object.assign(sq(0, 1.2, "k_open", "koda"), { z: 1.075, to: 40 }),
+    // OCCHIO ERA — Occhio's own 4K campaign films; "The difference is light", the band enters with the switch-on
+    sq(2.5 * BAR, 0.8, "e_amber", "era"), sq(4 * BAR, 0.6, "e_macro", "era"), sq(5 * BAR, 0, "e_ring", "era"), sq(11.55, 0, "e_globe", "era"), sq(14.2, 0, "e_crystal", "era"),
+    sq(8 * BAR, 0, "e_gest", "era"), sq(9 * BAR, 0, "e_read", "era"), sq(10 * BAR, 0, "e_dim", "era"), sq(11 * BAR, 0.4, "u_close", "lusso"), sq(12 * BAR, 0, "u_three", "lusso"),
+    // THE COLLECTION — "sculpted in glass" (A-N-D), Lodes, Pablo, "drawn in shadow" (Arkoslight)
+    sq(13 * BAR, 0.6, "a_flute", "and", 15), sq(14 * BAR, 0, "a_col", "and", 12), st(15 * BAR, 0.6, "lod9", "lodes"), sq(16 * BAR, 0.6, "p_dine", "pablo", 13), st(17 * BAR, 0.6, "ark1", "arkos"),
+    // PABLO UMA / UMA MINI — Pablo's own photographs
+    st(18 * BAR, 0.6, "uma1", "uma"), st(20 * BAR, 0.7, "mini13", "mini"), st(21 * BAR, 0.7, "uma10", "uma"), st(22 * BAR, 0.8, "uma6", "uma"), st(24 * BAR, 0.9, "uma5", "uma"),
+    ...(R4 ? [
+    // THE HINGE (r4) — the hero shot: DEDON's lake house, night settles, the moon rises, the lights come on beat by beat with "KODA's passion"
+    sq(25 * BAR, 0.8, "h_lake", "hero"),
+    st(28.5 * BAR, 0.8, "dDala", "dedon", [0.5, 0.6, 1.0]),
+    ] : [
+    // THE HINGE — the same KODA shot resumes: the showroom lights come up under "KODA's passion for extraordinary light"
+    Object.assign(sq(25.5 * BAR, 0.8, "k_open", "koda", 40), { z: 1.075 }),
+    // COSH LIVING — the rooms: DEDON and Potocco at dusk, from "Cosh Living's understanding of exceptional design" to the end card
+    st(28 * BAR, 0.8, "dDala", "dedon", [0.5, 0.6, 1.0]),
+    ]), st(30 * BAR, 1.0, "dCanyon", "dedon", [0.5, 0.64, 1.0]), st(32 * BAR, 1.0, "izHall", "potocco"),
+    st(34 * BAR, 1.0, "izPav", "potocco"), st(36 * BAR, 1.0, "dLodge", "dedon"), st(37.5 * BAR, 1.0, "dPergola", "dedon", [0.5, 0.62, 1.0]),
+    { t0: 39 * BAR, x: 1.4, reveal: true },
+  ];
+  SHOTS.forEach((s, i) => { if (!s.seq) return; const n = SHOTS[i + 1], t1 = n ? n.t0 + n.x : DUR; s.sp = Math.min(1, ((s.to ?? SEQN[s.seq] - 2) - (s.from || 0)) / ((t1 - s.t0) * FPS)); });
 }
 SHOTS.forEach((s, i) => { const n = SHOTS[i + 1]; s.t1 = n ? n.t0 + n.x : DUR; });
 const BRANDS = { occhio: ["OCCHIO", "Germany", 26, 32], and: ["A-N-D", "Canada", 32, 38], lodes: ["LODES", "Italy", 38, 44], pablo: ["PABLO DESIGNS", "USA", 44, 50], arkos: ["ARKOSLIGHT", "Spain", 50, 56] };

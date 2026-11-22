@@ -10,6 +10,12 @@ AT = [1.5, 5.6, 11.8, 26.5, 32.5, 38.5, 44.5, 50.6, 54.0, 56.6, 60.0, 63.9, 69.3
 # on Arkoslight, "the smallest detail" on Uma Mini, "KODA's passion" on KODA's own showroom film, "Cosh Living's understanding" on DEDON's Dala terrace,
 # "One shared vision" on the Potocco pavilion
 if "best" in sys.argv[4:]: AT = [1.5, 5.6, 11.8, 26.5, 30.4, 36.8, 43.3, 50.6, 54.0, 56.6, 60.5, 64.8, 69.3, 73.4, 75.8, 78.3, 81.2, 85.4, 87.6]
+# "best3": best-of r3, KODA first then Cosh. "Others are designed to be felt" on the Era lusso mesh, "sculpted in glass" on A-N-D, "drawn in shadow" on
+# Arkoslight, "Now imagine two worlds" into KODA's showroom as its lights come up, "KODA's passion" on KODA, then one line per Cosh room
+if "best3" in sys.argv[4:]: AT = [1.5, 5.6, 11.8, 26.5, 29.4, 36.8, 43.3, 47.7, 51.9, 53.9, 57.3, 60.6, 65.3, 69.6, 74.0, 78.0, 81.0, 85.4, 87.6]
+# "best4": r3 with the hero shot at the hinge; "KODA's passion" lands as the lake house lights come on (57.88 s, one group per beat),
+# "Cosh Living's understanding" on DEDON's Dala terrace
+if "best4" in sys.argv[4:]: AT = [1.5, 5.6, 11.8, 26.5, 29.4, 36.8, 43.3, 47.7, 51.9, 53.9, 57.75, 61.3, 65.3, 69.6, 74.0, 78.0, 81.0, 85.4, 87.6]
 raw = subprocess.run(["ffmpeg","-v","error","-i",f"audio/vo-{voice}.mp3","-f","f32le","-ar",str(SR),"-ac","1","-"],capture_output=True).stdout
 v = np.frombuffer(raw, dtype="<f4").astype(np.float64)
 # the script's lines, by word count, so a read with a short pause still splits in the right places
