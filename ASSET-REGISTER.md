@@ -235,3 +235,9 @@ Dropped compared with r3: KODA's showroom with its lights coming up (KODA's own 
 Considered and not built: a sunset and a turning Milky Way over this plate. DEDON's sky is a bright blue-hour sky with lit clouds, so stars would have to be drawn in, and the result would read as composited. Aaron chose the lights and moon only (22 November 2026).
 
 Renders: `film/koda-at-cosh-living-BEST-OF-r4-1080p.mp4`, `…-r4-review-timecode-1080p.mp4`, `…-r4-phone.mp4`. The hero clip on its own: `out/hero-lake.mp4`.
+
+## r3 review copy with countdown and timecode (22 November 2026)
+
+`film/koda-at-cosh-living-BEST-OF-r3-countdown-timecode-1080p.mp4` is 1920 × 1080 and 93 s: the 3-2-1 leader with its beep (`vo-mix.py … best3 lead` → `audio/final-marie-rocket-best3-lead.wav`), then the film with timecode burned in from 01:00:00:00. It has no scene labels. A 4K master was started and then cancelled at Aaron's request ("1080p is fine"); the partial file is `out/INCOMPLETE-r3-4K.mp4`.
+
+The DEDON and Potocco stills in `src/best/` are now 3840 px wide (Dala at its native 3508), each a plain downscale of the press original. They are drawn at 1080p as before; the larger files keep a 4K master possible later. In a 4K render, the moving clips would be 1080p detail (they're 1920 × 1080 frame sequences), as would the Pablo pool, terrace and beach photos and the Arkoslight still.
