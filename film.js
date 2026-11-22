@@ -35,7 +35,7 @@ if (V2) Object.assign(STILLS, { d01off: "src/v2/d01-off.jpg", d01on: "src/v2/d01
 if (V23) Object.assign(STILLS, { canyon: "src/v23/canyon-dark.jpg", pergOff: "src/v23/perg-off.jpg", pergOn: "src/v23/perg-on.jpg", det: "src/v23/det-on.jpg",
   muDusk: "src/v23/mu-dusk.jpg", muOn: "src/v23/mu-on.jpg", izOff: "src/v23/izar-off.jpg", izEra: "src/v23/izar-era.jpg", izOn: "src/v23/izar-on.jpg", izx: "src/v23/izarx.jpg" });
 if (VBEST || NB) Object.assign(STILLS, { dCanyon: "src/best/dedon-canyon.jpg", dLake: "src/best/dedon-lakehouse.jpg", dTerrace: "src/best/dedon-terrace.jpg", dPergola: "src/best/dedon-pergola.jpg",
-  dLodge: "src/best/dedon-lodge.jpg", izHall: "src/best/potocco-izar-hall.jpg", izPav: "src/best/potocco-izar-pavilion.jpg",
+  dLodge: "src/best/dedon-lodge.jpg", dDala: "src/best/dedon-dala.jpg", izHall: "src/best/potocco-izar-hall.jpg", izPav: "src/best/potocco-izar-pavilion.jpg",
   uma1: "src/situ/pablo/Uma-In-Situ-1.png", uma11: "src/situ/pablo/Uma-In-Situ-11.png", uma8: "src/situ/pablo/Uma-In-Situ-8.png", mini13: "src/situ/pablo/Uma_Mini-In-Situ-13.png",
   mini11: "src/situ/pablo/Uma_Mini-In-Situ-11.png", uma10: "src/situ/pablo/Uma-In-Situ-10.png", uma6: "src/situ/pablo/Uma-In-Situ-6.png", uma5: "src/situ/pablo/Uma-In-Situ-5.png" });
 const SEQN = { o_dim: 53, o_wide: 38, o_lit: 43, o_wall: 100, o_table: 80, k_open: 105, k_wide: 60, a_room: 65, a_flute: 55, a_chain: 43, a_col: 63, a_hall: 60, p_edge: 87, p_dine: 106, p_trio: 73, p_blue: 84, r_track: 30, r_ceil: 43, r_lens: 25, l_path: 108, l_pleat: 108, l_gate: 95, r_lens2: 70, r_ceil2: 105, o_pend2: 45, p_olive: 81,
@@ -242,8 +242,10 @@ if (VBEST && !ROLL) {
     st(13 * BAR, 0.6, "dTerrace", "dedon"), st(14 * BAR, 0.6, "lod9", "lodes"), sq(15 * BAR, 0.6, "p_dine", "pablo", 13), st(16 * BAR, 0.6, "izHall", "potocco"), st(17 * BAR, 0.6, "ark1", "arkos"),
     // PABLO UMA / UMA MINI — Pablo's own photographs
     st(18 * BAR, 0.6, "uma1", "uma"), st(20 * BAR, 0.7, "mini13", "mini"), st(21 * BAR, 0.7, "uma10", "uma"), st(22 * BAR, 0.8, "uma6", "uma"), st(24 * BAR, 0.9, "uma5", "uma"),
-    // ARCHITECTURAL LIGHTING — A-N-D, Arkoslight, Occhio Luna, Lodes
-    sq(26 * BAR, 0.6, "a_flute", "and", 15), sq(27 * BAR, 0, "a_col", "and", 12), sq(28 * BAR, 0.6, "r_lens2", "arkos"), sq(30 * BAR, 0.6, "o_wall", "occhio", 42), sq(31 * BAR, 0.6, "l_gate", "lodes", 2), sq(32 * BAR, 0, "l_path", "lodes", 2),
+    // ARCHITECTURAL LIGHTING — A-N-D; then the two worlds by name: KODA's own showroom film under "KODA's passion for extraordinary light",
+    // DEDON's Dala terrace under "Cosh Living's understanding of exceptional design"; Lodes
+    sq(26 * BAR, 0.6, "a_flute", "and", 15), sq(27 * BAR, 0, "a_col", "and", 12), Object.assign(sq(28 * BAR, 0.6, "k_open", "koda"), { z: 1.075 }),
+    st(30 * BAR, 0.8, "dDala", "dedon", [0.5, 0.6, 1.0]), sq(32 * BAR, 0.6, "l_path", "lodes", 2),
     // THE COLLABORATION — Cosh Living's furniture brands, lit
     st(34 * BAR, 1.0, "izPav", "potocco"), st(36 * BAR, 1.0, "dLodge", "dedon"), st(37.5 * BAR, 1.0, "dPergola", "dedon", [0.5, 0.62, 1.0]),
     { t0: 39 * BAR, x: 1.4, reveal: true },

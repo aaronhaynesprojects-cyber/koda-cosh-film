@@ -189,3 +189,17 @@ There is no signage and nothing floating, drawn or pasted on, and nothing from `
 - `film/*-phone.mp4`: 720p phone copies, each under 30 MB
 
 Resolution note: the Era films are 4K masters; the KODA home-page films and Pablo/Lodes/Arkoslight stills are 1080p-class, so 1080p is the honest delivery resolution. No 4K master of these cuts is offered.
+
+## Best-of r2: restoring the KODA sell (22 November 2026)
+
+Aaron chose the best-of with Rocket Jr and Marie (#1) and asked to bring back how the first three reels sold KODA (see `docs/KODA-SELL-COMPARISON.md`). R1–R3 are built here. The picture order is otherwise unchanged.
+
+| Time | Change | Source | Owner | Status | Altered? |
+|---|---|---|---|---|---|
+| 1:00–1:04 | **R1.** KODA's own showroom film replaces the Arkoslight lens macro: the KODA mark on black, then on the showroom glass at night, then the lights come up. It sits under "KODA's passion for extraordinary light". | kodalighting.com home page, Shopify video 628ed733 (`fr/k_open`, the shot V2.2 kept; none of the crowded event footage) | KODA Lighting | KODA to confirm | 7.5 % push-in to hide the black strip at the top of KODA's frame, as in V1 |
+| 1:04–1:09 | **R2.** DEDON Dala lounge terrace at dusk replaces the Occhio wall lights and the soft Lodes gate clip, under "Cosh Living's understanding of exceptional design" | DEDON press portal, `dedon-mood-mysterious-desert-dala.jpg` (3508 × 2480) → `src/best/dedon-dala.jpg` (2560 px, plain downscale) | DEDON | DEDON to confirm | No |
+| whole film | **R3.** Narration re-timed for this cut only (`vo-mix.py … best` → `audio/final-marie-rocket-best.wav`; the V1 mix is untouched): "sculpted in glass" 0:30.4 on the Lodes glass globes; "drawn in shadow" 0:36.8 on Arkoslight; "defined by the smallest detail" 0:43.3 on Uma Mini; "KODA's passion" 1:00.5 on KODA; "Cosh Living's understanding" 1:04.8 on DEDON; "One shared vision" 1:13.4 on the Potocco pavilion; "New possibilities for designers" 1:15.8 | Marie read, unchanged | Epidemic Sound | As before | Placement only |
+
+Dropped from the best-of in r2: the Arkoslight lens macro (Arkoslight stays at 0:36), the Occhio wall lights (Occhio stays as Era), and the Lodes gate (Lodes stays at 0:30 and 1:09).
+
+Renders: `film/koda-at-cosh-living-BEST-OF-r2-1080p.mp4`, `…-r2-review-timecode-1080p.mp4`, `…-r2-phone.mp4`. The r1 files are kept for comparison.

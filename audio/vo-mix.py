@@ -6,6 +6,10 @@ voice, music, outp = sys.argv[1:4]; LEAD = "lead" in sys.argv[4:]; NONAME = "non
 # noname: both reads spell the name out letter by letter, so this drops "KODA's" from line 11 and the whole of line 18 (the end card shows the name instead)
 # programme time each line starts at, in the order spoken
 AT = [1.5, 5.6, 11.8, 26.5, 32.5, 38.5, 44.5, 50.6, 54.0, 56.6, 60.0, 63.9, 69.3, 72.1, 75.4, 78.3, 81.2, 85.4, 87.6]
+# "best": the best-of cut (v=best). Same read, lines moved onto their pictures: "sculpted in glass" on the Lodes glass globes, "drawn in shadow"
+# on Arkoslight, "the smallest detail" on Uma Mini, "KODA's passion" on KODA's own showroom film, "Cosh Living's understanding" on DEDON's Dala terrace,
+# "One shared vision" on the Potocco pavilion
+if "best" in sys.argv[4:]: AT = [1.5, 5.6, 11.8, 26.5, 30.4, 36.8, 43.3, 50.6, 54.0, 56.6, 60.5, 64.8, 69.3, 73.4, 75.8, 78.3, 81.2, 85.4, 87.6]
 raw = subprocess.run(["ffmpeg","-v","error","-i",f"audio/vo-{voice}.mp3","-f","f32le","-ar",str(SR),"-ac","1","-"],capture_output=True).stdout
 v = np.frombuffer(raw, dtype="<f4").astype(np.float64)
 # the script's lines, by word count, so a read with a short pause still splits in the right places
