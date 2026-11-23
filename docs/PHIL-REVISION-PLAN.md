@@ -35,7 +35,7 @@
 
 **Cosh Living** is the correct name (coshliving.com.au; it's already on the end card). "Kosh Living" is only a transcription.
 
-## 2. Proposed reel: about 2:00 (for Aaron's approval)
+## 2. Proposed reel: about 2:00 (length approved by Aaron, 23 Nov)
 
 | # | Section | Time | Content |
 |---|---|---|---|
@@ -94,10 +94,11 @@ If the original memo audio is available, the quickest fix is to re-transcribe it
 7. Is **"Pantea"** the Pablo **Pantaya**?
 8. The full list of KODA brands, for the carousel and the logo wall.
 
-**For Aaron:**
-- Total length (about 2:00 proposed).
-- Music track.
-- Section 3 option (a, b or c).
+**Aaron's decisions (23 Nov):**
+- Length about 2:00: approved.
+- Music: Rocket Jr as a placeholder; Aaron will supply the final track. The cut is laid out in bars so it re-times to the new track.
+- Section 3: to be decided 24 Nov.
+- Big Ass Fans: in the carousel.
 
 ## 5. Assets to request from Phil / KODA
 
