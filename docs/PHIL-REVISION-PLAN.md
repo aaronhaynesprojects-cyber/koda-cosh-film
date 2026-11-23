@@ -98,7 +98,7 @@ If the original memo audio is available, the quickest fix is to re-transcribe it
 - Length about 2:00: approved.
 - Music: Rocket Jr as a placeholder; Aaron will supply the final track. The cut is laid out in bars so it re-times to the new track.
 - Section 3: to be decided 24 Nov.
-- Big Ass Fans: in the carousel.
+- Big Ass Fans: out ("keep it design savvy"). The carousel is 12 lighting brands.
 
 ## 5. Assets to request from Phil / KODA
 

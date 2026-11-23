@@ -41,11 +41,11 @@ Save everything to `src/phil/<brand>/<product>/`, and log the page URL and date 
 
 **Carousel only: one signature shot and a logo each**
 - [ ] **Occhio** and **Arkoslight**: already on hand. Nothing needed.
-- [ ] **Inverlight**, **Flexxica**, **Big Ass Fans**: one hero image or clip each, plus logo. Big Ass Fans is in (Aaron, 23 Nov): pick a premium lifestyle shot, such as a Haiku fan in a residential interior or on an outdoor terrace.
+- [ ] **Inverlight**, **Flexxica**: one hero image or clip each, plus logo. Big Ass Fans is out (Aaron: "keep it design savvy").
 
 **Logos: vector, light version for dark backgrounds**
 - [ ] On hand: KODA, Cosh, Occhio, Lodes, Arkoslight, A-N-D, Pablo.
-- [ ] Missing: **Brokis, a-emotional light, David Pompa, RBW, MUG, Inverlight, Flexxica, Big Ass Fans**. Get them from each brand's press or media page, or from Phil.
+- [ ] Missing: **Brokis, a-emotional light, David Pompa, RBW, MUG, Inverlight, Flexxica**. Get them from each brand's press or media page, or from Phil.
 
 **For each video, record:** source page, resolution, length, and the in/out of the best 4–8 s of the product lit in a room. Prefer warm or amber states and real settings. Skip clips with burned-in text or logos where a clean version exists.
 
@@ -58,8 +58,8 @@ Save everything to `src/phil/<brand>/<product>/`, and log the page URL and date 
 | Bars | Time | Shot | On screen |
 |---|---|---|---|
 | 0–1 | 0:00–0:02 | Black, then KODA mark | KODA |
-| 1–14 | 0:02–0:30 | **One bar per brand** (13 brands), each its signature lit-room shot (moving footage where we have it) | Brand logo, small, lower left, light on dark scrim |
-| 14–16 | 0:30–0:34 | **Logo wall:** every brand logo on graphite, fading in one per beat, then holding | "KODA · the collection" (small) |
+| 1–13 | 0:02–0:28 | **One bar per brand** (12 brands), each its signature lit-room shot (moving footage where we have it) | Brand logo, small, lower left, light on dark scrim |
+| 13–15 | 0:28–0:32 | **Logo wall:** every brand logo on graphite, fading in one per beat, then holding | "KODA · the collection" (small) |
 
 **Brand order** (outdoor and Cosh-relevant first, so it flows into section 2):
 1. Lodes (Stitch terrace)
@@ -74,9 +74,10 @@ Save everything to `src/phil/<brand>/<product>/`, and log the page URL and date 
 10. MUG (Charlotte)
 11. Inverlight
 12. Flexxica
-13. Big Ass Fans (Aaron: "Sure, why not")
 
-**Logo wall layout:** 5 + 4 + 4 grid (13 logos) at 1920 × 1080, logos in ivory (#F3EEE4) on graphite (#1B1A18), each normalised to the same optical height (about 70 px). Logos fade in over 0.3 s, one per beat, in the carousel order, then hold for 1.5 s. Nothing moves except the fades, which keeps it premium.
+Big Ass Fans is **out**, to keep the carousel design-led (Aaron, 23 Nov).
+
+**Logo wall layout:** 4 × 3 grid (12 logos) at 1920 × 1080, logos in ivory (#F3EEE4) on graphite (#1B1A18), each normalised to the same optical height (about 70 px). Logos fade in over 0.3 s, one per beat, in the carousel order, then hold for 1.5 s. Nothing moves except the fades, which keeps it premium.
 
 **Rules:** no product cut-outs on black; real settings only. Each brand gets exactly one shot. Captions are brand logo only, with no product names (those come in section 2).
 
@@ -95,4 +96,4 @@ Save everything to `src/phil/<brand>/<product>/`, and log the page URL and date 
 - **Length:** about 2:00. Approved.
 - **Music:** Rocket Jr as a **placeholder only**; Aaron will supply the final track. The timeline is laid out in bars (shots and captions are set in bars and beats, not seconds), so the new track only needs its tempo and downbeat, and everything re-times to it.
 - **The KODA + Cosh close:** to be decided tomorrow (24 Nov).
-- **Big Ass Fans:** in. It joins the carousel as brand 13, after Flexxica, and goes on the logo wall. At one bar per brand, the carousel runs about 32 s.
+- **Big Ass Fans:** out, to keep it design-led. The carousel is **12 lighting brands**, about 30 s, then the logo wall.
