@@ -11,3 +11,4 @@ audio/*.mp3
 audio/*.wav
 chrome-prof-*
 .DS_Store
+work/ltx/

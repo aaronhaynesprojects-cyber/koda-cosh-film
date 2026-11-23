@@ -37,14 +37,14 @@
 
 ## 2. Proposed reel: about 2:00 (length approved by Aaron, 23 Nov)
 
+**Structure as revised by Aaron, 24 Nov:** an establishing shot, then the brands fly in and assemble into a board (replacing the carousel), then a montage of Phil's hero lights mixed with Cosh Living furniture hero images, then the close.
+
 | # | Section | Time | Content |
 |---|---|---|---|
-| 0 | Open | 0:00–0:04 | Dark to light: one held manufacturer shot with a slow light-up (an Occhio Era switch-on or the a-emotional Clouds). |
-| 1 | Brand carousel | 0:04–0:34 | Each KODA brand for about one bar (2.1 s): its signature shot with its logo. It ends on a **logo wall**, every brand on one card, held for about 3 s. |
-| 2a | Breadth | 0:34–0:50 | Fast cuts, one beat (0.54 s) per product, through every hero product in the order below. |
-| 2b | Depth | 0:50–1:42 | A longer beat (4–8 s) on each product in a real setting. Outdoor and Cosh-relevant pieces lead. |
-| 3 | Together | 1:42–1:57 | KODA lighting in Cosh's own spaces (showroom, rooftop). See section 4. |
-| 4 | End card | 1:57–2:02 | KODA × Cosh Living. |
+| 0 | Establishing | 0:00–0:09 | The DEDON desert cliff villa, day to night: the sun sets, a star-filled Milky Way wheels across the sky, and the villa's lights come on. Generated with **LTX-2** (image-to-video from DEDON's daylight render) on a RunPod GPU. Tagline over the end: **"Let There Be Light: KODA at Cosh Living"**. |
+| 1 | Brands fly-in | 0:09–0:30 | The 12 KODA brand logos fly in one by one out of deep space, each holding then rushing past camera (in the manner of the 1978 *Superman* titles, in KODA's ivory and warm amber). The first four get a bar each and the last eight half a bar each, so it builds. Then all twelve fly back in and **assemble into the board** on a downbeat, with "KODA · THE COLLECTION" under it. 10 bars. Built: `tools/logowall.html`. |
+| 2 | Hero montage | 0:30–1:45 | Phil's hero lights, in the order in section 2b below, with Cosh Living furniture hero images cut between them. Moving footage where the brands have it; held stills otherwise; portrait gallery stills as diptychs. |
+| 3 | Close | 1:45–2:00 | KODA + Cosh close (to be decided by Aaron), then the KODA × Cosh Living end card. |
 
 ### Section 2b order and beats (about 52 s)
 

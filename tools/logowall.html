@@ -1,0 +1,136 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>KODA brands fly-in</title>
+<style>html,body{margin:0;background:#1b1a18}canvas{display:block}</style>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<script>
+// KODA brands: each logo flies in out of deep space, holds, and rushes past camera (in the manner of the 1978 Superman
+// titles), one every half bar; then all twelve fly back in and assemble into the board, landing on a downbeat.
+// Laid out on the music grid (BPM below) so it re-times to Aaron's final track. Logos are KODA's own brand logos
+// (kodalighting.com/pages/brands; Occhio from occhio.com), tinted ivory. Usage: PAGE=tools/logowall.html node render.mjs ...
+const W = 1920, H = 1080, FPS = 25, BPM = 112, BEAT = 60 / BPM, BAR = 4 * BEAT;
+const IVORY = "#f3eee4", STONE = "#cfc6b6", GRAPHITE = "#1b1a18", AMBER = "#e9b776";
+const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
+// cadence accelerates: the first four brands get a bar each, the next eight half a bar each (bars 0-8)
+const START = [0, 1, 2, 3, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5].map((b) => b * BAR);
+const T_ASSEMBLE = 8 * BAR;                  // all twelve fly back in from here...
+const LAND = 9 * BAR;                        // ...and the last lands on bar 9's downbeat
+const END = 10 * BAR;                        // board holds to the end of bar 10
+const TOTAL = Math.round(END * FPS);
+// carousel order (outdoor and Cosh-relevant first); vb = SVG viewBox w,h; k = optical tweak
+const LOGOS = [
+  { n: "lodes", f: "lodes.svg", vb: [363, 110], k: 0.95 },
+  { n: "a-emotional light", f: "a-emotional-light.png", k: 1.05 },
+  { n: "A-N-D", f: "a-n-d.png", k: 0.9 },
+  { n: "Brokis", f: "brokis.webp", k: 0.95 },
+  { n: "Occhio", f: "occhio.svg", vb: [81, 20], k: 1.0 },
+  { n: "Pablo", f: "pablo-hi.webp", k: 0.95 },
+  { n: "Arkoslight", f: "arkoslight.png", k: 1.05 },
+  { n: "David Pompa", f: "david-pompa.png", k: 1.05 },
+  { n: "RBW", f: "rbw.webp", k: 0.95 },
+  { n: "MUG", f: "mug.svg", vb: [361.85, 125.82], k: 1.25 },
+  { n: "Inverlight", f: "inverlight.webp", k: 1.0 },
+  { n: "Flexxica", f: "flexxica.svg", vb: [130.441, 46.754], k: 1.0 },
+];
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, u) => a + (b - a) * u;
+const easeOut = (u) => 1 - Math.pow(1 - clamp(u), 3), easeIn = (u) => Math.pow(clamp(u), 3);
+
+function load(src) { return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; }); }
+function tinted(src, colour) { const c = document.createElement("canvas"); c.width = src.width; c.height = src.height; const x = c.getContext("2d"); x.drawImage(src, 0, 0); x.globalCompositeOperation = "source-in"; x.fillStyle = colour; x.fillRect(0, 0, c.width, c.height); return c; }
+async function prep(L) {
+  const img = await load("../src/phil/logos/" + L.f);
+  const w = L.vb ? 2400 : img.naturalWidth, h = L.vb ? Math.round(2400 * L.vb[1] / L.vb[0]) : img.naturalHeight;
+  const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d"); x.drawImage(img, 0, 0, w, h);
+  const d = x.getImageData(0, 0, w, h).data; let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y++) for (let i = 0; i < w; i++) if (d[(y * w + i) * 4 + 3] > 12) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  const t = document.createElement("canvas"); t.width = x1 - x0 + 1; t.height = y1 - y0 + 1; t.getContext("2d").drawImage(c, -x0, -y0);
+  L.iv = tinted(t, IVORY); L.am = tinted(t, AMBER); L.w0 = t.width; L.h0 = t.height;
+  // board size: equal optical area, clamped
+  const a = t.width / t.height, S = 112 * L.k; let bw = S * Math.sqrt(a), bh = S / Math.sqrt(a);
+  if (bw > 290) { bw = 290; bh = bw / a; } if (bh > 104) { bh = 104; bw = bh * a; }
+  L.bw = bw; L.bh = bh;
+  let hw = bw * 3.0, hh = bh * 3.0; if (hw > 860) { hh *= 860 / hw; hw = 860; } if (hh > 320) { hw *= 320 / hh; hh = 320; }
+  L.hw = hw; L.hh = hh; L.up = hw / t.width;                 // >1 means the source is being enlarged at the hold
+}
+// board grid: 4 x 3, centred a touch above middle
+const COLS = 4, CW = 400, RH = 200, GX = (W - COLS * CW) / 2 + CW / 2, GY = H / 2 - 30 - RH;
+LOGOS.forEach((L, i) => { L.sx = GX + (i % COLS) * CW; L.sy = GY + Math.floor(i / COLS) * RH; });
+// deep-space dust: deterministic points drifting toward camera
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const DUST = Array.from({ length: 320 }, () => ({ x: (rnd() - 0.5) * 2.2, y: (rnd() - 0.5) * 1.4, z: rnd() }));
+function dust(t, a) {
+  ctx.fillStyle = IVORY;
+  for (const p of DUST) {
+    const z = 1 - ((p.z + t * 0.035) % 1);                    // 1 far .. 0 near
+    const zz = 0.08 + z * 1.6, X = W / 2 + p.x * W * 0.5 / zz, Y = H / 2 + p.y * W * 0.5 / zz;
+    if (X < -4 || X > W + 4 || Y < -4 || Y > H + 4) continue;
+    ctx.globalAlpha = a * clamp(0.05 + (1 - z) * 0.3) * clamp(z * 6); const r = 0.6 + (1 - z) * 1.3;
+    ctx.fillRect(X - r / 2, Y - r / 2, r, r);
+  }
+  ctx.globalAlpha = 1;
+}
+// a single brand's solo flight: returns {s, a} (scale relative to hold size, alpha) at local time u
+// lifecycle as fractions of the brand's slot: approach ends, hold ends, exit ends
+function solo(u, d) {
+  const A1 = 0.37 * d, H1 = 0.8 * d, X1 = 0.98 * d;
+  if (u < 0 || u > X1) return null;
+  if (u < A1) { const e = easeOut(u / A1); return { s: 1 / lerp(46, 1, e), a: clamp(u / 0.1), x: 0 }; }
+  if (u < H1) return { s: lerp(1, 1.05, (u - A1) / (H1 - A1)), a: 1, x: 0 };
+  const e = easeIn((u - H1) / (X1 - H1)); const s = lerp(1.05, 10, e); return { s, a: clamp(1 - (s - 1.6) / 4), x: 1 };
+}
+// assembly flight for brand i: projected from deep space onto its board slot
+const AF = 0.9, AST = (LAND - T_ASSEMBLE - AF) / (LOGOS.length - 1);
+function assemble(i, t) {
+  const u = t - (T_ASSEMBLE + i * AST); if (u < 0) return null;
+  const e = easeOut(u / AF), inv = 1 / lerp(46, 1, e);       // inv = 1/z
+  return { inv, a: clamp(u / 0.1) };
+}
+function blit(L, im, cx, cy, w, h, a) { if (a <= 0.003 || w < 0.5) return; ctx.globalAlpha = clamp(a); ctx.drawImage(im, cx - w / 2, cy - h / 2, w, h); }
+function draw(t) {
+  ctx.globalCompositeOperation = "source-over"; ctx.globalAlpha = 1; ctx.fillStyle = GRAPHITE; ctx.fillRect(0, 0, W, H);
+  const vg = ctx.createRadialGradient(W / 2, H / 2, 200, W / 2, H / 2, 1150); vg.addColorStop(0, "rgba(40,37,33,0.55)"); vg.addColorStop(1, "rgba(0,0,0,0.55)");
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+  dust(t, clamp(t / 0.8) * clamp((END - t) / 0.4 + 0.6));
+  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+  const cx = W / 2, cy = H / 2 - 10;
+  // solo flights
+  LOGOS.forEach((L, i) => {
+    const d = (START[i + 1] ?? T_ASSEMBLE) - START[i], u = t - START[i]; const st = solo(u, d); if (!st) return;
+    // streak: earlier positions along the flight, warm and additive
+    ctx.globalCompositeOperation = "lighter";
+    for (let k = 1; k <= 16; k++) {
+      const p = solo(u - k * 0.011, d), q = solo(u - (k - 1) * 0.011, d); if (!p || !q) break;
+      const speed = Math.abs(q.s - p.s) / q.s; if (speed < 0.004) break;
+      blit(L, L.am, cx, cy, L.hw * p.s, L.hh * p.s, st.a * (st.x ? 0.22 : 0.42) * Math.pow(1 - k / 17, 1.6) * clamp(speed * 30));
+    }
+    ctx.globalCompositeOperation = "source-over";
+    ctx.shadowColor = "rgba(243,238,228,0.35)"; ctx.shadowBlur = 18;
+    blit(L, L.iv, cx, cy, L.hw * st.s, L.hh * st.s, st.a); ctx.shadowBlur = 0; ctx.shadowColor = "transparent";
+  });
+  // assembly
+  LOGOS.forEach((L, i) => {
+    const st = assemble(i, t); if (!st) return;
+    const P = (inv) => [cx + (L.sx - cx) * inv, cy + (L.sy - cy) * inv];
+    ctx.globalCompositeOperation = "lighter";
+    for (let k = 1; k <= 14; k++) {
+      const p = assemble(i, t - k * 0.012), q = assemble(i, t - (k - 1) * 0.012); if (!p || !q) break;
+      const speed = Math.abs(q.inv - p.inv) / q.inv; if (speed < 0.003) break;
+      const [x, y] = P(p.inv); blit(L, L.am, x, y, L.bw * p.inv, L.bh * p.inv, st.a * 0.4 * Math.pow(1 - k / 15, 1.6) * clamp(speed * 30));
+    }
+    ctx.globalCompositeOperation = "source-over";
+    const [x, y] = P(st.inv); blit(L, L.iv, x, y, L.bw * st.inv, L.bh * st.inv, st.a);
+  });
+  // caption under the board once it has landed
+  const ca = clamp((t - LAND - 0.15) / 0.6) * clamp((END - t) / 0.3 + 1);
+  if (ca > 0) {
+    ctx.globalAlpha = ca * 0.85; ctx.fillStyle = STONE; ctx.font = FONT(300, 22); ctx.letterSpacing = "7px"; ctx.textAlign = "center";
+    ctx.fillText("KODA  ·  THE COLLECTION", W / 2 + 3.5, GY + 3 * RH + 70); ctx.letterSpacing = "0px"; ctx.globalAlpha = 1;
+  }
+}
+window.TOTAL = TOTAL;
+window.ready = (async () => { await Promise.all(LOGOS.map(prep)); window.stats = LOGOS.map((L) => [L.n, L.w0, L.h0, +L.up.toFixed(2)]); return true; })();
+window.frame = async (i, q = 0.93) => { draw(i / FPS); return cv.toDataURL("image/jpeg", q).slice(23); };
+window.png = async (t) => { draw(t); return cv.toDataURL("image/png").slice(22); };
+</script>

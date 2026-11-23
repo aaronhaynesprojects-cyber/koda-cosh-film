@@ -51,7 +51,11 @@ Save everything to `src/phil/<brand>/<product>/`, and log the page URL and date 
 
 **Fallback per product:** if no film exists, use KODA's in-situ stills (section 1) as held stills, with no fake camera moves. If there's no in-situ still either, use a placeholder card `[ASSET NEEDED: …]`.
 
-## 3. Brand carousel scene (about 30 s)
+## 3. Brand carousel scene (about 30 s): replaced 24 Nov
+
+> **Replaced (Aaron, 24 Nov):** the carousel is now a **logo fly-in**. Each brand logo flies in Superman-style, then all twelve assemble into the board, then the hero montage follows. It's built in `tools/logowall.html`, and the preview is `out/phil-brands-flyin-review.mp4`.
+> - **Logos:** all 12 are from KODA's brands page (`src/phil/logos/`), with Occhio's vector from occhio.com and Pablo's larger file from pablodesigns.com. Only Inverlight is slightly enlarged at its hold (1.34×); ask for a vector.
+> - The plan below is kept for the record. Its brand order and board layout carry over.
 
 **Music grid:** Rocket Jr, 112 bpm. 1 bar = 2.14 s, 1 beat = 0.54 s.
 

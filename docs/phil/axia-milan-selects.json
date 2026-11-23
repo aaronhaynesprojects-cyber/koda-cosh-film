@@ -1,0 +1,78 @@
+{
+ "source": "src/phil/lodes/axia/axia-milan-showroom-capture.mov",
+ "note": "Lodes Axia, Milan showroom social film (Aaron's screen capture, 704x944, ~60 fps). Light-only moving shots; people and talking heads excluded. Cuts from ffmpeg scene detection; in/out trimmed ~2 frames inside each cut.",
+ "selects": [
+  [
+   "A",
+   1.7,
+   2.5,
+   "arm and glass on the axis"
+  ],
+  [
+   "B",
+   2.65,
+   3.45,
+   "axis detail, copper"
+  ],
+  [
+   "D",
+   6.5,
+   7.35,
+   "globes close"
+  ],
+  [
+   "C",
+   7.45,
+   7.85,
+   "globes and arcs"
+  ],
+  [
+   "C2",
+   7.95,
+   8.32,
+   "single globe, glowing"
+  ],
+  [
+   "E",
+   16.1,
+   17.4,
+   "cluster to single globe"
+  ],
+  [
+   "F",
+   17.95,
+   18.85,
+   "single globe, close"
+  ],
+  [
+   "G",
+   27.12,
+   27.98,
+   "hall, many Axias"
+  ],
+  [
+   "H",
+   28.08,
+   28.52,
+   "globes and arcs"
+  ],
+  [
+   "I",
+   29.03,
+   29.5,
+   "globe and arc"
+  ],
+  [
+   "J",
+   37.16,
+   37.57,
+   "globe close"
+  ],
+  [
+   "K",
+   38.11,
+   38.98,
+   "cluster from below"
+  ]
+ ]
+}

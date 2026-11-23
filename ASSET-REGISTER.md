@@ -241,3 +241,17 @@ Renders: `film/koda-at-cosh-living-BEST-OF-r4-1080p.mp4`, `…-r4-review-timecod
 `film/koda-at-cosh-living-BEST-OF-r3-countdown-timecode-1080p.mp4` is 1920 × 1080 and 93 s: the 3-2-1 leader with its beep (`vo-mix.py … best3 lead` → `audio/final-marie-rocket-best3-lead.wav`), then the film with timecode burned in from 01:00:00:00. It has no scene labels. A 4K master was started and then cancelled at Aaron's request ("1080p is fine"); the partial file is `out/INCOMPLETE-r3-4K.mp4`.
 
 The DEDON and Potocco stills in `src/best/` are now 3840 px wide (Dala at its native 3508), each a plain downscale of the press original. They are drawn at 1080p as before; the larger files keep a 4K master possible later. In a 4K render, the moving clips would be 1080p detail (they're 1920 × 1080 frame sequences), as would the Pablo pool, terrace and beach photos and the Arkoslight still.
+
+## Phil revision: brand logos, Lodes Axia and the LTX establishing shot (24 November 2026)
+
+**Brand logos** (`src/phil/logos/`, for the fly-in in `tools/logowall.html`). All are the brands' own logos, tinted ivory in the film and otherwise unaltered:
+- From KODA's brands page (kodalighting.com/pages/brands): Lodes, a-emotional light, A-N-D, Brokis, David Pompa, Inverlight, MUG, Arkoslight, RBW, Flexxica.
+- Occhio's vector logo from occhio.com's site sprite.
+- Pablo's larger logo file from pablodesigns.com.
+
+**Lodes Axia** (`src/phil/lodes/axia/`). KODA's product gallery (10 images); Aaron's six Lodes press files (the same images); Aaron's screen capture of the Lodes Axia film (portrait, review use only until Lodes or Phil supplies the original). Details are in `docs/PHIL-HERO-LOG.md`.
+
+**Establishing shot: generated (disclose).** This is the DEDON "Mysterious Desert" cliff villa, from `dedon-mood-mysterious-desert-loon-mbrace-mbrace-alu-nestrest-sealine.jpg` (DEDON 3D render, cropped to 16:9). It's the first frame of an **image-to-video generation with Lightricks LTX-2** (19B, open weights, via diffusers 0.43). The model ran on a rented RunPod A100 at Aaron's request (24 Nov): "day to night, star filled milky way sky rotating across the sky as the lights come on".
+- Everything after the first frame is **machine-generated**: the sky, the night, the stars, the lights coming on, and any change to the architecture or furniture.
+- Label it as a generated concept shot in any review copy. Check every frame for drift in the house and DEDON furniture before it's used.
+- The tagline ("Let There Be Light", then "KODA at Cosh Living") is overlaid in the house type, not generated.

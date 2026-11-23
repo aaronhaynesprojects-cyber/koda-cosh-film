@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tagline overlay</title>
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<script>
+// Transparent 1920x1080 overlay with the hero tagline in the house type, for ffmpeg to fade over the establishing shot.
+// ?y= sets the baseline of the first line (default 330, in the sky). Usage: PAGE=tools/tagline.html node render.mjs png 0 out.png
+const W = 1920, H = 1080, IVORY = "#f3eee4", STONE = "#cfc6b6";
+const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
+const Y = +(new URLSearchParams(location.search).get("y") || 330);
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+function line(text, y, px, weight, em, colour, alpha) {
+  ctx.font = FONT(weight, px); ctx.letterSpacing = px * em + "px"; ctx.textAlign = "center"; ctx.fillStyle = colour; ctx.globalAlpha = alpha;
+  ctx.shadowColor = "rgba(0,0,0,0.55)"; ctx.shadowBlur = 22; ctx.fillText(text, W / 2 + (px * em) / 2, y); ctx.letterSpacing = "0px"; ctx.globalAlpha = 1;
+}
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  line("Let There Be Light", Y, 84, 200, 0.04, IVORY, 1);
+  line("KODA  AT  COSH LIVING", Y + 64, 24, 400, 0.34, STONE, 0.92);
+}
+window.TOTAL = 1;
+window.ready = Promise.resolve(true);
+window.png = async () => { draw(); return cv.toDataURL("image/png").slice(22); };
+window.frame = async () => { draw(); return cv.toDataURL("image/jpeg", 0.9).slice(23); };
+</script>
