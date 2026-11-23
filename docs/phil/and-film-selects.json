@@ -1,0 +1,6 @@
+{"source": "src/video/koda-home-5.mp4",
+ "note": "A-N-D homepage film (1920x1080, 35 s; identical to Aaron's 'file.mp4 (1080p)-2.mp4'). Shots showing the horizontal tubular Column pendant, found by scene detection and checked frame by frame, 24 Nov. In/out points sit 1-2 frames inside each cut.",
+ "selects": [
+  ["wide", 10.24, 11.68, "showroom: long horizontal Column (about 10 segments) over the black counter, amber vertical Column through it"],
+  ["macro", 8.64, 10.16, "macro travelling along the horizontal tube's glass ribs, warm"],
+  ["close", 5.52, 6.20, "tilted close-up of clear ribbed segments on their cables"]]}

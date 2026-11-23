@@ -24,6 +24,8 @@ ST = "src/phil/lodes/stitch/"; STF = ST + "stitch-film-capture.mov"   # Aaron's 
 RD = "src/phil/lodes/random/"; RDF = RD + "random-cloud-film-capture.mov"  # Lodes Random Cloud film: shadows to dusk to light on, 0-13.7 s
 AXF = AX + "axia-screen-capture-portrait.mov"
 CO = "src/phil/a-n-d/column/"; CF = CO + "column-film-capture.mov"   # A-N-D Column film (capture), shots ~2 s
+BI = "src/phil/brokis/ivy/brokis-site/Brokis_IVY_HORIZONTAL_"
+AF = "src/video/koda-home-5.mp4"; AS = CO + "and-site/"            # A-N-D's 1080p homepage film; A-N-D's own project photos (credited)
 # PILLARS (Aaron, 24 Nov): one block per brand, three 9:16-ish portrait streams playing at once, each cutting on its own beats.
 NP, PG = 3, 12; PPW = (W - (NP - 1) * PG) // NP                    # 632 x 1080 pillars, 12 px graphite gutters
 CLEAN = {AXF: "crop=770:1222:2:6", SEL["source"]: "crop=700:936:2:6", STF: "crop=760:1018:2:6",
@@ -41,12 +43,23 @@ BLOCKS = {
       [(AXF, 0.2, 8), (*MIL["D"], 1), (*MIL["F"], 1), (*MIL["G"], 1), (*MIL["K"], 1), (AXF, 6.0, 8), (AX + "axia-05.png", 0, 4, 0.33)],
       [(RDF, 4.9, 16), (RD + "random-cloud-capture-2.mov", 6.3, 4), (RD + "random-solo-capture.mov", 20.15, 4)]], 24),
     ("full", RD + "random-cloud-hallways-clean.mp4", 0.55, 8)]),     # Random Cloud hallways (YouTube capture, icon-free part), stone to trees
-  "and": ("A-N-D", "Column", [                                    # A-N-D's Column film (capture) + KODA stills; amber over the table leads
+  "and": ("A-N-D", "Column", [                                    # horizontal Column leads: A-N-D's film, then pillars, then amber in situ
+    ("full", CO + "column-20.png", 0, 4, 0.45),                     # Aaron's reference: amber Column over the dining table (KODA still 20)
+    ("full", AF, 10.24, 2),                                         # A-N-D film: showroom, long horizontal Column + amber vertical
     ("pillars", [
       [(CF, 7.20, 3), (CF, 9.25, 3), (CF, 21.40, 3), (CF, 11.25, 3)],
       [(CO + "column-21.png", 0, 4, 0.4), (CF, 23.10, 3), (CF, 15.20, 3), (CF, 5.50, 2)],
-      [(CO + "column-08.png", 0, 4), (CF, 0.05, 2), (CO + "column-07.png", 0, 3), (CF, 25.10, 3)]], 12),
-    ("full", CO + "column-24.png", 0, 4)]),
+      [(AS + "A-N-D_Column_COSSeoul_PhotoByStudioBrinth_3-WEB.jpg", 0, 4), (CF, 0.05, 2),
+       (AS + "A-N-D_Column_Massara_SarahCarpenterStudio_PhotoByBrianFerry_2-WEB.jpg", 0, 3), (CF, 25.10, 3)]], 12),
+    ("full", AF, 8.64, 1),                                          # A-N-D film: macro along the horizontal tube
+    ("full", AF, 5.52, 1)]),                                        # A-N-D film: clear ribbed segments, close
+  "ivy": ("Brokis", "Ivy Horizontal", [                          # Brokis image bank (PF203), 6000-8700 px; no film. Horizontal: full-frame
+    ("full", BI + "PC1065_PC1066_PC1067_PC1070__PH8265_c_Suprema_full.jpg", 0, 4),   # lounge, open space
+    ("full", BI + "PC1070__PH1466_c_Martin_Chum_full.jpg", 0, 2),                    # Aaron's reference: on dark grey
+    ("full", BI + "PC1069_PC1068__PH1397_c_Martin_Chum_full.jpg", 0, 2),             # over the dining table
+    ("full", BI + "PC1070_PC1069__PH7568_c_Martin_Chum_full.jpg", 0, 2),             # garden pavilion
+    ("full", BI + "PC1070_PC1069__PH7569_c_Martin_Chum_full.jpg", 0, 2),             # stone and glass, garden
+    ("dip", (BI + "PC1068__PH1396_c_Martin_Chum_full.jpg", 0), (BI + "PC1065_PC1066__PH1328_c_Martin_Chum_full.jpg", 0), 4)]),
   "pantaya": ("Pablo", "Pantaya", [                               # Pablo's 1080p film (KODA homepage, Vimeo 1245314168)
     ("full", "src/video/koda-home-7.mp4", 14.60, 4),                # dining room, long table
     ("full", "src/video/koda-home-7.mp4", 28.75, 4),                # the trio glowing
@@ -67,12 +80,12 @@ def panel(p, i):
     return f"[{i}:v]{c},scale={PW}:{PH}:flags=lanczos,fps={FPS},setsar=1"
 def render(shot, out, b0=0):
     import hashlib                                                   # cache: a shot is re-rendered only when its spec or timing changes
-    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS)).encode()).hexdigest()[:8] + ".mp4")
+    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS, "v2" if shot[0] == "pillars" else "")).encode()).hexdigest()[:8] + ".mp4")
     if os.path.exists(out): return out
     kind, n = shot[0], None
     if kind == "full":
-        _, p, t, beats = shot; n = nfr(beats, b0)
-        vf = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},setsar=1[v]"
+        _, p, t, beats, *cy = shot; n = nfr(beats, b0); cy = cy[0] if cy else 0.5     # cy: vertical crop position (0 top, 1 bottom)
+        vf = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}:(iw-ow)/2:(ih-oh)*{cy},fps={FPS},setsar=1[v]"
         ins = src_args(p, t, n)
     elif kind == "clip":
         _, p, t, beats = shot; n = nfr(beats, b0); ins = ["-ss", f"{t:.3f}", "-i", p]; vf = f"[0:v]fps={FPS},setsar=1[v]"
@@ -95,7 +108,8 @@ def render(shot, out, b0=0):
                 parts.append(f); lb += bt
             lf = out.replace(".mp4", f"-L{li}.mp4"); concat(parts, lf); lp.append(lf)
         ins = ["-f", "lavfi", "-i", f"color=c={GRAPHITE}:s={W}x{H}:r={FPS}"] + sum((["-i", f] for f in lp), [])
-        vf = "".join(f"[{'0:v' if i == 0 else f'o{i}'}][{i + 1}:v]overlay={i * (PPW + PG)}:0[o{i + 1}];" for i in range(len(lp)))
+        vf = "".join(f"[{i + 1}:v]setpts=N/({FPS}*TB)[p{i}];" for i in range(len(lp)))       # re-time lanes by frame number (joins jitter)
+        vf += "".join(f"[{'0:v' if i == 0 else f'o{i}'}][p{i}]overlay={i * (PPW + PG)}:0:eof_action=repeat[o{i + 1}];" for i in range(len(lp)))
         vf = vf.rstrip(";").rsplit("[", 1)[0] + "[v]"
     elif kind == "flick":
         _, pairs, each = shot

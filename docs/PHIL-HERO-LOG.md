@@ -14,8 +14,8 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 | 1 | Axia | Lodes Axia | ✅ 10 + 6 Lodes press | ✅ Lodes film + Milan showroom (captures) | ✅ built, 5 bars |
 | 2 | Stitch | Lodes Stitch | ✅ 44 (3 scenes, 4 details) | ✅ Lodes night-garden film (capture) | ✅ built, 4 bars |
 | 3 | Random | Lodes Random (Cloud, Cluster, Solo) | ✅ 48 | ✅ four Lodes films (captures) | ✅ in the Lodes pillar block |
-| 4 | Column 300 / 175 horizontal | A-N-D Column 300 and 175 Horizontal, Amber | ✅ 31 (17 landscape) | ✅ A-N-D Column film (capture) | next |
-| 5 | Ivy | Brokis Ivy Horizontal | fetching | to find | — |
+| 4 | Column 300 / 175 horizontal | A-N-D Column 300 and 175 Horizontal, Amber | ✅ 31 KODA + 27 A-N-D project photos | ✅ Column film (capture) + A-N-D homepage film (1080p) | ✅ built, 5 bars |
+| 5 | Ivy | Brokis Ivy Horizontal | ✅ 14 KODA + 16 Brokis image bank (up to 8688 px) | none found (Brokis site has no film) | ✅ built, 4 bars (stills) |
 | 6 | "Celia" | David Pompa Cilia Pendant 60 and 60 Double | fetching | to find | — |
 | 7 | Tempo | a-emotional Tempo Andante and Vivace ("chaser" unclear) | fetching | to find | — |
 | 8 | "Pantea" | Pablo Pantaya | fetching | ✅ Pablo's film, 1080p (`src/video/koda-home-7.mp4`) | ✅ built, 3 bars |
@@ -150,3 +150,36 @@ The designer interview (about 6 s) and the shots with hands (12 s and 39 s) are 
 - From 15.13 s the loop repeats; the kitchen is at 21.3 s and the amber dining table at 23.0 s.
 
 Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the white-background product animations (3.5–5.4, 13.1–15.1 and 19.4–21.3 s).
+
+**Aaron's reference shot:** the amber horizontal Column over a long dining table, with wishbone chairs and white tulips. It's **KODA still 20** (`column-20.png`, 2493 × 4432). The block opens on it full-frame, cropped 16:9 with the Column near the top and the table and chairs below. The film has the same room moving (7.13–9.17 s), and that opens the pillars.
+
+**A-N-D homepage film** (`src/video/koda-home-5.mp4`, 1080p; Aaron's `file.mp4 (1080p)-2.mp4` is the same file). The horizontal Column appears in three shots, found fresh on 24 Nov and listed in `docs/phil/and-film-selects.json`:
+- **wide** (10.24–11.68 s): showroom, a long horizontal Column of about ten segments, with an amber vertical Column through it
+- **macro** (8.64–10.16 s): along the tube's glass ribs
+- **close** (5.52–6.20 s): clear ribbed segments on their cables
+
+**A-N-D's own project photos** (`src/phil/a-n-d/column/and-site/`, 27 files from a-n-d.com/COLUMN-PENDANT at original size; credits in the filenames). They include COS Seoul (Studio Brinth), Din Tai Fung by Rockwell Group (Jason Varney), Massara by Sarah Carpenter Studio (Brian Ferry), Dorsia by Ivy Studio (Alex Lesage), Burgers Residence, NORR11 × A-N-D, OAKV by Atelier Carle, TEC by MRDK, Above90's Lock-Mortice, Studio Ines Deschodt and Saint-Cloud by Atelier Ha.
+
+**A-N-D's dim-to-warm film** (Vimeo 1119263784, portrait, on the Column page) is restricted to embedding on A-N-D's site, so it couldn't be downloaded. **Aaron: screen-capture it from the page** if you want it; it shows the dim-to-warm amber Phil described.
+
+**Montage block (5 bars):** still 20 (4 beats, caption) → film wide (2 beats) → pillars (12 beats: the film's amber dining, bathroom, kitchen and table lamp | KODA still 21, amber dining, lounge, kitchen | COS Seoul, lounge, Massara, bathroom) → film macro (1 beat) → film close (1 beat).
+
+---
+
+## 5. Brokis Ivy Horizontal
+
+**KODA pages:** /products/pc1070 (Horizontal 8) and /products/pc1069 (Horizontal 7; 5 of its 7 images match pc1070). Aaron, 24 Nov.
+
+**Brokis image bank** (`src/phil/brokis/ivy/brokis-site/`): 16 photos from Brokis' collection index (brokis.b-cdn.net/imagebank/collections/PF203), full-resolution JPEGs of 6000–8688 px, credited Martin Chum (one by Suprema). Aaron's reference is **PH1466**, Ivy on dark grey.
+
+**Key frames:**
+- PH8265 (Suprema): a lounge with many Ivys over the sofas (open space)
+- PH1397: over a dining table
+- PH1396: portrait, over a dining table
+- PH7568: garden pavilion
+- PH7569: stone-and-glass garden room
+- PH1463: lit on black
+
+**Film:** none on Brokis' page or in the image bank. Ivy runs on held stills.
+
+**Montage block (4 bars, full-frame):** Suprema lounge (4 beats, caption) → PH1466 dark grey (2) → PH1397 over the table (2) → PH7568 pavilion (2) → PH7569 garden room (2) → diptych of PH1396 dining and PH1328 shade close-up (4).
