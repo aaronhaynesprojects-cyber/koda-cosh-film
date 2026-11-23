@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Caption overlay</title>
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<script>
+// Transparent 1920x1080 lower-left caption in the house style: brand in small tracked capitals, product name under it,
+// on a soft scrim. ?b=LODES&p=Axia   Usage: PAGE="tools/caption.html?b=LODES&p=Axia" node render.mjs png 0 out.png
+const W = 1920, H = 1080, IVORY = "#f3eee4", STONE = "#cfc6b6";
+const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
+const q = new URLSearchParams(location.search), B = q.get("b") || "", P = q.get("p") || "", R = q.get("side") === "r";
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  const cx = R ? W - 260 : 260, x = R ? W - 128 : 128;       // ?side=r puts the caption lower right
+  const g = ctx.createRadialGradient(cx, H - 110, 10, cx, H - 110, 520); g.addColorStop(0, "rgba(10,9,8,0.42)"); g.addColorStop(1, "rgba(10,9,8,0)");
+  ctx.fillStyle = g; ctx.fillRect(R ? W - 900 : 0, H - 520, 900, 520);
+  ctx.shadowColor = "rgba(0,0,0,0.45)"; ctx.shadowBlur = 14; ctx.textAlign = R ? "right" : "left";
+  ctx.font = FONT(500, 20); ctx.letterSpacing = "6px"; ctx.fillStyle = STONE; ctx.fillText(B.toUpperCase(), x + (R ? 6 : 0), H - 156);
+  ctx.font = FONT(300, 46); ctx.letterSpacing = "1px"; ctx.fillStyle = IVORY; ctx.fillText(P, x - (R ? -1 : 2), H - 104);
+  ctx.letterSpacing = "0px";
+}
+window.TOTAL = 1; window.ready = Promise.resolve(true);
+window.png = async () => { draw(); return cv.toDataURL("image/png").slice(22); };
+window.frame = async () => { draw(); return cv.toDataURL("image/jpeg", 0.9).slice(23); };
+</script>

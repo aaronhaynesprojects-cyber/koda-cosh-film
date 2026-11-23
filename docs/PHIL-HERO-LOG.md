@@ -7,6 +7,25 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 - Portrait gallery images run as **diptychs**: two portraits side by side on graphite with a thin gutter. That keeps them full-frame, with no crop that loses the pendant or the table.
 - Captions: brand in small tracked capitals, product name under it.
 
+## Status (24 Nov)
+
+| # | Memo said | Product | KODA stills | Film | Montage block |
+|---|---|---|---|---|---|
+| 1 | Axia | Lodes Axia | ✅ 10 + 6 Lodes press | ✅ Lodes film + Milan showroom (captures) | ✅ built, 5 bars |
+| 2 | Stitch | Lodes Stitch | ✅ 44 (3 scenes, 4 details) | ✅ Lodes night-garden film (capture) | ✅ built, 4 bars |
+| 3 | Random | Lodes Random (Cloud, Cluster, Solo) | ✅ 48 | ✅ four Lodes films (captures) | ✅ in the Lodes pillar block |
+| 4 | Column 300 / 175 horizontal | A-N-D Column 300 and 175 Horizontal, Amber | ✅ 31 (17 landscape) | ✅ A-N-D Column film (capture) | next |
+| 5 | Ivy | Brokis Ivy Horizontal | fetching | to find | — |
+| 6 | "Celia" | David Pompa Cilia Pendant 60 and 60 Double | fetching | to find | — |
+| 7 | Tempo | a-emotional Tempo Andante and Vivace ("chaser" unclear) | fetching | to find | — |
+| 8 | "Pantea" | Pablo Pantaya | fetching | ✅ Pablo's film, 1080p (`src/video/koda-home-7.mp4`) | ✅ built, 3 bars |
+| 9 | Totem | Pablo Totem Pendant Up/Down | fetching | to find | — |
+| 10 | "Sharlitz" | MUG Charlotte Single pendant (by sound; **confirm**) | fetching | to find | — |
+| 11 | "Maury" | RBW Mori Pendant (by sound; **confirm**) | fetching | to find | — |
+| 12 | a-emotional Clouds | not in KODA's catalogue | — | **Phil's video** | — |
+
+---
+
 ---
 
 ## 1. Lodes Axia
@@ -41,3 +60,93 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 **Milan showroom film:** `src/phil/lodes/axia/axia-milan-showroom-capture.mov`, Aaron's capture of Lodes' 45 s social film from the Milan showroom (portrait, 704 × 944; the capture runs slightly past one loop). It has the designers talking and visitors in the showroom. **Per Aaron, use only the moving shots of the light:** 12 light-only selects, 0.4–1.3 s each (about 9 s in all), listed with in and out points in `docs/phil/axia-milan-selects.json`. At 1080 it is enlarged 1.14×, so ask Lodes for the original for the final.
 
 **Montage plan for Axia:** the film panel next to the lobby or arched-dining still, then the lobby full-frame.
+
+---
+
+## 2. Lodes Stitch (outdoor)
+
+| | |
+|---|---|
+| KODA page | https://kodalighting.com/products/807 (Aaron, 24 Nov) |
+| Type | A family of outdoor lanterns (pendant, wall, table/floor) in a technical outdoor fabric ribbon woven through a metal cage. Lodes: "the light emotions associated with a beach at sunset". |
+| Finishes | Four: black, sand, terracotta red and green (36 variants on KODA) |
+| Phil's note | Outdoor and Mediterranean, "looks like one of their ads". It's the **rooftop lead** into the montage. |
+
+**Files:** `src/phil/lodes/stitch/stitch-01…44`, KODA's gallery.
+- **01** is the dusk sea terrace with pool, loungers and bar pendants (landscape, 1800 × 1200).
+- **02** is the garden outdoor kitchen (landscape).
+- **03** is the sea-view restaurant with Stitch pendants (landscape).
+- **04** is the wall lantern, lit; **05** the pendant pair, lit; **06** the terracotta weave close-up; **07** the black cap close-up (all portrait).
+- **08** is a portrait crop of 01.
+- **09–44** are cut-outs (not for use).
+
+**Montage block (4 bars):** 01 full-frame under the caption (2 bars), then a diptych of 05 and 06 (1 bar), then 03 full-frame (1 bar). 02 is spare.
+
+**Still needed:** a Lodes Stitch film, if one exists. The landscape stills are 1800 px wide, so at 1080p they're enlarged 1.07×, which is fine.
+
+**Stitch films** (Aaron's screen captures, 24 Nov):
+- `stitch-film-capture.mov` is the Lodes night-garden film: portrait, 764 × 1026 (3:4, the panel shape), 29.8 s, looping at about 16 s, with a LODES end card. Use the **first pass only**, because the second pass caught the macOS "Stop Screen Recording" button. The shots:
+  - 0–3.5 s: lanterns among the foliage
+  - 3.6–7.6 s: pergola lounge, with a floor lantern in front of the dining pendants
+  - 7.7–10.8 s: floor lantern by the bench
+  - 12.2–16.0 s: dining table under three Stitch pendants
+- `stitch-film-capture-wide.mov` has the same shots in a taller portrait (764 × 1262, about 9:16), ending on a **"vastu"** end card (12.2–14.5 s; probably a stockist's cut). Keep it as a framing alternative, since it shows more of the pergola beams overhead.
+
+**Montage block (4 bars, caption lower right):**
+1. Terrace still 01, full-frame (6 beats).
+2. Diptych, both panels from the film: pergola lounge | dining under three pendants (6 beats). They read as one continuous pergola.
+3. Diptych: floor lantern film | the pendant pair, still 05 (4 beats).
+
+---
+
+## 8. Pablo Pantaya
+
+| | |
+|---|---|
+| KODA page | https://kodalighting.com/products/pntypndt |
+| Designer | Patricia Urquiola (from the film's credit card; Pablo, with Haworth) |
+| Film | `src/video/koda-home-7.mp4`: Pablo's Pantaya film from KODA's homepage (Vimeo 1245314168), 1920 × 1080, 67 s. Already used in the earlier cuts. |
+
+**Montage block (3 bars, all full-frame, light-only shots):**
+- dining room with the long table, from 14.6 s (4 beats)
+- the trio glowing, from 28.75 s (4 beats)
+- green Pantaya over the artwork, from 41.95 s (2 beats)
+- blue Pantaya in the dark, from 51.35 s (2 beats)
+
+The designer interview (about 6 s) and the shots with hands (12 s and 39 s) are excluded.
+
+---
+
+## 3. Lodes Random (Cloud, Cluster, Solo)
+
+**KODA pages:** /products/ran_cl_8 (Random Cloud, 23 lights, Ø28) and /products/ran_so_5 (Random Solo cluster).
+
+**Stills:** `src/phil/lodes/random/random-01…48`, KODA's gallery.
+- Portrait: **01** copper Cloud, **03** living room, **04** chrome cluster in a corner.
+- Landscape: **02** dining, **06** retail, **24** reception-wall installation, **27** a long hall.
+
+**Films** (Aaron's captures, 24 Nov):
+- `random-cloud-film-capture.mov` (portrait, 764 × 1262): one 13.7 s shot. Tree shadows cross a plaster wall and fade to dusk, then the glass cluster glows warm; a day-to-night in miniature that rhymes with the establishing shot. Use 4.9–13.5 s. LODES card from 13.75 s.
+- `random-cloud-capture-2.mov` (portrait, 778 × 1268): a chrome cluster glowing in a dark room with the camera moving (6.3–10.95 s), then spheres in close-up (11.05–12.3 s). There's a LODES card from 1.5 to 6.2 s.
+- `random-cloud-youtube-capture.mov` (2812 × 1396, from YouTube): the Random Cloud **hallways** film; Aaron: "the scenes in the hallways transitioning are impressive". YouTube's pause icon sits under the cluster from about 1.5 to 5.7 s, and a replay icon covers the frozen end frame.
+  - **Cleaned:** `random-cloud-hallways-clean.mp4` takes 5.75–10.68 s (stone arches, cutting to the tree-lined hallway). It needs no masking because it starts after the icon is gone. Cropped to 16:9 and scaled to 1920 × 1080, a downscale.
+  - **Masked:** `random-cloud-stairs-masked.mp4` is the stair shot (1.95–5.10 s) with the icon removed by delogo. A faint smear remains under the spheres, so it's not for the final; **ask Lodes for the original film**.
+- `random-solo-capture.mov` (portrait, 704 × 960): copper Random Solo pendants over a kitchen island (10.45–14.45 s), a dining table (14.55–15.4 s), and pendant close-ups (20.15–24.9 s). LODES cards run from about 4 to 10.3 s.
+
+---
+
+## 4. A-N-D Column (300 and 175 Horizontal, Amber)
+
+**KODA pages:** /products/col-300_3 (Column 300 Horizontal, Amber) and /products/col-175 (Column 175 Horizontal, Carbon).
+
+**Stills:** `src/phil/a-n-d/column/column-01…31`, 17 of them landscape. **24** is 4800 × 3200 and **21** is 2800 × 1867.
+
+**Film:** `column-film-capture.mov`, Aaron's capture of A-N-D's Column film (portrait, 768 × 1286, 26.8 s, looping at about 15 s). Each shot runs about 2 s:
+- 0–1.3 s: vertical Column in a curtained lounge
+- 5.43–7.13 s: horizontal Column over a kitchen island
+- **7.13–9.17 s: amber horizontal Column over a dining table** (Phil's shot)
+- 9.17–11.2 s: bathroom, ceiling and floor Columns
+- 11.2–13.13 s: table Column by a window
+- From 15.13 s the loop repeats; the kitchen is at 21.3 s and the amber dining table at 23.0 s.
+
+Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the white-background product animations (3.5–5.4, 13.1–15.1 and 19.4–21.3 s).

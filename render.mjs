@@ -2,7 +2,7 @@
 import fs from "node:fs"; import { spawn, execFileSync } from "node:child_process"; import { launch } from "./cdp.mjs";
 const [mode, a1, a2, a3] = process.argv.slice(2), S = +(process.env.S || 1), W = 1920 * S, H = 1080 * S;
 const b = await launch({ width: W, height: H, port: 9600 + Math.floor(Math.random() * 60) });
-await b.goto("file://" + new URL("./" + (process.env.PAGE || "film.html"), import.meta.url).pathname + `?s=${S}` + (process.env.REVIEW ? "&review=1" : "") + (process.env.CUT ? "&cut=" + process.env.CUT : "") + (process.env.LEAD ? "&lead=1" : "") + (process.env.TITLES === "0" ? "&titles=0" : "") + (process.env.V ? "&v=" + process.env.V : "") + (process.env.WM ? "&wm=1" : ""));
+await b.goto("file://" + new URL("./" + (process.env.PAGE || "film.html"), import.meta.url).pathname + `?s=${S}` + (process.env.REVIEW ? "&review=1" : "") + (process.env.CUT ? "&cut=" + process.env.CUT : "") + (process.env.LEAD ? "&lead=1" : "") + (process.env.TITLES === "0" ? "&titles=0" : "") + (process.env.V ? "&v=" + process.env.V : "") + (process.env.WM ? "&wm=1" : "") + (process.env.Q ? "&" + process.env.Q : ""));
 await b.evaluate("window.ready"); fs.mkdirSync("out", { recursive: true });
 try {
   if (mode === "stills") for (const t of a1.split(",").map(Number)) { const f = `out/${a2 || "still"}-${t.toFixed(2)}.jpg`; fs.writeFileSync(f, Buffer.from(await b.evaluate(`frame(${Math.round(t * 25)},0.92)`), "base64")); console.log(f); }
