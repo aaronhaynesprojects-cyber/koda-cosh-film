@@ -72,7 +72,7 @@ tail = 1.2; n = nframes(68, 72) + round(tail * FPS); D = n / FPS; f = "work/reel
 run(["-sseof", "-0.04", "-i", LTX, "-loop", "1", "-i", T["koda"], "-loop", "1", "-i", T["hobl"], "-loop", "1", "-i", T["cosh"], "-filter_complex",
      f"[0:v]{NORM},tpad=stop_mode=clone:stop_duration={D + 1:.2f},eq=brightness=-0.04[bg];"
      + ";".join([fade(1, 0.2, D + 5, 0.8), fade(2, b(0.5), D + 5), fade(3, b(1.0), D + 5)])
-     + f";[bg][t1]overlay[o1];[o1][t2]overlay[o2];[o2][t3]overlay,fade=t=out:st={D - 1.6:.2f}:d=1.6[v]",
+     + f";[bg][t1]overlay[o1];[o1][t2]overlay[o2];[o2][t3]overlay{lab},fade=t=out:st={D - 1.6:.2f}:d=1.6[v]",
      "-map", "[v]", "-frames:v", str(n), *ENC, f]); segs.append(f)
 # ---- picture: concat
 lst = "work/reel/segs.txt"; open(lst, "w").write("".join(f"file '{os.path.abspath(s)}'\n" for s in segs))
@@ -85,4 +85,4 @@ run(["-i", "work/reel/picture.mp4", "-i", MUSIC, "-i", MUSIC, "-filter_complex",
      f"[1:a]atrim={a0:.4f}:{a1 + 0.03:.4f},asetpts=PTS-STARTPTS[m1];[2:a]atrim={a2:.4f},asetpts=PTS-STARTPTS[m2];"
      f"[m1][m2]acrossfade=d=0.03:c1=tri:c2=tri,volume=-4.6dB,afade=t=out:st={P - 1.4:.2f}:d=1.4[a]",
      "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "320k", "-t", f"{P:.3f}", "-movflags", "+faststart", out])
-print(f"wrote {out}: {P:.2f} s ({P / 60:.0f}:{P % 60:04.1f}); montage blocks missing: {[m for m, _ in MONTAGE if not os.path.exists(f'work/phil/{m}.mp4')]}")
+print(f"wrote {out}: {P:.2f} s ({int(P // 60)}:{P % 60:04.1f}); montage blocks missing: {[m for m, _ in MONTAGE if not os.path.exists(f'work/phil/{m}.mp4')]}")
