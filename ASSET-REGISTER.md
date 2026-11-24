@@ -255,3 +255,30 @@ The DEDON and Potocco stills in `src/best/` are now 3840 px wide (Dala at its na
 - Everything after the first frame is **machine-generated**: the sky, the night, the stars, the lights coming on, and any change to the architecture or furniture.
 - Label it as a generated concept shot in any review copy. Check every frame for drift in the house and DEDON furniture before it's used.
 - The tagline ("Let There Be Light", then "KODA at Cosh Living") is overlaid in the house type, not generated.
+
+## Phil revision reel on "Shy Millionaire" (24 November 2026, afternoon)
+
+**Music:** "Shy Millionaire" (Out Linear, Epidemic Sound, `audio/music-shy-millionaire.mp3`), supplied by Aaron. Used bars 0–68, then 76 to the end, a bar-aligned jump to the track's own ending.
+
+**B-roll:** "Sugoi" (Hiyaku, Epidemic Sound, `audio/music-hiyaku-sugoi.mp3`), the first 15 s.
+
+**Brand sources for the montage:** each manufacturer's own site and press bank, KODA's product galleries, and Aaron's screen captures of brand films. Captures are review-quality; request the originals for the final.
+- Lodes: Stitch, Axia, Random Cloud and Solo.
+- A-N-D: the homepage film and project photos with photographer credits.
+- Brokis: the image bank, Martin Chum and Suprema.
+- Pablo: the Pantaya film, the ICFF promo, and the Totem film.
+- David Pompa: the Cilia site photos and films.
+- a-emotional light: Tempo press bank and films; the Clouds / LuminAir project bank; Nevo.
+- MUG Milano: Charlotte renders and studio shots.
+- RBW: Mori project photos.
+
+**KODA showroom V2:** Aaron's screen capture of the earlier V2 film. It's cropped to remove the capture's UI and timecode, and the opening shot with a hand is skipped.
+
+**Titles:**
+- the KODA logo in its own orange (#ED9A3D, from `src/logos/koda.svg`);
+- the Cosh Living wordmark from Aaron's image, reversed to white;
+- "THE HOME OF BRANDED LIGHTING" and "Let There Be Light", set in Helvetica Neue.
+
+**The desert-house opening and the end-card frame are LTX-2 generations** (see the 24 Nov entry above), labelled "Concept visualisation" in review copies. The `-clean` copies omit the label.
+
+**First Creek run-in:** omitted on this reel at Aaron's instruction (final version).

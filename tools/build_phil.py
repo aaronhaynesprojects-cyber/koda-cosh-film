@@ -148,11 +148,13 @@ def caption_png(b, p, side="l"):
                             check=True, stdout=subprocess.DEVNULL, timeout=60)
         except subprocess.TimeoutExpired: subprocess.run(["pkill", "-f", "render.mjs png 0 " + f])
     return f
+def beats_of(s):                                                    # a shot's length in beats (full/clip/dip: index 3; pillars: 2; flick: each x pairs)
+    return s[2] * len(s[1]) if s[0] == "flick" else s[2] if s[0] == "pillars" else s[3]
 def block(name):
     b, p, shots, *opt = BLOCKS[name]; os.makedirs("work/phil", exist_ok=True)
     parts, b0 = [], 0
     for i, s in enumerate(shots):
-        parts.append(render(s, f"work/phil/{name}-{i:02d}.mp4", b0)); b0 += s[-1] * (len(s[1]) if s[0] == "flick" else 1)
+        parts.append(render(s, f"work/phil/{name}-{i:02d}.mp4", b0)); b0 += beats_of(s)
     raw = f"work/phil/{name}-raw.mp4"; concat(parts, raw); out = f"work/phil/{name}.mp4"
     cap, t1 = caption_png(b, p, opt[0] if opt else "l"), 2 * 4 * BEAT                       # caption over the first two bars
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-loop", "1", "-framerate", str(FPS), "-i", cap, "-filter_complex",

@@ -47,7 +47,9 @@ async function draw() {
 }
 window.TOTAL = 1;
 window.ready = (async () => {
-  const k = await load("../src/logos/koda.svg"); KODA = trim(tint(k, 2270, 600, false));
+  const k = await load("../src/logos/koda.svg");                    // KODA's own logo colour, #ED9A3D (from koda.svg); ?koda=ivory to tint
+  if (q.get("koda") === "ivory") KODA = trim(tint(k, 2270, 600, false));
+  else { const c = document.createElement("canvas"); c.width = 2270; c.height = 600; c.getContext("2d").drawImage(k, 0, 0, 2270, 600); KODA = trim(c); }
   const c = await load("../src/phil/logos-aaron/cosh-23.png"); COSH = trim(tint(c, c.naturalWidth * 3, c.naturalHeight * 3, true));
   return true;
 })();

@@ -16,13 +16,13 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 | 3 | Random | Lodes Random (Cloud, Cluster, Solo) | ✅ 48 | ✅ four Lodes films (captures) | ✅ in the Lodes pillar block |
 | 4 | Column 300 / 175 horizontal | A-N-D Column 300 and 175 Horizontal, Amber | ✅ 31 KODA + 27 A-N-D project photos | ✅ Column film (capture) + A-N-D homepage film (1080p) | ✅ built, 5 bars |
 | 5 | Ivy | Brokis Ivy Horizontal | ✅ 14 KODA + 16 Brokis image bank (up to 8688 px) | none found (Brokis site has no film) | ✅ built, 4 bars (stills) |
-| 6 | "Celia" | David Pompa Cilia Pendant 60 and 60 Double | fetching | to find | — |
-| 7 | Tempo | a-emotional Tempo Andante and Vivace ("chaser" unclear) | fetching | to find | — |
+| 6 | "Celia" | David Pompa Cilia Pendant 60 and 60 Double | ✅ KODA + David Pompa site | ✅ explainer capture + David Pompa films | ✅ built, 4 bars, rapid-fire pillars |
+| 7 | Tempo | a-emotional Tempo Andante and Vivace ("chaser" = Vivace, by sound) | ✅ KODA + a-emotional press bank | ✅ a-emotional 1080p films | ✅ built, 4 bars |
 | 8 | "Pantea" | Pablo Pantaya | fetching | ✅ Pablo's film, 1080p (`src/video/koda-home-7.mp4`) | ✅ built, 3 bars |
-| 9 | Totem | Pablo Totem Pendant Up/Down | fetching | to find | — |
-| 10 | "Sharlitz" | MUG Charlotte Single pendant (by sound; **confirm**) | fetching | to find | — |
-| 11 | "Maury" | RBW Mori Pendant (by sound; **confirm**) | fetching | to find | — |
-| 12 | a-emotional Clouds | not in KODA's catalogue | — | **Phil's video** | — |
+| 9 | Totem | Pablo Totem Pendant Up/Down | ✅ KODA + Pablo site | ✅ Pablo 1080p film | ✅ built, 4 bars |
+| 10 | "Sharlitz" | MUG (Milano) Charlotte. By sound and use over dining tables, confirmed by the brand sources | ✅ KODA + MUG site | none exists | ✅ built, 4 bars (stills) |
+| 11 | "Maury" | RBW Mori Pendant (Gourd, Nut, Squash). Confirmed the same way | ✅ KODA + RBW site | none exists | ✅ built, 4 bars (stills) |
+| 12 | a-emotional Clouds | "Clouds Installation", LuminAir bar, DoubleTree by Hilton Amsterdam (2023) | ✅ a-emotional project bank | ✅ a-emotional 1080p films (no people used) | ✅ built, 4 bars. Phil may still have outdoor or spray-on footage |
 | + | (Aaron's addition) | a-emotional light Nevo | — | ✅ a-emotional film (capture) | ✅ built, 3 bars |
 
 ---
@@ -221,3 +221,12 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 **Confirmed (Aaron, 24 Nov):** Nevo is a **separate piece** from Phil's "Clouds". It's an addition Aaron chose for the a-emotional light section. Clouds still needs Phil's video.
 
 **Pantaya addition (Aaron, 24 Nov):** `src/phil/pablo/pantaya-icff-capture.mov`, Pablo's portrait ICFF 2026 promo (768 × 1286, 34.6 s), captured by Aaron. "PANTAYA" is lettered along the bottom of every shot, so the pillars crop to rows 4–1154; the Pablo and ICFF/Javits title cards are excluded. It adds the **wall-mounted oval Pantaya**. The block now ends on a 1-bar pillar: the oval from 16.3 s (clear of the Javits card's dissolve) | green mesh close-up from 2.25 s, then 28.2 s | green pendant over the artwork from 20.3 s (clear of the dissolve).
+
+
+---
+
+## Blocks 6–12, built 24 Nov (afternoon)
+
+Cilia, Tempo, Clouds, Totem, Charlotte and Mori are built in `tools/phil_blocks_extra.py` from the brand sources a helper agent gathered (`src/phil/<brand>/<product>/brand-site/`), and each block was checked frame by frame.
+- **Excluded:** people and hands (the Cilia explainer only after the hand leaves: 23.545 s for 1 beat, and from 26.35 s), Clouds' party film, the Totem film's titles and end cards, the Tempo logo tail, a contractor logo in a Clouds clip, cut-outs, and anything too small.
+- **Charlotte:** the lit finishes run full-frame after the caption; in pillars, the gutters cut through the arms.
