@@ -9,8 +9,8 @@
 //   ?layer=cosh   "AT" + Cosh Living wordmark          ?layer=ltbl  "Let There Be Light"
 //   ?y=           vertical centre of the lockup (default 470)
 // Usage: PAGE=tools/title.html Q="layer=koda" node render.mjs png 0 out.png
-const QS = new URLSearchParams(location.search);                 // ?w=&h= canvas (default 1920x1080), ?s= lockup scale
-const W = +(QS.get("w") || 1920), H = +(QS.get("h") || 1080), SC = +(QS.get("s") || 1), IVORY = "#f3eee4", STONE = "#cfc6b6";
+const QS = new URLSearchParams(location.search);                 // ?w=&h= canvas (default 1920x1080), ?ls= lockup scale (render.mjs owns ?s=)
+const W = +(QS.get("w") || 1920), H = +(QS.get("h") || 1080), SC = +(QS.get("ls") || 1), IVORY = "#f3eee4", STONE = "#cfc6b6";
 const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
 const q = new URLSearchParams(location.search), LAYER = q.get("layer") || "koda", Y = +(q.get("y") || 470);
 const cv = document.getElementById("cv"), ctx = cv.getContext("2d"); cv.width = W; cv.height = H;

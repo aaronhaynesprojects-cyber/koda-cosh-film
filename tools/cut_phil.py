@@ -33,9 +33,10 @@ ENC = ["-c:v", "libx264", "-preset", "medium", "-crf", "14", "-pix_fmt", "yuv420
        "-color_primaries", "bt709", "-color_trc", "bt709", "-an"]
 def run(a): subprocess.run(["ffmpeg", "-v", "error", "-y", *a], check=True)
 def title_png(layer):
-    f = f"work/cut/title-{layer}-{W}x{H}.png"
+    sc = 0.74 if VERT else 1.0                                          # vertical: about 70% of the width, inside Instagram's safe area
+    f = f"work/cut/title-{layer}-{W}x{H}-ls{sc}.png"
     if not os.path.exists(f):
-        q = f"layer={layer}" + (f"&w={W}&h={H}&s=0.80&y={H // 2 + 40}" if VERT else "")
+        q = f"layer={layer}" + (f"&w={W}&h={H}&ls={sc}&y={H // 2 + 40}" if VERT else "")
         for _ in range(3):
             try:
                 subprocess.run(["node", "render.mjs", "png", "0", f], env={**os.environ, "PAGE": "tools/title.html", "Q": q}, check=True, stdout=subprocess.DEVNULL, timeout=60); break
