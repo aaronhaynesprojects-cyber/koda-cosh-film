@@ -1,0 +1,207 @@
+{
+ "name": "sizzle-45",
+ "format": "landscape",
+ "music": [
+  {
+   "track": "shy",
+   "from_bar": 10,
+   "to_bar": 27
+  },
+  {
+   "track": "shy",
+   "from_bar": 76,
+   "to_bar": 80,
+   "tail_s": 0.4
+  }
+ ],
+ "shots": [
+  {
+   "special": "opening",
+   "beats": 8
+  },
+  {
+   "id": "and-018",
+   "beats": 2
+  },
+  {
+   "id": "nevo-040",
+   "beats": 2
+  },
+  {
+   "id": "lodes-016",
+   "beats": 2
+  },
+  {
+   "id": "pantaya-056",
+   "beats": 2
+  },
+  {
+   "id": "and-031",
+   "beats": 1
+  },
+  {
+   "id": "nevo-044",
+   "beats": 1
+  },
+  {
+   "id": "cilia-068",
+   "beats": 1
+  },
+  {
+   "id": "and-032",
+   "beats": 1
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "lodes-005",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "lodes-006",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "lodes-013",
+      "beats": 4
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "and-017",
+   "beats": 2,
+   "cy": 0.45
+  },
+  {
+   "id": "ivy-033",
+   "beats": 2
+  },
+  {
+   "id": "ivy-035",
+   "beats": 2
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "nevo-050",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "cilia-075",
+      "beats": 3
+     },
+     {
+      "id": "cilia-069",
+      "beats": 1
+     }
+    ],
+    [
+     {
+      "id": "tempo-095",
+      "beats": 2
+     },
+     {
+      "id": "tempo-094",
+      "beats": 2
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "clouds-101",
+   "beats": 2
+  },
+  {
+   "id": "totem-111",
+   "beats": 2
+  },
+  {
+   "id": "charlotte-122",
+   "beats": 2
+  },
+  {
+   "id": "mori-128",
+   "beats": 2
+  },
+  {
+   "id": "pantaya-058",
+   "beats": 2
+  },
+  {
+   "id": "tempo-092",
+   "beats": 2
+  },
+  {
+   "id": "clouds-104",
+   "beats": 2
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "and-027",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "ivy-038",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "mori-130",
+      "beats": 4
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "lodes-012",
+   "beats": 2
+  },
+  {
+   "id": "cilia-070",
+   "beats": 2
+  },
+  {
+   "id": "nevo-051",
+   "beats": 2
+  },
+  {
+   "special": "flyin",
+   "speed": 4,
+   "hold": 0.25
+  },
+  {
+   "special": "lockup",
+   "beats": 16.75,
+   "bg": "night"
+  }
+ ],
+ "titles": [
+  {
+   "layer": "pair",
+   "from_beat": 3.5,
+   "to_beat": 8
+  },
+  {
+   "layer": "pairhobl",
+   "from_beat": 5,
+   "to_beat": 8
+  }
+ ]
+}

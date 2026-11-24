@@ -1,0 +1,103 @@
+{
+ "name": "insta-20",
+ "format": "vertical",
+ "music": [
+  {
+   "track": "shy",
+   "from_bar": 13,
+   "to_bar": 20
+  },
+  {
+   "track": "shy",
+   "from_bar": 78,
+   "to_bar": 80,
+   "tail_s": 0.88
+  }
+ ],
+ "shots": [
+  {
+   "id": "nevo-051",
+   "beats": 2
+  },
+  {
+   "id": "lodes-013",
+   "beats": 2
+  },
+  {
+   "id": "lodes-005",
+   "beats": 2
+  },
+  {
+   "id": "lodes-006",
+   "beats": 2
+  },
+  {
+   "id": "and-019",
+   "beats": 2
+  },
+  {
+   "id": "pantaya-059",
+   "beats": 2
+  },
+  {
+   "id": "cilia-075",
+   "beats": 2
+  },
+  {
+   "id": "nevo-050",
+   "beats": 2
+  },
+  {
+   "id": "lodes-015",
+   "beats": 2
+  },
+  {
+   "id": "nevo-047",
+   "beats": 2
+  },
+  {
+   "id": "tempo-095",
+   "beats": 1
+  },
+  {
+   "id": "clouds-103",
+   "beats": 1
+  },
+  {
+   "id": "totem-112",
+   "beats": 1
+  },
+  {
+   "id": "mori-130",
+   "beats": 1
+  },
+  {
+   "id": "ivy-038",
+   "beats": 1
+  },
+  {
+   "id": "charlotte-126",
+   "beats": 1
+  },
+  {
+   "id": "and-024",
+   "beats": 1
+  },
+  {
+   "id": "lodes-014",
+   "beats": 1
+  },
+  {
+   "special": "lockup",
+   "beats": 9.66,
+   "bg": "night"
+  }
+ ],
+ "titles": [
+  {
+   "layer": "pair",
+   "from_beat": 0,
+   "to_beat": 3.6
+  }
+ ]
+}
