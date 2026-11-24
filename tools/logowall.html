@@ -8,14 +8,16 @@
 // titles), one every half bar; then all twelve fly back in and assemble into the board, landing on a downbeat.
 // Laid out on the music grid (BPM below) so it re-times to Aaron's final track. Logos are KODA's own brand logos
 // (kodalighting.com/pages/brands; Occhio from occhio.com), tinted ivory. Usage: PAGE=tools/logowall.html node render.mjs ...
-const W = 1920, H = 1080, FPS = 25, BPM = 112, BEAT = 60 / BPM, BAR = 4 * BEAT;
+const QP = new URLSearchParams(location.search);                 // ?bpm= &speed= (2 = double speed) &hold= (bars the board holds)
+const W = 1920, H = 1080, FPS = 25, BPM = +(QP.get("bpm") || 112), BEAT = 60 / BPM, BAR = 4 * BEAT;
+const SPEED = +(QP.get("speed") || 1), HOLD = +(QP.get("hold") || 1);
 const IVORY = "#f3eee4", STONE = "#cfc6b6", GRAPHITE = "#1b1a18", AMBER = "#e9b776";
 const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
 // cadence accelerates: the first four brands get a bar each, the next eight half a bar each (bars 0-8)
-const START = [0, 1, 2, 3, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5].map((b) => b * BAR);
-const T_ASSEMBLE = 8 * BAR;                  // all twelve fly back in from here...
-const LAND = 9 * BAR;                        // ...and the last lands on bar 9's downbeat
-const END = 10 * BAR;                        // board holds to the end of bar 10
+const START = [0, 1, 2, 3, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5].map((b) => b * BAR / SPEED);
+const T_ASSEMBLE = 8 * BAR / SPEED;          // all twelve fly back in from here...
+const LAND = 9 * BAR / SPEED;                // ...and the last lands on a downbeat
+const END = LAND + HOLD * BAR;               // board holds HOLD bars
 const TOTAL = Math.round(END * FPS);
 // carousel order (outdoor and Cosh-relevant first); vb = SVG viewBox w,h; k = optical tweak
 const LOGOS = [
@@ -81,7 +83,7 @@ function solo(u, d) {
   const e = easeIn((u - H1) / (X1 - H1)); const s = lerp(1.05, 10, e); return { s, a: clamp(1 - (s - 1.6) / 4), x: 1 };
 }
 // assembly flight for brand i: projected from deep space onto its board slot
-const AF = 0.9, AST = (LAND - T_ASSEMBLE - AF) / (LOGOS.length - 1);
+const AF = 0.9 / Math.sqrt(SPEED), AST = (LAND - T_ASSEMBLE - AF) / (LOGOS.length - 1);
 function assemble(i, t) {
   const u = t - (T_ASSEMBLE + i * AST); if (u < 0) return null;
   const e = easeOut(u / AF), inv = 1 / lerp(46, 1, e);       // inv = 1/z

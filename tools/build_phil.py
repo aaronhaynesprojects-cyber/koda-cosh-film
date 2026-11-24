@@ -11,7 +11,7 @@ A block is (caption_brand, caption_product, [shots]); the caption sits over the 
   python3 tools/build_phil.py <block-name|all> [out.mp4]"""
 import json, os, subprocess, sys
 FPS, W, H = 25, 1920, 1080
-BPM = 112; BEAT = 60 / BPM
+BPM = 112.99; BEAT = 60 / BPM                                  # Shy Millionaire (Aaron, 24 Nov): 112.99 BPM, bar 0 at 0.465 s
 GRAPHITE = "0x1b1a18"; PW, PH, GUT = 810, 1080, 24                  # 3:4 panels, full height
 PX = [(W - 2 * PW - GUT) // 2, (W - 2 * PW - GUT) // 2 + PW + GUT]  # left, right panel x
 AX = "src/phil/lodes/axia/"
@@ -82,6 +82,11 @@ BLOCKS = {
     ("flick", [(MIL["D"], MIL["F"]), (MIL["G"], MIL["K"]), (MIL["A"], MIL["B"]), (MIL["E"], (AX + "axia-screen-capture-portrait.mov", 8.6))], 1),
     ("full", AX + "axia-05.png", 0, 8)]),
 }
+try:                                                                # product blocks added in tools/phil_blocks_extra.py
+    from phil_blocks_extra import EXTRA, CLEAN_EXTRA
+    BLOCKS.update(EXTRA); CLEAN.update(CLEAN_EXTRA)
+except ImportError:
+    pass
 STILL = (".png", ".jpg", ".jpeg", ".webp")
 def is_still(p): return p.lower().endswith(STILL)
 def nfr(beats, b0=0): return round((b0 + beats) * BEAT * FPS) - round(b0 * BEAT * FPS)   # frames on cumulative beat edges
