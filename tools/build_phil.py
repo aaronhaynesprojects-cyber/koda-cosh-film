@@ -25,6 +25,7 @@ RD = "src/phil/lodes/random/"; RDF = RD + "random-cloud-film-capture.mov"  # Lod
 AXF = AX + "axia-screen-capture-portrait.mov"
 CO = "src/phil/a-n-d/column/"; CF = CO + "column-film-capture.mov"   # A-N-D Column film (capture), shots ~2 s
 BI = "src/phil/brokis/ivy/brokis-site/Brokis_IVY_HORIZONTAL_"
+PI = "src/phil/pablo/pantaya-icff-capture.mov"   # "PANTAYA" lettered at the bottom: CLEAN keeps rows 4-1154
 NV = "src/phil/a-emotional/nevo/nevo-film-capture.mov"                # subtitles burned in at y~1054: CLEAN keeps rows 4-1004
 AF = "src/video/koda-home-5.mp4"; AS = CO + "and-site/"            # A-N-D's 1080p homepage film; A-N-D's own project photos (credited)
 # PILLARS (Aaron, 24 Nov): one block per brand, three 9:16-ish portrait streams playing at once, each cutting on its own beats.
@@ -33,7 +34,8 @@ CLEAN = {AXF: "crop=770:1222:2:6", SEL["source"]: "crop=700:936:2:6", STF: "crop
          ST + "stitch-film-capture-wide.mov": "crop=760:1256:2:4", RDF: "crop=760:1256:2:4",
          RD + "random-cloud-capture-2.mov": "crop=774:1262:2:4", RD + "random-solo-capture.mov": "crop=700:954:2:4",
          "src/phil/a-n-d/column/column-film-capture.mov": "crop=764:1280:2:4",
-         "src/phil/a-emotional/nevo/nevo-film-capture.mov": "crop=764:1000:2:4"}   # strip capture edges / UI
+         "src/phil/a-emotional/nevo/nevo-film-capture.mov": "crop=764:1000:2:4",
+         "src/phil/pablo/pantaya-icff-capture.mov": "crop=764:1150:2:4"}   # strip capture edges / UI
 BLOCKS = {
   "stitch": ("Lodes", "Stitch", [                                  # caption right: the terrace lanterns sit lower left
     ("full", ST + "stitch-01.jpg", 0, 6),
@@ -71,7 +73,8 @@ BLOCKS = {
     ("full", "src/video/koda-home-7.mp4", 14.60, 4),                # dining room, long table
     ("full", "src/video/koda-home-7.mp4", 28.75, 4),                # the trio glowing
     ("full", "src/video/koda-home-7.mp4", 41.95, 2),                # green, over the artwork
-    ("full", "src/video/koda-home-7.mp4", 51.35, 2)]),              # blue, in the dark
+    ("full", "src/video/koda-home-7.mp4", 51.35, 2),                # blue, in the dark
+    ("pillars", [[(PI, 16.30, 4)], [(PI, 2.25, 3), (PI, 28.20, 1)], [(PI, 20.30, 4)]], 4)]),   # Pablo ICFF promo: wall oval | green mesh | green over the art
   "axia": ("Lodes", "Axia", [
     ("dip", (AX + "axia-screen-capture-portrait.mov", 0.2), (AX + "axia-02.png", 0), 8),
     ("flick", [(MIL["D"], MIL["F"]), (MIL["G"], MIL["K"]), (MIL["A"], MIL["B"]), (MIL["E"], (AX + "axia-screen-capture-portrait.mov", 8.6))], 1),

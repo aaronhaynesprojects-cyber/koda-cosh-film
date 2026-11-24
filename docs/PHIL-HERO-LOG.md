@@ -219,3 +219,5 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 **Montage block (3 bars, pillars):** textures | room, turning, profile turn, with the art, underside, room | underside, spiral, texture.
 
 **Confirmed (Aaron, 24 Nov):** Nevo is a **separate piece** from Phil's "Clouds". It's an addition Aaron chose for the a-emotional light section. Clouds still needs Phil's video.
+
+**Pantaya addition (Aaron, 24 Nov):** `src/phil/pablo/pantaya-icff-capture.mov`, Pablo's portrait ICFF 2026 promo (768 × 1286, 34.6 s), captured by Aaron. "PANTAYA" is lettered along the bottom of every shot, so the pillars crop to rows 4–1154; the Pablo and ICFF/Javits title cards are excluded. It adds the **wall-mounted oval Pantaya**. The block now ends on a 1-bar pillar: the oval from 16.3 s (clear of the Javits card's dissolve) | green mesh close-up from 2.25 s, then 28.2 s | green pendant over the artwork from 20.3 s (clear of the dissolve).
