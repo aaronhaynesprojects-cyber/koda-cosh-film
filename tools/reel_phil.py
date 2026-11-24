@@ -17,7 +17,9 @@ MUSIC = "audio/music-shy-millionaire.mp3"
 LTX = "work/ltx/desert-run1.mp4"
 SHOWROOM = "src/phil/koda/showroom-v2-capture.mov"
 FLY = "work/reel/flyin-2x.mp4"
-T = {k: f"work/reel/title-{k}.png" for k in ("koda", "hobl", "cosh", "ltbl")}
+T = {k: f"work/reel/title-{k}.png" for k in ("pair", "pairhobl", "ltbl")}
+VERSION_B = "--b" in sys.argv                                         # Final Version "B": the Sugoi B-roll opens the feature
+SUGOI = "audio/music-hiyaku-sugoi.mp3"
 HOBL_LOW = "work/reel/title-hobl-low.png"
 MONTAGE = [("lodes", 8), ("and", 5), ("ivy", 4), ("pantaya", 5), ("cilia", 4), ("tempo", 4), ("nevo", 3),
            ("clouds", 4), ("totem", 4), ("charlotte", 4), ("mori", 4)]
@@ -40,11 +42,17 @@ n = nframes(0, 7); D = n / FPS; slow = D / 9.0
 f = "work/reel/s01-opening.mp4"
 lab = "" if CLEAN else f",drawtext=fontfile={FONT}:text='Concept visualisation':fontcolor=0xf3eee4:alpha=0.7:fontsize=19:x=w-tw-64:y=h-54"
 b = lambda x: x * BAR
-run(["-i", LTX, "-loop", "1", "-i", T["ltbl"], "-loop", "1", "-i", T["koda"], "-loop", "1", "-i", T["hobl"], "-loop", "1", "-i", T["cosh"], "-filter_complex",
-     f"[0:v]setpts=PTS*{slow:.4f},framerate=fps={FPS}:interp_start=0:interp_end=255,{NORM}[bg];"
-     + ";".join([fade(1, b(2.25), b(4.0)), fade(2, b(4.25), b(6.85), 0.8), fade(3, b(4.75), b(6.85)), fade(4, b(5.25), b(6.85))])
-     + f";[bg][t1]overlay[o1];[o1][t2]overlay[o2];[o2][t3]overlay[o3];[o3][t4]overlay{lab},fade=t=in:st=0:d=0.5[v]",
-     "-map", "[v]", "-frames:v", str(n), *ENC, f]); segs.append(f)
+if VERSION_B:                                                        # Sugoi opening (15.0 s, lockup on Sugoi's hit at 11.57 s)
+    src = "out/phil-broll-sugoi-15s-" + ("clean" if CLEAN else "review") + ".mp4"; OPEN_N = round(15.0 * FPS)
+    run(["-i", src, "-filter_complex", f"[0:v]{NORM}[v]", "-map", "[v]", "-frames:v", str(OPEN_N), *ENC, f])
+else:
+    OPEN_N = n
+    run(["-i", LTX, "-loop", "1", "-i", T["ltbl"], "-loop", "1", "-i", T["pair"], "-loop", "1", "-i", T["pairhobl"], "-filter_complex",
+         f"[0:v]setpts=PTS*{slow:.4f},framerate=fps={FPS}:interp_start=0:interp_end=255,{NORM}[bg];"
+         + ";".join([fade(1, b(2.25), b(4.0)), fade(2, b(4.25), b(6.85), 0.8), fade(3, b(4.75), b(6.85))])
+         + f";[bg][t1]overlay[o1];[o1][t2]overlay[o2];[o2][t3]overlay{lab},fade=t=in:st=0:d=0.5[v]",
+         "-map", "[v]", "-frames:v", str(n), *ENC, f])
+segs.append(f)
 # ---- 2. montage, bars 7-56
 bar = 7
 for name, bars in MONTAGE:
@@ -69,10 +77,10 @@ n = nframes(59.5, 68); f = "work/reel/s04-flyin.mp4"
 run(["-i", FLY, "-filter_complex", f"[0:v]{NORM},tpad=stop_mode=clone:stop_duration=1[v]", "-map", "[v]", "-frames:v", str(n), *ENC, f]); segs.append(f)
 # ---- 5. end card, bars 68-72 plus the track's tail
 tail = 1.2; n = nframes(68, 72) + round(tail * FPS); D = n / FPS; f = "work/reel/s05-endcard.mp4"
-run(["-sseof", "-0.04", "-i", LTX, "-loop", "1", "-i", T["koda"], "-loop", "1", "-i", T["hobl"], "-loop", "1", "-i", T["cosh"], "-filter_complex",
+run(["-sseof", "-0.04", "-i", LTX, "-loop", "1", "-i", T["pair"], "-loop", "1", "-i", T["pairhobl"], "-filter_complex",
      f"[0:v]{NORM},tpad=stop_mode=clone:stop_duration={D + 1:.2f},eq=brightness=-0.04[bg];"
-     + ";".join([fade(1, 0.2, D + 5, 0.8), fade(2, b(0.5), D + 5), fade(3, b(1.0), D + 5)])
-     + f";[bg][t1]overlay[o1];[o1][t2]overlay[o2];[o2][t3]overlay{lab},fade=t=out:st={D - 1.6:.2f}:d=1.6[v]",
+     + ";".join([fade(1, 0.2, D + 5, 0.8), fade(2, b(0.75), D + 5)])
+     + f";[bg][t1]overlay[o1];[o1][t2]overlay{lab},fade=t=out:st={D - 1.6:.2f}:d=1.6[v]",
      "-map", "[v]", "-frames:v", str(n), *ENC, f]); segs.append(f)
 # ---- picture: concat
 lst = "work/reel/segs.txt"; open(lst, "w").write("".join(f"file '{os.path.abspath(s)}'\n" for s in segs))
@@ -80,9 +88,15 @@ run(["-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", "work/reel/picture.m
 P = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", "work/reel/picture.mp4"]))
 # ---- music: bars 0-68, then bars 76 to the end (bar-aligned jump to the track's own ending)
 a0, a1, a2 = T0, T0 + 68 * BAR, T0 + 76 * BAR
-out = "out/phil-reel-shy-millionaire" + ("-clean" if CLEAN else "-review") + ".mp4"
-run(["-i", "work/reel/picture.mp4", "-i", MUSIC, "-i", MUSIC, "-filter_complex",
-     f"[1:a]atrim={a0:.4f}:{a1 + 0.03:.4f},asetpts=PTS-STARTPTS[m1];[2:a]atrim={a2:.4f},asetpts=PTS-STARTPTS[m2];"
-     f"[m1][m2]acrossfade=d=0.03:c1=tri:c2=tri,volume=-4.6dB,afade=t=out:st={P - 1.4:.2f}:d=1.4[a]",
+out = "out/phil-final" + ("-B-sugoi-open" if VERSION_B else "") + ("-clean" if CLEAN else "-review") + ".mp4"
+if VERSION_B:                    # Sugoi for the opening 15 s (its own fade), handing over to Shy Millionaire at bar 7 as the montage starts
+    a7 = T0 + 7 * BAR; ob = OPEN_N / FPS
+    af = (f"[3:a]atrim=0:{ob:.4f},asetpts=PTS-STARTPTS,volume=4dB,alimiter=limit=0.89:level=false,afade=t=out:st={ob - 0.25:.3f}:d=0.25[s0];"
+          f"[1:a]atrim={a7:.4f}:{a1 + 0.03:.4f},asetpts=PTS-STARTPTS,volume=-4.6dB[m1];[2:a]atrim={a2:.4f},asetpts=PTS-STARTPTS,volume=-4.6dB[m2];"
+          f"[m1][m2]acrossfade=d=0.03:c1=tri:c2=tri[m];[s0][m]concat=n=2:v=0:a=1,afade=t=out:st={P - 1.4:.2f}:d=1.4[a]")
+else:
+    af = (f"[1:a]atrim={a0:.4f}:{a1 + 0.03:.4f},asetpts=PTS-STARTPTS[m1];[2:a]atrim={a2:.4f},asetpts=PTS-STARTPTS[m2];"
+          f"[m1][m2]acrossfade=d=0.03:c1=tri:c2=tri,volume=-4.6dB,afade=t=out:st={P - 1.4:.2f}:d=1.4[a]")
+run(["-i", "work/reel/picture.mp4", "-i", MUSIC, "-i", MUSIC, "-i", SUGOI, "-filter_complex", af,
      "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "320k", "-t", f"{P:.3f}", "-movflags", "+faststart", out])
 print(f"wrote {out}: {P:.2f} s ({int(P // 60)}:{P % 60:04.1f}); montage blocks missing: {[m for m, _ in MONTAGE if not os.path.exists(f'work/phil/{m}.mp4')]}")

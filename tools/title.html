@@ -44,6 +44,15 @@ async function draw() {
     const h = 58, w = h * COSH.width / COSH.height; shadow(true); ctx.drawImage(COSH, W / 2 - w / 2, Y + 92, w, h); shadow(false);
   }
   if (LAYER === "ltbl") tracked("Let There Be Light", Y - 20, 84, 200, 0.04, IVORY, 1);
+  // partnership lockup (client, 24 Nov): KODA | coshliving side by side, Cosh Living two-thirds larger than KODA
+  if (LAYER === "pair" || LAYER === "pairhobl") {
+    const hk = 92, wk = hk * KODA.width / KODA.height, wc = wk * 5 / 3, hc = wc * COSH.height / COSH.width, gap = 64, x0 = W / 2 - (wk + 2 * gap + 2 + wc) / 2, cy = Y - 60;
+    if (LAYER === "pair") {
+      shadow(true); ctx.drawImage(KODA, x0, cy - hk / 2, wk, hk);
+      ctx.drawImage(COSH, x0 + wk + 2 * gap + 2, cy - hc / 2 + hc * 0.06, wc, hc); shadow(false);
+      ctx.fillStyle = IVORY; ctx.globalAlpha = 0.55; ctx.fillRect(x0 + wk + gap, cy - 62, 2, 124); ctx.globalAlpha = 1;
+    } else tracked("THE HOME OF BRANDED LIGHTING", cy + 128, 26, 400, 0.42, IVORY, 0.95);
+  }
 }
 window.TOTAL = 1;
 window.ready = (async () => {
