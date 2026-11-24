@@ -194,3 +194,27 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 - 27.15–28.85 s: warm close-up of the disc edges and connector
 
 **Stills:** `cilia-01…13`, KODA's gallery. **02** is landscape at 6000 × 3678.
+
+---
+
+## a-emotional light Nevo (Aaron, 24 Nov)
+
+**Film:** `src/phil/a-emotional/nevo/nevo-film-capture.mov`, Aaron's capture of a-emotional's Nevo film (portrait, 768 × 1286, 60 s). It has a woman presenting, a hand touching and turning the light, a "NEVO" title card, and **subtitles burned in** near the bottom (y ≈ 1054) on most shots.
+
+**Aaron's brief:** "use the light turning and close up images of the texture. The light is the hero, do not use the woman presenting nor any of the text."
+
+**How the block meets it:**
+- Pillars crop to rows 4–1004, so the subtitle band is never in frame.
+- Shots with the presenter, a hand or the title card are excluded. The turning shot is used only from 30.75 s, after the hand leaves, and the room shot only from 18.0 s, after a reaching hand leaves.
+- Every pillar frame of the built block was checked.
+
+**Light-only selects** (s):
+- Texture: 1.1–3.05, 3.25–5.95, 37.95–40.85, 54.55–56.3, 56.5–58.4
+- Spiral: 26.2–28.8
+- Turning: 30.75–31.65, 35.45–36.3
+- Underside, lit: 19.3–22.5, 52.7–54.35
+- Nevo in the room: 18.05–19.1, 36.45–37.8, 41.05–42.4
+
+**Montage block (3 bars, pillars):** textures | room, turning, profile turn, with the art, underside, room | underside, spiral, texture.
+
+**To confirm:** Nevo is cloud-like. **Is this the "Clouds" piece in Phil's memo?** KODA's catalogue has no Clouds, and a voice transcription could easily turn "Nevo" (Spanish *nube*, cloud) into "Clouds".

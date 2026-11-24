@@ -25,13 +25,15 @@ RD = "src/phil/lodes/random/"; RDF = RD + "random-cloud-film-capture.mov"  # Lod
 AXF = AX + "axia-screen-capture-portrait.mov"
 CO = "src/phil/a-n-d/column/"; CF = CO + "column-film-capture.mov"   # A-N-D Column film (capture), shots ~2 s
 BI = "src/phil/brokis/ivy/brokis-site/Brokis_IVY_HORIZONTAL_"
+NV = "src/phil/a-emotional/nevo/nevo-film-capture.mov"                # subtitles burned in at y~1054: CLEAN keeps rows 4-1004
 AF = "src/video/koda-home-5.mp4"; AS = CO + "and-site/"            # A-N-D's 1080p homepage film; A-N-D's own project photos (credited)
 # PILLARS (Aaron, 24 Nov): one block per brand, three 9:16-ish portrait streams playing at once, each cutting on its own beats.
 NP, PG = 3, 12; PPW = (W - (NP - 1) * PG) // NP                    # 632 x 1080 pillars, 12 px graphite gutters
 CLEAN = {AXF: "crop=770:1222:2:6", SEL["source"]: "crop=700:936:2:6", STF: "crop=760:1018:2:6",
          ST + "stitch-film-capture-wide.mov": "crop=760:1256:2:4", RDF: "crop=760:1256:2:4",
          RD + "random-cloud-capture-2.mov": "crop=774:1262:2:4", RD + "random-solo-capture.mov": "crop=700:954:2:4",
-         "src/phil/a-n-d/column/column-film-capture.mov": "crop=764:1280:2:4"}   # strip capture edges / UI
+         "src/phil/a-n-d/column/column-film-capture.mov": "crop=764:1280:2:4",
+         "src/phil/a-emotional/nevo/nevo-film-capture.mov": "crop=764:1000:2:4"}   # strip capture edges / UI
 BLOCKS = {
   "stitch": ("Lodes", "Stitch", [                                  # caption right: the terrace lanterns sit lower left
     ("full", ST + "stitch-01.jpg", 0, 6),
@@ -60,6 +62,11 @@ BLOCKS = {
     ("full", BI + "PC1070_PC1069__PH7568_c_Martin_Chum_full.jpg", 0, 2),             # garden pavilion
     ("full", BI + "PC1070_PC1069__PH7569_c_Martin_Chum_full.jpg", 0, 2),             # stone and glass, garden
     ("dip", (BI + "PC1068__PH1396_c_Martin_Chum_full.jpg", 0), (BI + "PC1065_PC1066__PH1328_c_Martin_Chum_full.jpg", 0), 4)]),
+  "nevo": ("a-emotional light", "Nevo", [                          # a-emotional Nevo film (capture): light turning + texture only; no presenter, no text
+    ("pillars", [
+      [(NV, 3.25, 5), (NV, 37.95, 4), (NV, 56.50, 3)],              # texture, texture, texture
+      [(NV, 18.05, 2), (NV, 30.80, 1), (NV, 35.45, 1), (NV, 36.45, 2), (NV, 52.70, 3), (NV, 41.05, 2), (NV, 1.10, 1)],  # room (hand-free from 18.0); turning (from 30.75); profile; art; underside; room; texture
+      [(NV, 19.30, 5), (NV, 26.20, 4), (NV, 54.55, 3)]], 12)]),     # underside to texture, the spiral, texture
   "pantaya": ("Pablo", "Pantaya", [                               # Pablo's 1080p film (KODA homepage, Vimeo 1245314168)
     ("full", "src/video/koda-home-7.mp4", 14.60, 4),                # dining room, long table
     ("full", "src/video/koda-home-7.mp4", 28.75, 4),                # the trio glowing
