@@ -71,6 +71,8 @@ BLOCKS = {
       [(NV, 19.30, 5), (NV, 26.20, 4), (NV, 54.55, 3)]], 12)]),     # underside to texture, the spiral, texture
   "pantaya": ("Pablo", "Pantaya", [                               # Pablo's 1080p film (KODA homepage, Vimeo 1245314168)
     ("full", "src/video/koda-home-7.mp4", 14.60, 4),                # dining room, long table
+    ("full", "src/phil/pablo/pantaya/aaron/pantaya-aaron-19.webp", 0, 2),   # two pendants over the long table (Aaron)
+    ("full", "src/phil/pablo/pantaya/aaron/pantaya-aaron-21.webp", 0, 2),   # dining, forest window (Aaron)
     ("full", "src/video/koda-home-7.mp4", 28.75, 4),                # the trio glowing
     ("full", "src/video/koda-home-7.mp4", 41.95, 2),                # green, over the artwork
     ("full", "src/video/koda-home-7.mp4", 51.35, 2),                # blue, in the dark
