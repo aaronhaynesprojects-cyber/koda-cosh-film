@@ -1,0 +1,336 @@
+{
+ "name": "remix-60-medley",
+ "format": "landscape",
+ "grid": "shy",
+ "music": [
+  {
+   "track": "sugoi",
+   "from_s": 0,
+   "to_s": 15.0
+  },
+  {
+   "track": "shy",
+   "from_bar": 12,
+   "to_bar": 29
+  },
+  {
+   "track": "shy",
+   "from_bar": 76,
+   "to_bar": 80,
+   "tail_s": 0.39
+  }
+ ],
+ "shots": [
+  {
+   "special": "sugoi_open"
+  },
+  {
+   "black": 0.5
+  },
+  {
+   "id": "lodes-013",
+   "beats": 1.5,
+   "offset_s": 1.7,
+   "flash": true
+  },
+  {
+   "black": 0.5
+  },
+  {
+   "id": "and-018",
+   "beats": 1.5,
+   "flash": true
+  },
+  {
+   "black": 0.5
+  },
+  {
+   "id": "pantaya-056",
+   "beats": 1.5,
+   "flash": true
+  },
+  {
+   "black": 6
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "lodes-005",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "lodes-006",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "lodes-013",
+      "beats": 4,
+      "offset_s": 2.0
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "and-017",
+   "beats": 2,
+   "cy": 0.45,
+   "flash": true
+  },
+  {
+   "id": "and-018",
+   "beats": 1
+  },
+  {
+   "id": "and-031",
+   "beats": 1
+  },
+  {
+   "id": "ivy-034",
+   "beats": 2,
+   "flash": true
+  },
+  {
+   "id": "ivy-033",
+   "beats": 2
+  },
+  {
+   "id": "pantaya-056",
+   "beats": 2,
+   "flash": true
+  },
+  {
+   "id": "totem-120",
+   "beats": 2
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "cilia-075",
+      "beats": 3
+     },
+     {
+      "id": "cilia-069",
+      "beats": 1
+     }
+    ],
+    [
+     {
+      "id": "cilia-072",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "cilia-074",
+      "beats": 4
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "tempo-100",
+   "beats": 2,
+   "flash": true
+  },
+  {
+   "id": "nevo-051",
+   "beats": 2
+  },
+  {
+   "id": "charlotte-122",
+   "beats": 2,
+   "flash": true
+  },
+  {
+   "id": "charlotte-126",
+   "beats": 2
+  },
+  {
+   "id": "mori-128",
+   "beats": 2,
+   "flash": true
+  },
+  {
+   "id": "mori-137",
+   "beats": 2
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "nevo-050",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "pantaya-059",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "lodes-015",
+      "beats": 4
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "and-032",
+   "beats": 0.5,
+   "flash": true
+  },
+  {
+   "id": "nevo-044",
+   "beats": 0.5,
+   "flash": false
+  },
+  {
+   "id": "lodes-008",
+   "beats": 0.5,
+   "flash": true
+  },
+  {
+   "id": "cilia-068",
+   "beats": 0.5,
+   "flash": false
+  },
+  {
+   "id": "and-031",
+   "beats": 0.5,
+   "flash": true
+  },
+  {
+   "id": "nevo-045",
+   "beats": 0.5,
+   "flash": false
+  },
+  {
+   "id": "lodes-010",
+   "beats": 0.5,
+   "flash": true
+  },
+  {
+   "id": "pantaya-061",
+   "beats": 0.5,
+   "flash": false
+  },
+  {
+   "id": "lodes-016",
+   "beats": 4
+  },
+  {
+   "special": "flyin",
+   "speed": 4,
+   "hold": 0.75
+  },
+  {
+   "special": "lockup",
+   "beats": 16.73,
+   "bg": "night"
+  }
+ ],
+ "titles": [
+  {
+   "layer": "word",
+   "text": "The",
+   "from_beat": 34.2475,
+   "to_beat": 35.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Home",
+   "from_beat": 35.2475,
+   "to_beat": 36.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Of",
+   "from_beat": 36.2475,
+   "to_beat": 37.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Branded",
+   "from_beat": 37.2475,
+   "to_beat": 38.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Lighting",
+   "from_beat": 38.2475,
+   "to_beat": 40.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "LODES",
+   "from_beat": 40.2475,
+   "to_beat": 41.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "A-N-D",
+   "from_beat": 44.2475,
+   "to_beat": 45.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "BROKIS",
+   "from_beat": 48.2475,
+   "to_beat": 49.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "PABLO",
+   "from_beat": 52.2475,
+   "to_beat": 53.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "DAVID POMPA",
+   "from_beat": 56.2475,
+   "to_beat": 57.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "A-EMOTIONAL LIGHT",
+   "from_beat": 60.2475,
+   "to_beat": 61.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "MUG",
+   "from_beat": 64.2475,
+   "to_beat": 65.2475,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "RBW",
+   "from_beat": 68.2475,
+   "to_beat": 69.2475,
+   "fade": 0.06
+  }
+ ]
+}

@@ -45,6 +45,10 @@ async function draw() {
     const h = 58, w = h * COSH.width / COSH.height; shadow(true); ctx.drawImage(COSH, W / 2 - w / 2, Y + 92, w, h); shadow(false);
   }
   if (LAYER === "ltbl") tracked("Let There Be Light", Y - 20, 84, 200, 0.04, IVORY, 1);
+  if (LAYER === "word") {                                             // kinetic type: one big tracked word, ?text=
+    const t = q.get("text") || "", px = Math.min(190, (W * 0.8) / Math.max(3, t.length * 0.82)) * (SC < 1 ? 1 : 1);
+    tracked(t.toUpperCase(), H / 2 + px * 0.35, px, 300, 0.12, IVORY, 1);
+  }
   // partnership lockup (client, 24 Nov): KODA | coshliving side by side, Cosh Living two-thirds larger than KODA
   if (LAYER === "pair" || LAYER === "pairhobl") {
     const hk = 92 * SC, wk = hk * KODA.width / KODA.height, wc = wk * 5 / 3, hc = wc * COSH.height / COSH.width, gap = 64 * SC, x0 = W / 2 - (wk + 2 * gap + 2 + wc) / 2, cy = Y - 60 * SC;

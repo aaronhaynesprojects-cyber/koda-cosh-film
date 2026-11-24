@@ -1,0 +1,189 @@
+{
+ "name": "remix-30-smiling",
+ "format": "landscape",
+ "grid": "smiling",
+ "music": [
+  {
+   "track": "smiling",
+   "from_bar": 12,
+   "to_bar": 20
+  },
+  {
+   "track": "smiling",
+   "from_bar": 64,
+   "to_bar": 66
+  }
+ ],
+ "shots": [
+  {
+   "black": 4
+  },
+  {
+   "id": "lodes-013",
+   "beats": 2,
+   "offset_s": 1.7,
+   "flash": true
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "BLACK",
+      "beats": 1
+     },
+     {
+      "id": "nevo-050",
+      "beats": 3
+     }
+    ],
+    [
+     {
+      "id": "BLACK",
+      "beats": 2
+     },
+     {
+      "id": "lodes-006",
+      "beats": 2
+     }
+    ],
+    [
+     {
+      "id": "BLACK",
+      "beats": 3
+     },
+     {
+      "id": "cilia-075",
+      "beats": 1
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "and-017",
+   "beats": 2,
+   "cy": 0.45,
+   "flash": true
+  },
+  {
+   "id": "ivy-034",
+   "beats": 2
+  },
+  {
+   "id": "tempo-100",
+   "beats": 1
+  },
+  {
+   "id": "tempo-092",
+   "beats": 1
+  },
+  {
+   "pillars": [
+    [
+     {
+      "id": "lodes-005",
+      "beats": 4
+     }
+    ],
+    [
+     {
+      "id": "and-019",
+      "beats": 2
+     },
+     {
+      "id": "and-024",
+      "beats": 2
+     }
+    ],
+    [
+     {
+      "id": "nevo-041",
+      "beats": 2
+     },
+     {
+      "id": "nevo-047",
+      "beats": 2
+     }
+    ]
+   ],
+   "beats": 4
+  },
+  {
+   "id": "totem-120",
+   "beats": 1,
+   "flash": true
+  },
+  {
+   "id": "mori-128",
+   "beats": 1
+  },
+  {
+   "id": "charlotte-126",
+   "beats": 1
+  },
+  {
+   "id": "pantaya-056",
+   "beats": 1
+  },
+  {
+   "id": "cilia-070",
+   "beats": 1
+  },
+  {
+   "id": "stitch-000",
+   "beats": 1
+  },
+  {
+   "id": "lodes-012",
+   "beats": 1
+  },
+  {
+   "id": "ivy-037",
+   "beats": 1
+  },
+  {
+   "id": "lodes-016",
+   "beats": 4
+  },
+  {
+   "special": "lockup",
+   "beats": 8,
+   "bg": "night"
+  }
+ ],
+ "titles": [
+  {
+   "layer": "word",
+   "text": "Let",
+   "from_beat": 0,
+   "to_beat": 1,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "There",
+   "from_beat": 1,
+   "to_beat": 2,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Be",
+   "from_beat": 2,
+   "to_beat": 3,
+   "fade": 0.06
+  },
+  {
+   "layer": "word",
+   "text": "Light",
+   "from_beat": 3,
+   "to_beat": 4,
+   "fade": 0.06
+  },
+  {
+   "layer": "pair",
+   "from_beat": 4.2,
+   "to_beat": 7
+  }
+ ]
+}
