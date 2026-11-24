@@ -23,6 +23,7 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 | 10 | "Sharlitz" | MUG Charlotte Single pendant (by sound; **confirm**) | fetching | to find | — |
 | 11 | "Maury" | RBW Mori Pendant (by sound; **confirm**) | fetching | to find | — |
 | 12 | a-emotional Clouds | not in KODA's catalogue | — | **Phil's video** | — |
+| + | (Aaron's addition) | a-emotional light Nevo | — | ✅ a-emotional film (capture) | ✅ built, 3 bars |
 
 ---
 
@@ -217,4 +218,4 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 
 **Montage block (3 bars, pillars):** textures | room, turning, profile turn, with the art, underside, room | underside, spiral, texture.
 
-**To confirm:** Nevo is cloud-like. **Is this the "Clouds" piece in Phil's memo?** KODA's catalogue has no Clouds, and a voice transcription could easily turn "Nevo" (Spanish *nube*, cloud) into "Clouds".
+**Confirmed (Aaron, 24 Nov):** Nevo is a **separate piece** from Phil's "Clouds". It's an addition Aaron chose for the a-emotional light section. Clouds still needs Phil's video.
