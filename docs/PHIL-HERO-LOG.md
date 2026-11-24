@@ -183,3 +183,14 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 **Film:** none on Brokis' page or in the image bank. Ivy runs on held stills.
 
 **Montage block (4 bars, full-frame):** Suprema lounge (4 beats, caption) → PH1466 dark grey (2) → PH1397 over the table (2) → PH7568 pavilion (2) → PH7569 garden room (2) → diptych of PH1396 dining and PH1328 shade close-up (4).
+
+---
+
+## 6. David Pompa Cilia (Pendant 60, 60 Double)
+
+**Film:** `src/phil/david-pompa/cilia/cilia-film-capture.mov`, Aaron's capture of David Pompa's Cilia explainer (portrait, 768 × 1286, 40 s, looping at about 32 s). Most of it shows hands demonstrating the fitting, some with **burned-in subtitles**; those parts are excluded. Light-only selects:
+- 23.6–24.5 s: upper disc glowing, lower disc dark
+- 26.0–27.05 s: both discs glowing (after the hand leaves frame)
+- 27.15–28.85 s: warm close-up of the disc edges and connector
+
+**Stills:** `cilia-01…13`, KODA's gallery. **02** is landscape at 6000 × 3678.

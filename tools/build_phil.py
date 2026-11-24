@@ -80,7 +80,7 @@ def panel(p, i):
     return f"[{i}:v]{c},scale={PW}:{PH}:flags=lanczos,fps={FPS},setsar=1"
 def render(shot, out, b0=0):
     import hashlib                                                   # cache: a shot is re-rendered only when its spec or timing changes
-    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS, "v2" if shot[0] == "pillars" else "")).encode()).hexdigest()[:8] + ".mp4")
+    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS, "v4-norm")).encode()).hexdigest()[:8] + ".mp4")
     if os.path.exists(out): return out
     kind, n = shot[0], None
     if kind == "full":
@@ -102,21 +102,21 @@ def render(shot, out, b0=0):
                 f = out.replace(".mp4", f"-L{li}-{ci}.mp4"); m = nfr(bt, lb); a = PPW / H; x = cx[0] if cx else 0.5
                 pre = CLEAN.get(p, "null")
                 vf1 = (f"[0:v]{pre},crop=w='min(iw,ih*{a:.5f})':h='min(ih,iw/{a:.5f})':x='(iw-ow)*{x}':y='(ih-oh)/2',"
-                       f"scale={PPW}:{H}:flags=lanczos,fps={FPS},setsar=1[v]")
+                       f"scale={PPW}:{H}:flags=lanczos,fps={FPS},setsar=1,scale=out_range=tv:out_color_matrix=bt709,format=yuv420p[v]")
                 subprocess.run(["ffmpeg", "-v", "error", "-y", *src_args(p, t, m), "-filter_complex", vf1, "-map", "[v]", "-frames:v", str(m), "-an",
-                                "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-pix_fmt", "yuv420p", f], check=True)
+                                "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", f], check=True)
                 parts.append(f); lb += bt
             lf = out.replace(".mp4", f"-L{li}.mp4"); concat(parts, lf); lp.append(lf)
-        ins = ["-f", "lavfi", "-i", f"color=c={GRAPHITE}:s={W}x{H}:r={FPS}"] + sum((["-i", f] for f in lp), [])
-        vf = "".join(f"[{i + 1}:v]setpts=N/({FPS}*TB)[p{i}];" for i in range(len(lp)))       # re-time lanes by frame number (joins jitter)
-        vf += "".join(f"[{'0:v' if i == 0 else f'o{i}'}][p{i}]overlay={i * (PPW + PG)}:0:eof_action=repeat[o{i + 1}];" for i in range(len(lp)))
-        vf = vf.rstrip(";").rsplit("[", 1)[0] + "[v]"
+        ins = sum((["-reinit_filter", "0", "-i", f] for f in lp), [])  # lanes stamped frame-exact, gutters padded, stacked side by side
+        vf = "".join(f"[{i}:v]setpts=N/{FPS}/TB" + (f",pad={PPW + PG}:{H}:0:0:color={GRAPHITE}" if i < len(lp) - 1 else "") + f"[p{i}];" for i in range(len(lp)))
+        vf += "".join(f"[p{i}]" for i in range(len(lp))) + f"hstack=inputs={len(lp)},pad={W}:{H}:(ow-iw)/2:0:color={GRAPHITE}[v]"
     elif kind == "flick":
         _, pairs, each = shot
         parts = [render(("dip", l, r, each), out.replace(".mp4", f"-{j}.mp4"), b0 + j * each) for j, (l, r) in enumerate(pairs)]
         concat(parts, out); return out
+    vf = vf[:-3] + ",scale=out_range=tv:out_color_matrix=bt709,format=yuv420p[v]" if vf.endswith("[v]") else vf
     subprocess.run(["ffmpeg", "-v", "error", "-y", *ins, "-filter_complex", vf, "-map", "[v]", "-frames:v", str(n), "-an",
-                    "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-pix_fmt", "yuv420p", out], check=True)
+                    "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", out], check=True)
     return out
 def concat(parts, out):
     lst = out + ".txt"; open(lst, "w").write("".join(f"file '{os.path.abspath(p)}'\n" for p in parts))
