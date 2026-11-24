@@ -12,3 +12,4 @@ audio/*.wav
 chrome-prof-*
 .DS_Store
 work/ltx/
+work/

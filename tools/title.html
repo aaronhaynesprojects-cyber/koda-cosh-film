@@ -2,17 +2,18 @@
 <meta charset="utf-8">
 <title>Title layers</title>
 <style>html,body{margin:0;background:transparent}canvas{display:block}</style>
-<canvas id="cv" width="1920" height="1080"></canvas>
+<canvas id="cv"></canvas>
 <script>
 // Transparent 1920x1080 title layers for the KODA x Cosh Living reel, one layer per render so each can fade on its own beat.
 //   ?layer=koda   KODA logo (vector, ivory)          ?layer=hobl  "THE HOME OF BRANDED LIGHTING"
 //   ?layer=cosh   "AT" + Cosh Living wordmark          ?layer=ltbl  "Let There Be Light"
 //   ?y=           vertical centre of the lockup (default 470)
 // Usage: PAGE=tools/title.html Q="layer=koda" node render.mjs png 0 out.png
-const W = 1920, H = 1080, IVORY = "#f3eee4", STONE = "#cfc6b6";
+const QS = new URLSearchParams(location.search);                 // ?w=&h= canvas (default 1920x1080), ?s= lockup scale
+const W = +(QS.get("w") || 1920), H = +(QS.get("h") || 1080), SC = +(QS.get("s") || 1), IVORY = "#f3eee4", STONE = "#cfc6b6";
 const FONT = (w, px) => `${w} ${px}px "Helvetica Neue", "Avenir Next", Arial, sans-serif`;
 const q = new URLSearchParams(location.search), LAYER = q.get("layer") || "koda", Y = +(q.get("y") || 470);
-const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d"); cv.width = W; cv.height = H;
 const load = (src) => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
 function shadow(on) { ctx.shadowColor = on ? "rgba(0,0,0,0.55)" : "transparent"; ctx.shadowBlur = on ? 24 : 0; }
 function tracked(text, y, px, weight, em, colour, alpha = 1) {
@@ -46,12 +47,12 @@ async function draw() {
   if (LAYER === "ltbl") tracked("Let There Be Light", Y - 20, 84, 200, 0.04, IVORY, 1);
   // partnership lockup (client, 24 Nov): KODA | coshliving side by side, Cosh Living two-thirds larger than KODA
   if (LAYER === "pair" || LAYER === "pairhobl") {
-    const hk = 92, wk = hk * KODA.width / KODA.height, wc = wk * 5 / 3, hc = wc * COSH.height / COSH.width, gap = 64, x0 = W / 2 - (wk + 2 * gap + 2 + wc) / 2, cy = Y - 60;
+    const hk = 92 * SC, wk = hk * KODA.width / KODA.height, wc = wk * 5 / 3, hc = wc * COSH.height / COSH.width, gap = 64 * SC, x0 = W / 2 - (wk + 2 * gap + 2 + wc) / 2, cy = Y - 60 * SC;
     if (LAYER === "pair") {
       shadow(true); ctx.drawImage(KODA, x0, cy - hk / 2, wk, hk);
       ctx.drawImage(COSH, x0 + wk + 2 * gap + 2, cy - hc / 2 + hc * 0.06, wc, hc); shadow(false);
-      ctx.fillStyle = IVORY; ctx.globalAlpha = 0.55; ctx.fillRect(x0 + wk + gap, cy - 62, 2, 124); ctx.globalAlpha = 1;
-    } else tracked("THE HOME OF BRANDED LIGHTING", cy + 128, 26, 400, 0.42, IVORY, 0.95);
+      ctx.fillStyle = IVORY; ctx.globalAlpha = 0.55; ctx.fillRect(x0 + wk + gap, cy - 62 * SC, 2, 124 * SC); ctx.globalAlpha = 1;
+    } else tracked("THE HOME OF BRANDED LIGHTING", cy + 128 * SC, 26 * SC, 400, 0.42, IVORY, 0.95);
   }
 }
 window.TOTAL = 1;

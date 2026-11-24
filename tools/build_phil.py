@@ -97,12 +97,13 @@ def panel(p, i):
     return f"[{i}:v]{c},scale={PW}:{PH}:flags=lanczos,fps={FPS},setsar=1"
 def render(shot, out, b0=0):
     import hashlib                                                   # cache: a shot is re-rendered only when its spec or timing changes
-    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS, "v4-norm")).encode()).hexdigest()[:8] + ".mp4")
+    out = out.replace(".mp4", "-" + hashlib.md5(repr((shot, b0, BPM, FPS, "v4-norm", W, H)).encode()).hexdigest()[:8] + ".mp4")
     if os.path.exists(out): return out
     kind, n = shot[0], None
     if kind == "full":
-        _, p, t, beats, *cy = shot; n = nfr(beats, b0); cy = cy[0] if cy else 0.5     # cy: vertical crop position (0 top, 1 bottom)
-        vf = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}:(iw-ow)/2:(ih-oh)*{cy},fps={FPS},setsar=1[v]"
+        _, p, t, beats, *xy = shot; n = nfr(beats, b0)                  # optional cy (0 top .. 1 bottom), cx (0 left .. 1 right)
+        cy = xy[0] if xy and xy[0] is not None else 0.5; cx = xy[1] if len(xy) > 1 and xy[1] is not None else 0.5
+        vf = f"[0:v]{CLEAN.get(p, 'null')},scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}:(iw-ow)*{cx}:(ih-oh)*{cy},fps={FPS},setsar=1[v]"
         ins = src_args(p, t, n)
     elif kind == "clip":
         _, p, t, beats = shot; n = nfr(beats, b0); ins = ["-ss", f"{t:.3f}", "-i", p]; vf = f"[0:v]fps={FPS},setsar=1[v]"
