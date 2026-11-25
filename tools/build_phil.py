@@ -157,7 +157,7 @@ def block(name):
     for i, s in enumerate(shots):
         parts.append(render(s, f"work/phil/{name}-{i:02d}.mp4", b0)); b0 += beats_of(s)
     raw = f"work/phil/{name}-raw.mp4"; concat(parts, raw); out = f"work/phil/{name}.mp4"
-    cap, t1 = caption_png(b, p, opt[0] if opt else "l"), 2 * 4 * BEAT                       # caption over the first two bars
+    cap, t1 = caption_png(b, p, opt[0] if opt else "l"), min(2 * 4, b0) * BEAT           # caption over the first two bars (or the whole block if shorter)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-loop", "1", "-framerate", str(FPS), "-i", cap, "-filter_complex",
                     f"[1:v]format=rgba,fade=t=in:st=0.25:d=0.5:alpha=1,fade=t=out:st={t1 - 0.5:.2f}:d=0.5:alpha=1[c];[0:v][c]overlay=0:0:shortest=1,format=yuv420p[v]",
                     "-map", "[v]", "-c:v", "libx264", "-preset", "medium", "-crf", "12", out], check=True)

@@ -282,3 +282,18 @@ The DEDON and Potocco stills in `src/best/` are now 3840 px wide (Dala at its na
 **The desert-house opening and the end-card frame are LTX-2 generations** (see the 24 Nov entry above), labelled "Concept visualisation" in review copies. The `-clean` copies omit the label.
 
 **First Creek run-in:** omitted on this reel at Aaron's instruction (final version).
+
+## Phil revision 2: Final Version on "Shy Millionaire" (25 November 2026)
+
+Changes from Phil's review call and Aaron's notes, applied to the Final Version (the one with Shy Millionaire throughout). Output: `out/phil-final-v2-clean.mp4` (2:25.6), with a 720p phone copy.
+
+- **Removed:** the a-emotional light Clouds bar block (was 1:24.96–1:33.46) and the RBW Mori bar shot (Mori Gourd row, The Fat Pig New York; was 1:50.45–1:52.57). No other Clouds or bar footage remains. Mori keeps 4 bars: its two closing room shots now hold a bar each.
+- **MUG Charlotte:** cut back from four bars and six images to one image, the lounge with four clusters (`mug-milano_charlotte-ambiente-1.jpg`), for 6 beats.
+- **MUG Celine (new):** 2.5 bars from MUG Milano's own product page, mugmilano.com/project/celine, downloaded 25 Nov 2026 into `src/phil/mug/celine/brand-site/`:
+  - three Celine 8s over a meeting table (`CELINE-8M-8L-AMBIENTE`), the hero, for 6 beats;
+  - Celine 8M over a stone table;
+  - Celine 8S over a lounge.
+
+  MUG as a whole stays at its original 4 bars. These are manufacturer renders, unaltered apart from the 16:9 crop. Status: KODA/MUG to confirm.
+- **Music:** "Shy Millionaire" now plays bars 0–44, 48–68, then 76 to the end. Bars 40–47 and 48–55 are the same 8-bar phrase, so the jump lands on a repeat of the phrase at the cut into MUG. The showroom still meets the breakdown, the logo board the return, and the end card the ending.
+

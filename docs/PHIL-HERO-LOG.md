@@ -20,9 +20,9 @@ One entry per product as Aaron finds it (24 Nov 2026 onward). Files live in `src
 | 7 | Tempo | a-emotional Tempo Andante and Vivace ("chaser" = Vivace, by sound) | ✅ KODA + a-emotional press bank | ✅ a-emotional 1080p films | ✅ built, 4 bars |
 | 8 | "Pantea" | Pablo Pantaya | fetching | ✅ Pablo's film, 1080p (`src/video/koda-home-7.mp4`) | ✅ built, 3 bars |
 | 9 | Totem | Pablo Totem Pendant Up/Down | ✅ KODA + Pablo site | ✅ Pablo 1080p film | ✅ built, 4 bars |
-| 10 | "Sharlitz" | MUG (Milano) Charlotte. By sound and use over dining tables, confirmed by the brand sources | ✅ KODA + MUG site | none exists | ✅ built, 4 bars (stills) |
-| 11 | "Maury" | RBW Mori Pendant (Gourd, Nut, Squash). Confirmed the same way | ✅ KODA + RBW site | none exists | ✅ built, 4 bars (stills) |
-| 12 | a-emotional Clouds | "Clouds Installation", LuminAir bar, DoubleTree by Hilton Amsterdam (2023) | ✅ a-emotional project bank | ✅ a-emotional 1080p films (no people used) | ✅ built, 4 bars. Phil may still have outdoor or spray-on footage |
+| 10 | "Sharlitz" | MUG (Milano) Charlotte. By sound and use over dining tables, confirmed by the brand sources | ✅ KODA + MUG site | none exists | ✅ built, 4 bars (stills). **Rev 2 (25 Nov): one image, 6 beats; MUG Celine added after it, 2.5 bars (MUG stays 4 bars)** |
+| 11 | "Maury" | RBW Mori Pendant (Gourd, Nut, Squash). Confirmed the same way | ✅ KODA + RBW site | none exists | ✅ built, 4 bars (stills). **Rev 2: bar shot removed; closing room shots held a bar each (still 4 bars)** |
+| 12 | a-emotional Clouds | "Clouds Installation", LuminAir bar, DoubleTree by Hilton Amsterdam (2023) | ✅ a-emotional project bank | ✅ a-emotional 1080p films (no people used) | ~~built, 4 bars~~ **Removed in rev 2 (25 Nov): Phil and Aaron cut the bar scenes** |
 | + | (Aaron's addition) | a-emotional light Nevo | — | ✅ a-emotional film (capture) | ✅ built, 3 bars |
 
 ---
@@ -230,3 +230,15 @@ Skip the "Column / A-N-D" title cards (1.3–3.5 and 16.8–19.4 s) and the whit
 Cilia, Tempo, Clouds, Totem, Charlotte and Mori are built in `tools/phil_blocks_extra.py` from the brand sources a helper agent gathered (`src/phil/<brand>/<product>/brand-site/`), and each block was checked frame by frame.
 - **Excluded:** people and hands (the Cilia explainer only after the hand leaves: 23.545 s for 1 beat, and from 26.35 s), Clouds' party film, the Totem film's titles and end cards, the Tempo logo tail, a contractor logo in a Clouds clip, cut-outs, and anything too small.
 - **Charlotte:** the lit finishes run full-frame after the caption; in pillars, the gutters cut through the arms.
+
+## Revision 2 (25 Nov): Phil's call
+
+Phil reviewed the Final Version by phone. Aaron recorded the call, and it was transcribed on-device; the recording and transcript stay off the repo. Aaron added two cuts with timecodes.
+- **Clouds (a-emotional light):** cut. Phil doesn't need the bar area, and Aaron cut 1:24–1:33.
+- **Mori:** the bar shot at 1:50–1:52 is out (Aaron).
+- **MUG:** Charlotte was too much at four or five images, so it's cut to one, the cluster over the lounge. MUG's new **Celine** follows; Phil singled out the Celine 8 chandelier, and three of them over a meeting table lead.
+- **Unchanged and approved on the call:** the opening, Lodes, A-N-D, Brokis, Pablo (Totem is a good seller), and the rest.
+- **Not acted on:**
+  - a colleague felt the Superman-style logo fly-in "looks really old school". Phil relayed it as one reaction, not a change.
+  - Phil suggested follow-up Instagram content, one piece per brand.
+

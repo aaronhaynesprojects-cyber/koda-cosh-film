@@ -2,7 +2,7 @@
 Same tuple format as BLOCKS in build_phil.py; every block is 16 beats (4 bars). Plain path constants only (no import of
 build_phil, which imports this module). Video in-points were checked against ffmpeg scene detection and by eye: every
 clip stays inside one shot, clear of hands, people, title cards and logos.
-  python3 tools/build_phil.py <cilia|tempo|clouds|totem|charlotte|mori>
+  python3 tools/build_phil.py <cilia|tempo|clouds|totem|charlotte|celine|mori>
 Note: build_phil.block() advances its beat counter by shot[-1], which is cy (not beats) on a "full" shot that carries a cy,
 so a cy is used here only on a block's last shot."""
 
@@ -33,6 +33,7 @@ PIS = PB + "totem-pendant_Totem_Pendant-In-Situ-"; PDN = PB + "totem-pendant-dow
 
 # --- MUG Charlotte (renders + lit studio shots) ---------------------------------------------------------------------
 MG = "src/phil/mug/charlotte/brand-site/mug-milano_charlotte"
+ML = "src/phil/mug/celine/brand-site/mug-milano_celine_"              # mugmilano.com/project/celine (25 Nov 2026)
 
 # --- RBW Mori -------------------------------------------------------------------------------------------------------
 RM = "src/phil/rbw/mori/"; RB = RM + "brand-site/rbw_mori"
@@ -87,19 +88,18 @@ EXTRA = {
       [(PDN + "DDD_-_glass_conference_space.2136_copy.jpg", 0, 4), (PIS + "9.png", 0, 4, 0.4)]], 8),
     ("full", PF, 63.10, 2),                                         # film: three over the dining table (shot 62.63-71.8)
     ("full", PIS + "11.png", 0, 2, 0.05)], "r"),                    # dark panelled wall (cy: the trio hangs at the top)
-  "charlotte": ("MUG", "Charlotte", [                            # rooms carry the caption (2 bars); the lit finishes follow clean
-    ("full", MG + "-ambiente-1.jpg", 0, 4),                         # lounge, four clusters
-    ("full", MG + "-ambiente-3.jpg", 0, 3),                         # round table, arch
-    ("full", MG + "-ambiente-dining-table.jpg", 0, 3),              # long table
-    ("full", MG + "_lit-on-grey_BLACK-NICKEL.jpg", 0, 2),           # the three lit finishes, full-frame (11988 px)
-    ("full", MG + "_lit-on-grey_BRONZE.jpg", 0, 2),
-    ("full", MG + "_lit-on-grey_DARK-BROWN.jpg", 0, 2)]),
+  "charlotte": ("MUG", "Charlotte", [                            # Phil, 25 Nov: cut back to one image (was 4 bars, six images)
+    ("full", MG + "-ambiente-1.jpg", 0, 6)]),                       # lounge, four clusters
+  "celine": ("MUG", "Celine", [                                   # Phil, 25 Nov: add MUG's new Celine 8 chandelier
+    ("full", ML + "CELINE-8M-8L-AMBIENTE-scaled.jpg", 0, 6),        # three Celine 8s over the meeting table (Phil's preferred image)
+    ("full", ML + "CELINE-8M-AMBIENTE-scaled.jpg", 0, 2, 0.12),     # Celine 8M over the stone table
+    ("full", ML + "CELINE-8S-AMBIENTE-scaled.jpg", 0, 2, 0.2)]),    # Celine 8S over the lounge (MUG stays at 4 bars in all)
   "mori": ("RBW", "Mori", [
-    ("full", RB + "-gourd_The-Fat-Pig-New-York_01.jpg", 0, 4), # Mori Gourd row over the bar
+    # Aaron, 25 Nov: the bar shot (Mori Gourd row, The Fat Pig New York) is out
     ("pillars", [
       [(RM + "mori-02.jpg", 0, 3, 0.45), (RM + "mori-13.jpg", 0, 3, 0.6), (RM + "mori-12.jpg", 0, 2, 0.6)],
       [(RB + "-nut_install-carousel_likely-Zen-Den_02.jpg", 0, 2, 0.7), (RM + "mori-10.jpg", 0, 3, 0.4), (RM + "mori-14.jpg", 0, 3, 0.9)],
       [(RM + "mori-01.jpg", 0, 4, 0.4), (RB + "_office-install_collection-hero.jpg", 0, 4, 0.55)]], 8),
-    ("full", RB + "-nut_Zen-Den-by-Working-Holidays-LA_01.jpg", 0, 2),
-    ("full", RB + "-gourd_Working-Holiday-Silver-Lake-LA_01.jpg", 0, 2)]),
+    ("full", RB + "-nut_Zen-Den-by-Working-Holidays-LA_01.jpg", 0, 4),   # rev 2: held a bar each, filling the bar shot's place
+    ("full", RB + "-gourd_Working-Holiday-Silver-Lake-LA_01.jpg", 0, 4)]),
 }
